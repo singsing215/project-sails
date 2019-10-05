@@ -1,7 +1,7 @@
 <html>
 
 <head>
-        <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
@@ -12,8 +12,18 @@
         .class3 {
             background-color: lightsalmon
         }
+
+        #img1 {
+            float: left;
+        }
+
+        #span1 {
+            display: block;
+            clear: right;
+        }
     </style>
-    <!-- Required meta tags -->
+
+
 
 </head>
 
@@ -30,7 +40,7 @@
                     <a class="nav-item nav-link" href="#">Search </a>
                     <a class="nav-item nav-link" href="#">Create</a>
                     <a class="nav-item nav-link" href="#">Admin</a>
-                   
+
                 </div>
             </div>
         </nav>
@@ -38,37 +48,54 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4">Real Estate Rental System</h1>
-                <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare and finding roommates.
+                <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare and
+                    finding roommates.
                 </p>
             </div>
         </div>
         <div class="row">
 
-            <div id="div01" class="card col-12 col-sm-6 col-lg-4 col-xl-6"><img class="img-fluid img-thumbnail"
-                src="http://via.placeholder.com/350x250/d0c.png" /></div>
-            <div id="div02" class="card col-12 col-sm-6 col-lg-4 col-xl-6"><img class="img-fluid img-thumbnail"
-                src="http://via.placeholder.com/350x250/d0c.png" /></div>
-            <div id="div03" class="card col-12 col-sm-6 col-lg-4 col-xl-6"><img class="img-fluid img-thumbnail"
-                src="http://via.placeholder.com/350x250/d0c.png" /></div>
-            <div id="div04" class="card col-12 col-sm-6 col-lg-4 col-xl-6"><img class="img-fluid img-thumbnail"
-                    src="http://via.placeholder.com/350x250/d0c.png" /></div>
+            <div id="div01" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
+                <h4>半山自住品味靚裝-三房兩廁-中高層開揚景觀</h4>
+                <img class="img-fluid img-thumbnail" src="https://i1.28hse.com/2019/09/938689_2019094721.jpg"
+                    value="cover" width="250" height="250" id="img1" />
+                <span class='list-group-item' id="span1" width="30%" height="30%">
+                    The image above is 250px wide.<br> The total width of this element is also 250px.
+                </span>
+            </div>
+
+            <div id="div02" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
+                <h4>銅鑼灣2房2廳。即租即住。優質罕盤。</h4><img class="img-fluid img-thumbnail"
+                    src="https://i1.28hse.com/2019/10/951089_2019104698.jpg" value="cover" width="250" height="250"
+                    id="img2" />
+                <span class='list-group-item' id="span2" width="30%" height="30%">
+                    The image above is 250px wide.<br> The total width of this element is also 250px.
+                </span>
+            </div>
+
+            <div id="div03" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
+                <h4>形品星寓。3分鐘到地鐵站</h4><img class="img-fluid img-thumbnail"
+                    src="https://i1.28hse.com/2019/09/930790_2019095031.jpg" value="cover" width="250" height="250"
+                    id="img3" />
+                <span class='list-group-item' id="span3" width="30%" height="30%">
+                    The image above is 250px wide.<br> The total width of this element is also 250px.
+                </span>
+            </div>
+
+            <div id="div04" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
+                <h4>中上環服務式住宅 2分鐘到地鐵</h4>
+                <img class="img-fluid img-thumbnail" src="https://i1.28hse.com/2019/10/955789_2019101877.jpg"
+                    value="cover" width="250" height="250" id="img4" />
+                <span class='list-group-item' id="span4" width="30%" height="30%">
+                    The image above is 250px wide.<br> The total width of this element is also 250px.
+                </span>
+            </div>
 
         </div>
     </div>
 
     <script>
-        function btn1Clicked(elem) {//refer to the button that has benn clicked
-            console.log("console output");//print debug message to the console
-            elem.innerHTML = "Don't click me!";
-        };
 
-        function btn2Clicked(elem) {
-            elem.style = "display:none";//hide the elem
-            elem.parentNode.innerHTML = "It's gone";//to access parent elem of an any node in the DOM tree
-        };
-        function btn3Clicked(elem) {
-            elem.parentNode.className += " class3";
-        };
 
 
 
