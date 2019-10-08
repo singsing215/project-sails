@@ -21,5 +21,13 @@ create: async function (req, res) {
     return res.ok("Successfully created!");
 },
 
+// json function
+json: async function (req, res) {
+
+    var rents = await Rent.find();
+
+    return res.json(rents);
+},
+
 };
 
