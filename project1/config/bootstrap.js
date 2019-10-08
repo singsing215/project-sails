@@ -31,10 +31,10 @@ module.exports.bootstrap = async function() {
 }
 
 await Rent.createEach([
-    { title: "半山自住品味靚裝-三房兩廁-中高層開揚景觀", Eatate:"Robinson Heights", url: "https://i1.28hse.com/2019/09/938689_2019094721.jpg", bedroom:3, area:899, tenant:5, rent:43000 },
-    { title: "銅鑼灣2房2廳。即租即住。優質罕盤。", Eatate:"Hoi deen Court", url:"https://i1.28hse.com/2019/10/951089_2019104698.jpg", bedroom:2, area:700, tenant:3, rent:26500 },
-    { title: "形品星寓。3分鐘到地鐵站", Eatate:"Lime Stardom", url:"https://i1.28hse.com/2019/09/930790_2019095031.jpg", bedroom:1, area:390, tenant:2, rent:19000 },
-    { title: "中上環服務式住宅 2分鐘到地鐵", Eatate:"AKVO Hotel", url:" https://i1.28hse.com/2019/10/955789_2019101877.jpg", bedroom:1, area:605, tenant:2, rent:35000 }
+    { title: "半山自住品味靚裝-三房兩廁-中高層開揚景觀", eatate:"Robinson Heights", url: "https://i1.28hse.com/2019/09/938689_2019094721.jpg", bedroom:3, area:899, tenant:5, rent:43000 },
+    { title: "銅鑼灣2房2廳。即租即住。優質罕盤。", eatate:"Hoi deen Court", url:"https://i1.28hse.com/2019/10/951089_2019104698.jpg", bedroom:2, area:700, tenant:3, rent:26500 },
+    { title: "形品星寓。3分鐘到地鐵站", eatate:"Lime Stardom", url:"https://i1.28hse.com/2019/09/930790_2019095031.jpg", bedroom:1, area:390, tenant:2, rent:19000 },
+    { title: "中上環服務式住宅 2分鐘到地鐵", eatate:"AKVO Hotel", url:" https://i1.28hse.com/2019/10/955789_2019101877.jpg", bedroom:1, area:605, tenant:2, rent:35000 }
     // etc.
 ]);
 

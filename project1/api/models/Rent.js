@@ -16,13 +16,16 @@ module.exports = {
       type: "string"
     },
 
-    url: {
-      type: "string"
-    },
 
     bedroom: {
       type: "number"
     },
+
+    url: {
+      type: "string"
+    },
+
+    
 
     area: {
       type: "number"

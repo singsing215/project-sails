@@ -75,8 +75,7 @@ update: async function (req, res) {
 
     } else {
 
-        if (!req.body.Rent)
-            return res.badRequest("Form-data not received.");
+        if (!req.body.Rent) return res.badRequest("Form-data not received.");
 
         var models = await Rent.update(req.params.id).set({
             title: req.body.Rent.title,

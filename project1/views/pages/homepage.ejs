@@ -28,7 +28,7 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="http://localhost:1337/rent/paginate">Search </a>
                     <a class="nav-item nav-link" href="http://localhost:1337/rent/create">Create</a>
-                    <a class="nav-item nav-link" href="#">Admin</a>
+                    <a class="nav-item nav-link" href="http://localhost:1337/rent">Admin</a>
 
                 </div>
             </div>
@@ -52,8 +52,8 @@
                             src="https://i1.28hse.com/2019/09/938689_2019094721.jpg" value="cover" width="250"
                             height="250" id="img1" /></div>
 
-                    <div class="col-12 col-sm-6 col-lg-4 col-xl-6" id="span1">
-                        The image above is 250px wide.The total width of this element is also 250px.
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-6" id="div1">
+
                     </div>
                 </div>
             </div>
@@ -61,31 +61,37 @@
             <div id="div02" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
                 <h4>銅鑼灣2房2廳。即租即住。優質罕盤。</h4>
                 <div class="row">
-                        <div class=" col-12 col-sm-6 col-lg-4 col-xl-6"><img class="img-fluid img-thumbnail"
-                    src="https://i1.28hse.com/2019/10/951089_2019104698.jpg" value="cover" width="250" height="250"
-                    id="img2" /></div>
-                    <div class="col-12 col-sm-6 col-lg-4 col-xl-6" id="span2">
-                    The image above is 250px wide.<br> The total width of this element is also 250px.
+                    <div class=" col-12 col-sm-6 col-lg-4 col-xl-6"><img class="img-fluid img-thumbnail"
+                            src="https://i1.28hse.com/2019/10/951089_2019104698.jpg" value="cover" width="250"
+                            height="250" id="img2" /></div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-6" id="div2">
+
+                    </div>
                 </div>
-            </div>
             </div>
 
             <div id="div03" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
-                <h4>形品星寓。3分鐘到地鐵站</h4><img class="img-fluid img-thumbnail"
-                    src="https://i1.28hse.com/2019/09/930790_2019095031.jpg" value="cover" width="250" height="250"
-                    id="img3" />
-                <span class='list-group-item' id="span3" width="30%" height="30%">
-                    The image above is 250px wide.<br> The total width of this element is also 250px.
-                </span>
+                <h4>形品星寓。3分鐘到地鐵站</h4>
+                <div class="row">
+                    <div class=" col-12 col-sm-6 col-lg-4 col-xl-6"><img class="img-fluid img-thumbnail"
+                            src="https://i1.28hse.com/2019/09/930790_2019095031.jpg" value="cover" width="250"
+                            height="250" id="img3" /></div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-6" id="div3">
+
+                    </div>
+                </div>
             </div>
 
             <div id="div04" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
                 <h4>中上環服務式住宅 2分鐘到地鐵</h4>
-                <img class="img-fluid img-thumbnail" src="https://i1.28hse.com/2019/10/955789_2019101877.jpg"
-                    value="cover" width="250" height="250" id="img4" />
-                <span class='list-group-item' id="span4" width="30%" height="30%">
-                    The image above is 250px wide.<br> The total width of this element is also 250px.
-                </span>
+                <div class="row">
+                    <div class=" col-12 col-sm-6 col-lg-4 col-xl-6"><img class="img-fluid img-thumbnail"
+                            src="https://i1.28hse.com/2019/10/955789_2019101877.jpg" value="cover" width="250"
+                            height="250" id="img4" /></div>
+                    <div class="col-12 col-sm-6 col-lg-4 col-xl-6" id="div4">
+
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -93,7 +99,68 @@
 
     <script>
 
+        function pageLoaded() {
+            runDiv1();
+            runDiv2();
+            runDiv3();
+            runDiv4();
+        }
 
+        function runDiv1() {
+
+            var teamMembers = ["Martin", "Kenny", "Tony"];
+
+            var string = "<br><ul class='list-group'>"; // Object
+
+            teamMembers.forEach(function (person) {
+                string += "<li class='list-group-item'>" + person + "</li>";
+            });
+            string += "</ul>"
+            document.getElementById("div1").innerHTML = string;
+
+        }
+
+        function runDiv2() {
+
+            var teamMembers = ["Martin", "Kenny", "Tony"];
+
+            var string = "<br><ul class='list-group'>"; // Object
+
+            teamMembers.forEach(function (person) {
+                string += "<li class='list-group-item'>" + person + "</li>";
+            });
+            string += "</ul>"
+            document.getElementById("div2").innerHTML = string;
+
+        }
+
+        function runDiv3() {
+
+            var teamMembers = ["Martin", "Kenny", "Tony"];
+
+            var string = "<br><ul class='list-group'>"; // Object
+
+            teamMembers.forEach(function (person) {
+                string += "<li class='list-group-item'>" + person + "</li>";
+            });
+            string += "</ul>"
+            document.getElementById("div3").innerHTML = string;
+
+        }
+
+        function runDiv4() {
+
+            var teamMembers = ["Martin", "Kenny", "Tony"];
+
+            var string = "<br><ul class='list-group'>"; // Object
+
+            teamMembers.forEach(function (person) {
+                string += "<li class='list-group-item'>" + person + "</li>";
+            });
+            string += "</ul>"
+            document.getElementById("div4").innerHTML = string;
+
+        }
 
 
     </script>

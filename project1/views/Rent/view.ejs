@@ -1,13 +1,13 @@
 <table class="table">
 
     <tr>
-        <td><%= model.title %></td>
-        <td><%= model.eatate %></td>
-        <td><%= model.url %></td>
-        <td><%= model.bedroom %></td>
-        <td><%= model.area %></td>
-        <td><%= model.tenant %></td>
-        <td><%= model.rent %></td>
+        <td><%= rent.title %></td>
+        <td><%= rent.eatate %></td>
+        <td><%= rent.url %></td>
+        <td><%= rent.bedroom %></td>
+        <td><%= rent.area %></td>
+        <td><%= rent.tenant %></td>
+        <td><%= rent.rent %></td>
     </tr>
 
 </table>
@@ -18,6 +18,6 @@
 
 <br>
 
-<form action="/rent/update/1" method="post">
+<form action="/rent/update/<%= rent.id %>" method="post">
     <button type="submit" class="btn btn-primary" color=red>update</button>
 </form>
