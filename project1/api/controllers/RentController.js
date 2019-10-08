@@ -29,5 +29,13 @@ json: async function (req, res) {
     return res.json(rents);
 },
 
+// action - index
+index: async function (req, res) {
+
+    var models = await Rent.find();
+    return res.view('rent/index', { rents: models });
+    
+},
+
 };
 
