@@ -72,57 +72,74 @@
 
 <body onload="pageLoaded()">
     <form action="/Rent/create" method="POST">
-    <div class="container ">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link " href="#">Search</a>
-                    <a class="nav-item nav-link active" href="#">Create <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Admin</a>
+        <div class="container ">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link " href="#">Search</a>
+                        <a class="nav-item nav-link active" href="#">Create <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#">Admin</a>
 
+                    </div>
+                </div>
+            </nav>
+
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">Real Estate Rental System</h1>
+                    <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare
+                        and
+                        finding roommates.
+                    </p>
                 </div>
             </div>
-        </nav>
+            <div class="row">
 
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Real Estate Rental System</h1>
-                <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare and
-                    finding roommates.
-                </p>
+                <div id="div01" class="card col-12 col-sm-6 col-lg-4 col-xl-12">
+                    <h2>Property Create Form</h1>
+                </div>
+                <div id="div02" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Property
+                        title:</label><input type="string" class="form-control" name="Rent[title]" id="title" required>
+                </div><br>
+                <div id="div03" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Image
+                        URL:</label><input type="string" class="form-control" name="Rent[url]" id="url" required></div>
+                <br>
+                <div id="div04" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Estate:</label><select
+                        type="string" class="form-control" name="Rent[estate]" id="estate">
+                        <option value="Robinson Heights">Robinson Heights</option>
+                        <option value="Hoi deen Court">Hoi deen Court</option>
+                        <option value="Lime Stardom">Lime Stardom</option>
+                        <option value="AKVO Hotel">AKVO Hotel</option>
+                    </select></div><br>
+                <div id="div05" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Bedrooms:</label><input
+                        type="number" id="bedroom" min=1 max=4 class="form-control" name="Rent[bedroom]" required></div>
+                <br>
+                <div id="div06" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Gross
+                        Area:</label><input type="number" id="area" min=30 max=2000 class="form-control"
+                        name="Rent[area]" required></div><br>
+                <div id="div07" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Expected
+                        Tenants:</label><input type="number" id="tenant" min=1 max=6 class="form-control"
+                        name="Rent[tenant]" required></div><br>
+                <div id="div08" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Rent:</label><input
+                        type="number" id="rent" min=5000 max=60000 class="form-control" name="Rent[rent]" required>
+                </div><br>
+                <div id="div09" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Highlighted Property:
+                        <input type="checkbox" value="dummy" class="form-control" name="Rent[property]" id="property"
+                            required></label></div><br>
+                <div id="div10" class="form-group"><button type="submit" class="btn btn-primary">Submit</button></div>
+                <br>
+
+
             </div>
         </div>
-        <div class="row">
+        <br>
 
-            <div id="div01" class="card col-12 col-sm-6 col-lg-4 col-xl-12">
-                <h2>Property Create Form</h1>
-            </div>
-            <div id="div02" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"  ><label>Property title:</label><input type="string" class="form-control" name="Rent[title]" id="title" required></div><br>
-            <div id="div03" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"  ><label>Image URL:</label><input type="string" class="form-control" name="Rent[url]" id="url" required></div><br>
-            <div id="div04" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"  ><label>Estate:</label><select type="string" class="form-control" name="Rent[estate]" id="estate" ></select></div><br>
-            <div id="div05" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"  ><label>Bedrooms:</label><input type="number"
-                    id="bedroom" min=1 max=4  class="form-control" name="Rent[bedroom]" required></div><br>
-            <div id="div06" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"  ><label>Gross Area:</label><input type="number"
-                    id="area" min=30 max=2000  class="form-control" name="Rent[area]" required></div><br>
-            <div id="div07" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"  ><label>Expected Tenants:</label><input
-                    type="number" id="tenant" min=1 max=6  class="form-control" name="Rent[tenant]" required></div><br>
-            <div id="div08" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"  ><label>Rent:</label><input type="number"
-                    id="rent" min=5000 max=60000  class="form-control" name="Rent[rent]" required></div><br>
-            <div id="div09" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"  ><label>Highlighted Property: <input
-                        type="checkbox" value="dummy" class="form-control" name="Rent[property]" id="property" required></label></div><br>
-                        <div id="div10" class="form-group" ><button type="submit" class="btn btn-primary">Submit</button></div><br>
-
-
-        </div>
-    </div>
-    <br>
-
-</form>
+    </form>
     <script>
 
 
@@ -141,5 +158,3 @@
 </body>
 
 </html>
-
-
