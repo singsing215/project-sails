@@ -1,0 +1,36 @@
+<!--update.ejs-->
+<form action="/rent/update/<%= rent.id %>" method="POST">
+    <div class="form-group">
+        <label>Property title:</label>
+        <input type="text" class="form-control" name="Rent[title]" value="<%= rent.title %>" required>
+    </div>
+    <div class="form-group">
+        <label>Image URL:</label>
+        <input type="number" class="form-control" name="Rent[url]" value="<%= rent.url %>" required>
+    </div>
+    <div class="form-group">
+        <label>Estate:</label>
+        <input type="text" class="form-control" name="Rent[estate]" value="<%= rent.estate %>" required>
+    </div>
+    <div class="form-group">
+        <label>Bedrooms:</label>
+        <input type="text" class="form-control" name="Rent[bedroom]" value="<%= rent.bedroom %>" required>
+    </div>
+    <div class="form-group">
+        <label>Gross Area:</label>
+        <input type="text" class="form-control" name="Rent[area]" value="<%= rent.area %>" required>
+    </div>
+    <div class="form-group">
+        <label>Expected Tenants:</label>
+        <input type="text" class="form-control" name="Rent[tenant]" value="<%= rent.tenant %>" required>
+    </div>
+    <div class="form-group">
+        <label>Rent:</label>
+        <input type="text" class="form-control" name="Rent[rent]" value="<%= rent.rent %>" required>
+    </div>
+    <div class="form-group">
+        <label>Highlighted Property:</label>
+        <input type="text" class="form-control" name="Rent[property]" value="<%= rent.property %>" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

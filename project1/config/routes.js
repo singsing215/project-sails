@@ -32,6 +32,16 @@ module.exports.routes = {
   * not match any of those, it is matched against static assets.             *
   *                                                                          *
   ***************************************************************************/
+ 'GET /rent/create' : 'RentController.create',
+ 'POST /rent/create' : 'RentController.create',
+ 'GET /rent/json' : 'RentController.json',
+ 'GET /rent/index' : 'RentController.index',
+'GET /rent/view/:id': 'RentController.view',
+'POST /rent/delete/:id': 'RentController.delete',
+'GET /rent/update/:id': 'RentController.update',
+'POST /rent/update/:id': 'RentController.update',
+'GET /rent/search': 'RentController.search',
+'GET /rent/paginate': 'RentController.paginate',
 
 
 };

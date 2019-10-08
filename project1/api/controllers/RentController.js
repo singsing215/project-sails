@@ -37,5 +37,16 @@ index: async function (req, res) {
     
 },
 
+    // action - view
+    view: async function (req, res) {
+
+        var model = await Rent.findOne(req.params.id);
+
+        if (!model) return res.notFound();
+
+        return res.view('rent/view', { rent: model });
+
+    },
+
 };
 

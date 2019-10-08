@@ -1,0 +1,22 @@
+<table class="table">
+
+    <tr>
+        <td><%= model.title %></td>
+        <td><%= model.url %></td>
+        <td><%= model.bedroom %></td>
+        <td><%= model.area %></td>
+        <td><%= model.tenant %></td>
+        <td><%= model.rent %></td>
+    </tr>
+
+</table>
+
+<form action="/rent/delete/<%= rent.id %>" method="post">
+    <button type="submit" class="btn btn-primary" color=red>delete</button>
+</form>
+
+<br>
+
+<form action="/rent/update/1" method="post">
+    <button type="submit" class="btn btn-primary" color=red>update</button>
+</form>
