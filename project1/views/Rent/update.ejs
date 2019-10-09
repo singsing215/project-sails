@@ -6,11 +6,16 @@
     </div>
     <div class="form-group">
         <label>Image URL:</label>
-        <input type="number" class="form-control" name="Rent[url]" value="<%= rent.url %>" required>
+        <input type="text" class="form-control" name="Rent[url]" value="<%= rent.url %>" required>
     </div>
     <div class="form-group">
         <label>Estate:</label>
-        <input type="text" class="form-control" name="Rent[estate]" value="<%= rent.estate %>" required>
+        <select type="string" class="form-control" name="Rent[estate]" value="<%= rent.estate %>" required>
+            <option value="Robinson Heights">Robinson Heights</option>
+            <option value="Hoi deen Court">Hoi deen Court</option>
+            <option value="Lime Stardom">Lime Stardom</option>
+            <option value="AKVO Hotel">AKVO Hotel</option>
+        </select>
     </div>
     <div class="form-group">
         <label>Bedrooms:</label>
@@ -30,7 +35,7 @@
     </div>
     <div class="form-group">
         <label>Highlighted Property:</label>
-        <input type="text" class="form-control" name="Rent[property]" value="<%= rent.property %>" required>
+        <input type="checkbox" value="dummy" class="form-control" name="Rent[property]" id="property" required>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
