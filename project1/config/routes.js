@@ -42,6 +42,6 @@ module.exports.routes = {
 'POST /rent/update/:id': 'RentController.update',
 'GET /rent/search': 'RentController.search',
 'GET /rent/paginate': 'RentController.paginate',
-
+'GET /rent/details/:id': 'RentController.details',
 
 };

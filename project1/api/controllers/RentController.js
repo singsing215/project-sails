@@ -97,13 +97,13 @@ update: async function (req, res) {
 search: async function (req, res) {
 
     const qTitle = req.query.title || "";
-    const qUrl = req.query.url || "";
+    const qEstate = parseInt(req.query.estate);
     const qBedroom = parseInt(req.query.bedroom);
     const qArea = parseInt(req.query.area);
-    const qTenant = parseInt(req.query.tenant);
     const qRent = parseInt(req.query.rent);
 
-    if (isNaN(qUrl)) {
+
+    if (isNaN(qEstate)) {
 
         var models = await Rent.find({
             where: { title: { contains: qTitle } },
@@ -113,7 +113,7 @@ search: async function (req, res) {
     } else {
 
         var models = await Rent.find({
-            where: { title: { contains: qTitle }, url: qUrl },
+            where: { title: { contains: qTitle }, estate: qEstate },
             sort: 'title'
         });
 
@@ -146,22 +146,6 @@ search: async function (req, res) {
 
         var models = await Rent.find({
             where: { title: { contains: qTitle }, area: qArea },
-            sort: 'title'
-        });
-
-    }
-
-    if (isNaN(qTenant)) {
-
-        var models = await Rent.find({
-            where: { title: { contains: qTitle } },
-            sort: 'title'
-        });
-
-    } else {
-
-        var models = await Rent.find({
-            where: { title: { contains: qTitle }, tenant: qTenant },
             sort: 'title'
         });
 
@@ -203,6 +187,38 @@ paginate: async function (req, res) {
     return res.view('rent/paginate', { rents: models, count: numOfPage });
 },
    
+
+
+// action - details
+details: async function (req, res) {
+
+    if (req.method == "GET") {
+
+        var model = await Rent.findOne(req.params.id);
+
+        if (!model) return res.notFound();
+
+        return res.view('rent/details', { rent: model });
+
+    } else {
+
+        if (!req.body.Rent) return res.badRequest("Form-data not received.");
+
+        var models = await Rent.details(req.params.id).set({
+            title: req.body.Rent.title,
+            url: req.body.Rent.url,
+            bedroom: req.body.Rent.bedroom,
+            area: req.body.Rent.area,
+            tenant: req.body.Rent.tenant,
+            rent: req.body.Rent.rent
+
+        }).fetch();
+
+        if (models.length == 0) return res.notFound();
+
+        return res.ok("Record updated");
+    }
+    },
 
 };
 

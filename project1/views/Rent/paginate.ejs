@@ -72,7 +72,7 @@
                     <tr>
                         <td><img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="350"
                                 height="350" /></td>
-                        <td><%= model.title %></td>
+                        <td><a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a></td>
                         <td>
                             <h5>Estate:</h5><%= model.eatate %>
                         </td>
@@ -83,6 +83,7 @@
                             <h5>Rent:</h5>$<%= model.rent %>
                         </td>
                     </tr>
+
                     <% }); %>
                 </table>
             </div>
@@ -93,6 +94,7 @@
                         <label>Estate:</label></div>
                     <div class="col-12 col-sm-4 col-lg-4 col-xl-9">
                         <select type="string" class="form-control" name="Rent[estate]" id="estate">
+                            <option>——Select estate here——</option>
                             <option value="Robinson Heights">Robinson Heights</option>
                             <option value="Hoi deen Court">Hoi deen Court</option>
                             <option value="Lime Stardom">Lime Stardom</option>
@@ -107,7 +109,7 @@
                         <input type="number" id="bedroom" min=1 max=4 class="form-control" name="Rent[bedroom]"
                             required></div>
                 </div>
-<br>
+                <br>
                 <div class="row">
                     <div class="col-12 col-sm-4 col-lg-4 col-xl-6">
                         <label>Area (Sq feet):</label></div>
@@ -119,41 +121,41 @@
                     <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                         <input type="number" id="bedroom" min=30 max=2000 class="form-control" name="Rent[bedroom]"
                             required></div>
-                       
-                       
+
+
                     <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
                         <label>Max:</label></div>
                     <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                         <input type="number" id="bedroom" min=30 max=2000 class="form-control" name="Rent[bedroom]"
-                            required></div>                    
+                            required></div>
                 </div>
                 <br>
                 <div class="row">
-                        <div class="col-12 col-sm-4 col-lg-4 col-xl-6">
-                            <label>Rent (HK$):</label></div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-xl-6">
+                        <label>Rent (HK$):</label></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
+                        <label>Min:</label></div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
+                        <input type="number" id="bedroom" min=5000 max=60000 class="form-control" name="Rent[bedroom]"
+                            required></div>
+
+
+                    <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
+                        <label>Max:</label></div>
+                    <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
+                        <input type="number" id="bedroom" min=5000 max=60000 class="form-control" name="Rent[bedroom]"
+                            required></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-12 col-sm-4 col-lg-4 col-xl-6">
+                        <button type="submit" class="btn btn-primary">Search</button>
                     </div>
 
-                    <div class="row">
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
-                                <label>Min:</label></div>
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
-                                <input type="number" id="bedroom" min=5000 max=60000 class="form-control" name="Rent[bedroom]"
-                                    required></div>
-                               
-                               
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
-                                <label>Max:</label></div>
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
-                                <input type="number" id="bedroom" min=5000 max=60000 class="form-control" name="Rent[bedroom]"
-                                    required></div>                    
-                        </div>
-                        <br>
-                        <div class="row" >
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-6">
-                                <button type="submit" class="btn btn-primary">Search</button>
-                            </div>
- 
-                        </div>
+                </div>
 
             </div>
         </div>
