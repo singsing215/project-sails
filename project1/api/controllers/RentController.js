@@ -79,6 +79,7 @@ update: async function (req, res) {
 
         var models = await Rent.update(req.params.id).set({
             title: req.body.Rent.title,
+            estate:req.body.Rent.estate,
             url: req.body.Rent.url,
             bedroom: req.body.Rent.bedroom,
             area: req.body.Rent.area,
@@ -207,6 +208,7 @@ details: async function (req, res) {
         var models = await Rent.details(req.params.id).set({
             title: req.body.Rent.title,
             url: req.body.Rent.url,
+            estate: req.body.Rent.estate,
             bedroom: req.body.Rent.bedroom,
             area: req.body.Rent.area,
             tenant: req.body.Rent.tenant,
@@ -219,6 +221,25 @@ details: async function (req, res) {
         return res.ok("Record updated");
     }
     },
+
+ // action - homepage
+ homepage: async function (req, res) {
+
+    const qPage = Math.max(req.query.page - 1, 0) || 0;
+
+    const numOfItemsPerPage = 4;
+
+    var models = await Rent.find({
+        limit: numOfItemsPerPage, 
+        skip: numOfItemsPerPage * qPage
+    });
+
+    var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
+
+    return res.view('pages/homepage', { rents: models, count: numOfPage });
+},
+
+   
 
 };
 

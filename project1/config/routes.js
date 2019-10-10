@@ -37,11 +37,12 @@ module.exports.routes = {
  'GET /rent/json' : 'RentController.json',
  'GET /rent/index' : 'RentController.index',
 'GET /rent/view/:id': 'RentController.view',
+'GET /rent/delete/:id': 'RentController.delete',
 'POST /rent/delete/:id': 'RentController.delete',
 'GET /rent/update/:id': 'RentController.update',
 'POST /rent/update/:id': 'RentController.update',
 'GET /rent/search': 'RentController.search',
 'GET /rent/paginate': 'RentController.paginate',
 'GET /rent/details/:id': 'RentController.details',
-
+'GET /pages/homepage': 'RentController.homepage',
 };
