@@ -107,7 +107,7 @@ search: async function (req, res) {
     if (isNaN(qEstate)) {
 
         var models = await Rent.find({
-            where: { title: { contains: qTitle } },
+            where: {title: { contains: qTitle } },
             sort: 'title'
         });
 

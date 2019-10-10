@@ -100,20 +100,21 @@
         </div>
         <form action="/rent/details/<%= rent.id %>" method="POST">
             <div class="card">
+                <br>
                 <div class="col-12 col-sm-12 col-lg-12 col-xl-12">
                     <h4><%= rent.title %></h4>
 
                 </div>
 
                 <div class="row">
-                    <div class="col-12 col-sm-8 col-lg-8 col-xl-7">
+                    <div class="col-12 col-sm-12 col-lg-7 col-xl-7">
                         <img class="img-fluid img-thumbnail" src="<%= rent.url %>" value="cover" width="500"
                             height="500" id="div01" />
 
 
                     </div>
 
-                    <div class="col-12 col-sm-4 col-lg-4 col-xl-5" id="div1">
+                    <div class="col-12 col-sm-12 col-lg-4 col-xl-4" id="div1">
                             <div class="list-group">
 
                                     <a class="list-group-item list-group-item-action"> <div class="row"> <h5>Estate： </h4><%= rent.estate %></div></a>
