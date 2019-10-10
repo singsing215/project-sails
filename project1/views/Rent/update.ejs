@@ -1,41 +1,165 @@
-<!--update.ejs-->
-<form action="/rent/update/<%= rent.id %>" method="POST">
-    <div class="form-group">
-        <label>Property title:</label>
-        <input type="text" class="form-control" name="Rent[title]" value="<%= rent.title %>" required>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>admin2</title>
+    <style>
+        .class3 {
+            background-color: lightsalmon
+        }
+
+        #div01 {
+            border-style: hidden
+        }
+
+        #div02 {
+            border-style: hidden
+        }
+
+        #div03 {
+            border-style: hidden
+        }
+
+        #div04 {
+            border-style: hidden
+        }
+
+        #div05 {
+            border-style: hidden
+        }
+
+        #div06 {
+            border-style: hidden
+        }
+
+        #div07 {
+            border-style: hidden
+        }
+
+        #div08 {
+            border-style: hidden
+        }
+
+        #div09 {
+            border-style: hidden
+        }
+
+        #div10 {
+            border-style: hidden
+        }
+
+        #div11 {
+            border-style: hidden
+        }
+
+        #div12 {
+            border-style: hidden
+        }
+
+        #div13 {
+            border-style: hidden
+        }
+    </style>
+
+
+
+</head>
+
+<body onload="pageLoaded()">
+    <div class="container ">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link " href="#">Search</a>
+                    <a class="nav-item nav-link " href="#">Create</a>
+                    <a class="nav-item nav-link active" href="#">Admin<span class="sr-only">(current)</span></a>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Real Estate Rental System</h1>
+                <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare and
+                    finding roommates.
+                </p>
+            </div>
+        </div>
+        <form action="/rent/update/<%= rent.id %>" method="POST">
+            <div class="row">
+
+
+                <div id="div02" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Property title:</label>
+                    <input type="label" class="form-control" name="Rent[title]" value="<%= rent.title %>" required>
+                </div>
+                <div id="div03" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Image
+                        URL:</label><input type="text" class="form-control" name="Rent[url]" value="<%= rent.url %>"
+                        required></div>
+                <div id="div04" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Estate:</label> <select
+                        type="string" class="form-control" name="Rent[estate]" value="<%= rent.estate %>" required>
+                        <option value="Robinson Heights">Robinson Heights</option>
+                        <option value="Hoi deen Court">Hoi deen Court</option>
+                        <option value="Lime Stardom">Lime Stardom</option>
+                        <option value="AKVO Hotel">AKVO Hotel</option>
+                    </select></div>
+                <div id="div05" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Bedrooms:</label><input
+                        type="number" id="bedroom" min=1 max=4 class="form-control" name="Rent[bedroom]"
+                        value="<%= rent.bedroom %>" required></div>
+                <div id="div06" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Gross
+                        Area:</label><input type="number" id="area" min=30 max=2000 class="form-control"
+                        name="Rent[area]" value="<%= rent.area %>" required></div>
+                <div id="div07" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Expected
+                        Tenants:</label><input type="number" id="tenant" min=1 max=6 class="form-control"
+                        name="Rent[tenant]" value="<%= rent.tenant %>" required></div>
+                <div id="div08" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Rent:</label><input
+                        type="number" id="rent" min=5000 max=60000 class="form-control" name="Rent[rent]"
+                        value="<%= rent.rent %>" required></div>
+                <div id="div09" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Highlighted Property:
+                        <input type="checkbox" value="dummy" class="form-control" name="Rent[property]" id="property"
+                            required></label></div>
+                <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label> </label></div>
+                <div id="div11" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
+                    <div>
+                        <button class="btn btn-primary" type="button" onclick="btn1Clicked(this)">Submit</button>
+                    </div>
+                </div>
+                <div id="div12" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
+                    <div>
+                        <button class="btn btn-danger" type="button" onclick="btn1Clicked(this)">Delete</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label>Image URL:</label>
-        <input type="text" class="form-control" name="Rent[url]" value="<%= rent.url %>" required>
-    </div>
-    <div class="form-group">
-        <label>Estate:</label>
-        <select type="string" class="form-control" name="Rent[estate]" value="<%= rent.estate %>" required>
-            <option value="Robinson Heights">Robinson Heights</option>
-            <option value="Hoi deen Court">Hoi deen Court</option>
-            <option value="Lime Stardom">Lime Stardom</option>
-            <option value="AKVO Hotel">AKVO Hotel</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label>Bedrooms:</label>
-        <input type="text" class="form-control" name="Rent[bedroom]" value="<%= rent.bedroom %>" required>
-    </div>
-    <div class="form-group">
-        <label>Gross Area:</label>
-        <input type="text" class="form-control" name="Rent[area]" value="<%= rent.area %>" required>
-    </div>
-    <div class="form-group">
-        <label>Expected Tenants:</label>
-        <input type="text" class="form-control" name="Rent[tenant]" value="<%= rent.tenant %>" required>
-    </div>
-    <div class="form-group">
-        <label>Rent:</label>
-        <input type="text" class="form-control" name="Rent[rent]" value="<%= rent.rent %>" required>
-    </div>
-    <div class="form-group">
-        <label>Highlighted Property:</label>
-        <input type="checkbox" value="dummy" class="form-control" name="Rent[property]" id="property" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+
+    <script>
+
+
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

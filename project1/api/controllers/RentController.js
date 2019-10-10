@@ -97,7 +97,7 @@ update: async function (req, res) {
 search: async function (req, res) {
 
     const qTitle = req.query.title || "";
-    const qUrl = String(req.query.url);
+    const qUrl = req.query.url || "";
     const qBedroom = parseInt(req.query.bedroom);
     const qArea = parseInt(req.query.area);
     const qTenant = parseInt(req.query.tenant);
@@ -106,14 +106,14 @@ search: async function (req, res) {
     if (isNaN(qUrl)) {
 
         var models = await Rent.find({
-            where: { name: { contains: qTitle } },
+            where: { title: { contains: qTitle } },
             sort: 'title'
         });
 
     } else {
 
         var models = await Rent.find({
-            where: { name: { contains: qTitle }, url: qUrl },
+            where: { title: { contains: qTitle }, url: qUrl },
             sort: 'title'
         });
 
@@ -122,14 +122,14 @@ search: async function (req, res) {
     if (isNaN(qBedroom)) {
 
         var models = await Rent.find({
-            where: { name: { contains: qTitle } },
+            where: { title: { contains: qTitle } },
             sort: 'title'
         });
 
     } else {
 
         var models = await Rent.find({
-            where: { name: { contains: qTitle }, bedroom: qBedroom },
+            where: { title: { contains: qTitle }, bedroom: qBedroom },
             sort: 'title'
         });
 
@@ -138,14 +138,14 @@ search: async function (req, res) {
     if (isNaN(qArea)) {
 
         var models = await Rent.find({
-            where: { name: { contains: qTitle } },
+            where: { title: { contains: qTitle } },
             sort: 'title'
         });
 
     } else {
 
         var models = await Rent.find({
-            where: { name: { contains: qTitle }, area: qArea },
+            where: { title: { contains: qTitle }, area: qArea },
             sort: 'title'
         });
 
@@ -154,14 +154,14 @@ search: async function (req, res) {
     if (isNaN(qTenant)) {
 
         var models = await Rent.find({
-            where: { name: { contains: qTitle } },
+            where: { title: { contains: qTitle } },
             sort: 'title'
         });
 
     } else {
 
         var models = await Rent.find({
-            where: { name: { contains: qTitle }, tenant: qTenant },
+            where: { title: { contains: qTitle }, tenant: qTenant },
             sort: 'title'
         });
 
@@ -170,14 +170,14 @@ search: async function (req, res) {
     if (isNaN(qRent)) {
 
         var models = await Rent.find({
-            where: { name: { contains: qTitle } },
+            where: { title: { contains: qTitle } },
             sort: 'title'
         });
 
     } else {
 
         var models = await Rent.find({
-            where: { name: { contains: qTitle }, rent: qRent },
+            where: { title: { contains: qTitle }, rent: qRent },
             sort: 'title'
         });
 
