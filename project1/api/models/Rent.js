@@ -16,16 +16,20 @@ module.exports = {
       type: "string"
     },
 
-
-    bedroom: {
-      type: "number"
+    estate: {
+      type: "string"
     },
+
+
+ 
 
     url: {
       type: "string"
     },
 
-    
+    bedroom: {
+      type: "number"
+    },
 
     area: {
       type: "number"
@@ -39,6 +43,13 @@ module.exports = {
       type: "number"
     },
 
+    created: {
+      type: "string"
+    },
+
+    updated: {
+      type: "string"
+    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

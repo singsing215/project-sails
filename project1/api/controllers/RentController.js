@@ -86,6 +86,7 @@ update: async function (req, res) {
             tenant: req.body.Rent.tenant,
             rent: req.body.Rent.rent
 
+
         }).fetch();
 
         if (models.length == 0) return res.notFound();
@@ -95,81 +96,27 @@ update: async function (req, res) {
     },
 
     // search function
-search: async function (req, res) {
-
-    const qTitle = req.query.title || "";
-    const qEstate = parseInt(req.query.estate);
-    const qBedroom = parseInt(req.query.bedroom);
-    const qArea = parseInt(req.query.area);
-    const qRent = parseInt(req.query.rent);
+    search: async function (req, res) {
 
 
-    if (isNaN(qEstate)) {
-
+        const qEstate = req.query.estate;
+        const qBedroom = req.query.bedroom;
+        const qArea = req.query.area;
+        const qRent = req.query.rent;
+    
+    
         var models = await Rent.find({
-            where: {title: { contains: qTitle } },
-            sort: 'title'
-        });
+            where: { estate: qEstate, bedroom: qBedroom, area: qArea,rent: qRent},
+            sort: 'estate'
+          });
 
-    } else {
 
-        var models = await Rent.find({
-            where: { title: { contains: qTitle }, estate: qEstate },
-            sort: 'title'
-        });
+    
+        return res.view('rent/index', { rents: models });
+    },
+    
 
-    }
 
-    if (isNaN(qBedroom)) {
-
-        var models = await Rent.find({
-            where: { title: { contains: qTitle } },
-            sort: 'title'
-        });
-
-    } else {
-
-        var models = await Rent.find({
-            where: { title: { contains: qTitle }, bedroom: qBedroom },
-            sort: 'title'
-        });
-
-    }
-
-    if (isNaN(qArea)) {
-
-        var models = await Rent.find({
-            where: { title: { contains: qTitle } },
-            sort: 'title'
-        });
-
-    } else {
-
-        var models = await Rent.find({
-            where: { title: { contains: qTitle }, area: qArea },
-            sort: 'title'
-        });
-
-    }
-
-    if (isNaN(qRent)) {
-
-        var models = await Rent.find({
-            where: { title: { contains: qTitle } },
-            sort: 'title'
-        });
-
-    } else {
-
-        var models = await Rent.find({
-            where: { title: { contains: qTitle }, rent: qRent },
-            sort: 'title'
-        });
-
-    }
-
-    return res.view('rent/index', { rents: models });
-},
 
  // action - paginate
 paginate: async function (req, res) {
@@ -188,32 +135,19 @@ paginate: async function (req, res) {
     return res.view('rent/paginate', { rents: models, count: numOfPage });
 },
    
- // action - homepage
- homepage: async function (req, res) {
 
-    const qPage = Math.max(req.query.page - 1, 0) || 0;
-
-    const numOfItemsPerPage = 4;
-
-    var models = await Rent.find({
-        limit: numOfItemsPerPage, 
-        skip: numOfItemsPerPage * qPage
-    });
-
-    var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
-
-    return res.view('pages/homepage', { rents: models, count: numOfPage });
-},
 
 
  // action - home
  home: async function (req, res) {
 
     const qPage = Math.max(req.query.page - 1, 0) || 0;
-
     const numOfItemsPerPage = 4;
 
+
+
     var models = await Rent.find({
+
         limit: numOfItemsPerPage, 
         skip: numOfItemsPerPage * qPage
     });
@@ -248,6 +182,8 @@ details: async function (req, res) {
             area: req.body.Rent.area,
             tenant: req.body.Rent.tenant,
             rent: req.body.Rent.rent
+
+
 
         }).fetch();
 
