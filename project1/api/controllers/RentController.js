@@ -188,6 +188,41 @@ paginate: async function (req, res) {
     return res.view('rent/paginate', { rents: models, count: numOfPage });
 },
    
+ // action - homepage
+ homepage: async function (req, res) {
+
+    const qPage = Math.max(req.query.page - 1, 0) || 0;
+
+    const numOfItemsPerPage = 4;
+
+    var models = await Rent.find({
+        limit: numOfItemsPerPage, 
+        skip: numOfItemsPerPage * qPage
+    });
+
+    var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
+
+    return res.view('pages/homepage', { rents: models, count: numOfPage });
+},
+
+
+ // action - home
+ home: async function (req, res) {
+
+    const qPage = Math.max(req.query.page - 1, 0) || 0;
+
+    const numOfItemsPerPage = 4;
+
+    var models = await Rent.find({
+        limit: numOfItemsPerPage, 
+        skip: numOfItemsPerPage * qPage
+    });
+
+    var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
+
+    return res.view('rent/home', { rents: models, count: numOfPage });
+},
+
 
 
 // action - details
@@ -222,22 +257,7 @@ details: async function (req, res) {
     }
     },
 
- // action - homepage
- homepage: async function (req, res) {
 
-    const qPage = Math.max(req.query.page - 1, 0) || 0;
-
-    const numOfItemsPerPage = 4;
-
-    var models = await Rent.find({
-        limit: numOfItemsPerPage, 
-        skip: numOfItemsPerPage * qPage
-    });
-
-    var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
-
-    return res.view('pages/homepage', { rents: models, count: numOfPage });
-},
 
    
 

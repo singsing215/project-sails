@@ -7,28 +7,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>admin1</title>
+    <title>index</title>
     <style>
-        .class3 {
-            background-color: lightsalmon
-        }
-
-        #div01 {
-            border-style: solid
-        }
-
-        #div02 {
-            border-style: solid
-        }
-
-        #div03 {
-            border-style: solid
-        }
-
-        #div04 {
-            border-style: solid
-        }
-
 
     </style>
 
@@ -46,9 +26,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/paginate">Search</a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/create">Create</a>
-                    <a class="nav-item nav-link active" href="http://localhost:1337/rent">Admin<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="http://localhost:1337/rent/paginate">Search </a>
+                    <a class="nav-item nav-link" href="http://localhost:1337/rent/create">Create</a>
+                    <a class="nav-item nav-link" href="http://localhost:1337/rent">Admin</a>
 
                 </div>
             </div>
@@ -62,29 +42,56 @@
                 </p>
             </div>
         </div>
+
+        <div>
         <div class="row">
 
-<!--index.ejs-->
-<table class="table">
-        <% rents.forEach( function(model) { %>
-        <tr>
-            <td><%= model.id %></td>
-            <td><%= model.title %></td>
-            <td><%= model.estate %></td>
-            <td><a href="http://localhost:1337/rent/update/<%= model.id %>">Edit</a></td>
-    
-        </tr>
-        <% }); %>
-    </table>
- 
 
-        </div>
+
+                    <% rents.forEach( function(model) { %>
+                    <div class="card col-12 col-sm-12 col-lg-6 col-xl-6" id="div1">
+
+                            <!--paginate.ejs-->
+                        
+    
+                            <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="350"
+                                height="350" />
+    
+                            <a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a>
+                    
+                                        <h5>Estate:</h5><%= model.estate %>
+                    
+                                    
+                                        <h5>Gross Area:</h5><%= model.area %> sq feet
+                                    
+                                    
+                                        <h5>Rent:</h5>$<%= model.rent %>
+                
+
+                    </div>
+                    <% }); %>
+
+
+
+            <div id="div02" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
+            
+            </div>
+
+            <div id="div03" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
+               
+            </div>
+
+            <div id="div04" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
+               
+            </div>
+
+        
     </div>
+   </div>
 
     <script>
 
-
-
+ 
 
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -99,8 +106,3 @@
 </body>
 
 </html>
-
-
-
-
-

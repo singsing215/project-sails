@@ -19,7 +19,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
+
+  '/': { view: 'rent/home' },
 
 
   /***************************************************************************
@@ -44,5 +45,7 @@ module.exports.routes = {
 'GET /rent/search': 'RentController.search',
 'GET /rent/paginate': 'RentController.paginate',
 'GET /rent/details/:id': 'RentController.details',
-'GET /pages/homepage': 'RentController.homepage',
+'/' : 'RentController.home',
+
+'GET /rent/home': 'RentController.home',
 };

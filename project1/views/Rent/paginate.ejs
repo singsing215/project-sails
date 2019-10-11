@@ -37,7 +37,7 @@
 <body onload="pageLoaded()">
     <div class="container ">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="http://localhost:1337/">Home</a>
+            <a class="navbar-brand" href="http://localhost:1337/rent/home">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -71,7 +71,6 @@
                         <% rents.forEach( function(model) { %>
                     <div class="col-6 col-sm-6 col-lg-6 col-xl-6" id="div1">
                         <!--paginate.ejs-->
-                        
                         
 
                         <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="350"
@@ -110,6 +109,7 @@
 
 
                     <div id="div01" class="card col-12 col-sm-4 col-lg-4 col-xl-4">
+                        
                         <h1>Property Search</h1>
                         <div class="row">
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
@@ -175,8 +175,8 @@
                         <br>
                         <div class="row">
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-6">
-                                <button type="submit" class="btn btn-primary">Search</button>
-                            </div>
+                                <button type="submit" class="btn btn-primary">Search</button>          
+                                         </div>           <!--find-->
 
                         </div>
 
