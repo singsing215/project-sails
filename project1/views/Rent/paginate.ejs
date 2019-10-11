@@ -28,6 +28,9 @@
         #div04 {
             border-style: solid
         }
+        #div1{
+    padding: 20px 20px 20px;
+}
     </style>
 
 
@@ -76,15 +79,14 @@
                         <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="350"
                             height="350" />
 
-                        <a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a>
-                
-                                    <h5>Estate:</h5><%= model.estate %>
-                
-                                
-                                    <h5>Gross Area:</h5><%= model.area %> sq feet
-                                
-                                
-                                    <h5>Rent:</h5>$<%= model.rent %>
+                            <br><h5><a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a></h5>
+                <br>
+                        <ul class="list-group">
+                                <li class="list-group-item"><label><h5>Estate:</h5></label> <%= model.estate %></li>
+                                <li class="list-group-item"><label><h5>Gross Area:</h5></label> <%= model.area %> sq feet</li>
+                                <li class="list-group-item"><label><h5>Rent:</h5></label> $<%= model.rent %></li>
+
+                              </ul>
                                 
                     
                     

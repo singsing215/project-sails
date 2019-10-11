@@ -10,6 +10,12 @@
     <title>index</title>
     <style>
 
+#div01{
+    padding: 20px 20px 20px;
+}
+
+
+
     </style>
 
 
@@ -46,31 +52,29 @@
         <div>
         <div class="row">
 
-
-
-                    <% rents.forEach( function(model) { %>
-                    <div class="card col-12 col-sm-12 col-lg-6 col-xl-6" id="div1">
-
-                            <!--paginate.ejs-->
-                        
-    
-                            <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="350"
-                                height="350" />
-    
-                            <a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a>
-                    
-                                        <h5>Estate:</h5><%= model.estate %>
-                    
-                                    
-                                        <h5>Gross Area:</h5><%= model.area %> sq feet
-                                    
-                                    
-                                        <h5>Rent:</h5>$<%= model.rent %>
-                
-
+                <% rents.forEach( function(model) { %>
+                <div id="div01" class="card col-12 col-sm-12 col-lg-6 col-xl-6" >
+                        <h5><a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a></h5>
+                        <div class="row">
+                            <div class=" col-12 col-sm-6 col-lg-4 col-xl-6"> <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="350"
+                                height="350" /></div>
+        
+                            <div class="col-12 col-sm-6 col-lg-4 col-xl-6" id="div1">
+                                    <ul class="list-group">
+                                            <li class="list-group-item"><label><h5>Estate:</h5></label> <%= model.estate %></li>
+                                            <li class="list-group-item"><label><h5>Gross Area:</h5></label> <%= model.area %> sq feet</li>
+                                            <li class="list-group-item"><label><h5>Rent:</h5></label> $<%= model.rent %></li>
+        
+                                          </ul>
+                            </div>
+                        </div>
                     </div>
                     <% }); %>
 
+
+
+
+                  
 
 
             <div id="div02" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
