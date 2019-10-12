@@ -71,6 +71,7 @@
 </head>
 
 <body onload="pageLoaded()">
+
     <div class="container ">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="http://localhost:1337/rent/home">Home</a>
@@ -97,8 +98,9 @@
                 </p>
             </div>
         </div>
-        
+
         <form action="/rent/update/<%= rent.id %>" method="POST">
+
             <div class="row">
 
 
@@ -129,10 +131,12 @@
                         type="number" id="rent" min=5000 max=60000 class="form-control" name="Rent[rent]"
                         value="<%= rent.rent %>" required></div>
                 <div id="div09" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Highlighted Property:
-                        <input type="checkbox" value="dummy" class="form-control" name="Rent[property]" id="property"
-                            ></label></div>
-                <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label> </label></div>
+                        <input type="checkbox" value="dummy" class="form-control" name="Rent[property]"
+                            id="property"></label></div>
 
+                <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Updated:
+
+                        <input type="date" class="form-control" name="Rent[updated]" id="updated"></label></div>
 
                 <div id="div11" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
                     <div>
@@ -148,12 +152,21 @@
 
 
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+
+
+            <button type="submit;button" class="btn btn-primary" onclick="btn1Clicked(this)">Submit</button>
         </form>
+
     </div>
     <table>
         <tr>
-            <td></td>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td>
                 <form action="/rent/delete/<%= rent.id %>" method="post">
                     <button type="submit" class="btn btn-danger" color=red>Delete</button>
@@ -163,11 +176,16 @@
     </table>
 
     <script>
+        function btn1Clicked(elem) {
+            var d = new Date(year, month, day);
+            elem.Rent[updated] = d;
+        };
 
 
 
 
     </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

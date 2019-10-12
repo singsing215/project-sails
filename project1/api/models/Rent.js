@@ -44,11 +44,11 @@ module.exports = {
     },
 
     created: {
-      type: "string"
+      type: 'ref', columnType: 'datetime'
     },
 
     updated: {
-      type: "string"
+      type: 'ref', columnType: 'datetime'
     },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗

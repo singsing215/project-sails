@@ -84,7 +84,9 @@ update: async function (req, res) {
             bedroom: req.body.Rent.bedroom,
             area: req.body.Rent.area,
             tenant: req.body.Rent.tenant,
-            rent: req.body.Rent.rent
+            rent: req.body.Rent.rent,
+            created: req.body.Rent.created,
+            updated: req.body.Rent.updated
 
 
         }).fetch();
@@ -106,29 +108,37 @@ update: async function (req, res) {
     
     
         var models = await Rent.find({
-            where: { estate: qEstate, bedroom: qBedroom, area: qArea,rent: qRent},
+            where: { estate: qEstate, bedroom: qBedroom, area: qArea, rent: qRent},
             sort: 'estate'
           });
 
-
+          if (!models) return res.notFound();
     
-        return res.view('rent/index', { rents: models });
+        return res.view('rent/search', { rents: models });
     },
     
 
 
 
- // action - paginate
+ // action - paginate + search
 paginate: async function (req, res) {
 
     const qPage = Math.max(req.query.page - 1, 0) || 0;
-
     const numOfItemsPerPage = 2;
+
+    const qEstate = req.query.estate;
+    const qBedroom = req.query.bedroom;
+    const qArea = req.query.area;
+    const qRent = req.query.rent;
 
     var models = await Rent.find({
         limit: numOfItemsPerPage, 
-        skip: numOfItemsPerPage * qPage
+        skip: numOfItemsPerPage * qPage,
+        where: { estate: qEstate, bedroom: qBedroom, area: qArea, rent: qRent},
+        sort: 'estate'
     });
+
+    if (!models) return res.notFound();
 
     var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
 
@@ -147,7 +157,8 @@ paginate: async function (req, res) {
 
 
     var models = await Rent.find({
-
+        where: {property:"dummy"},
+        sort: 'created',
         limit: numOfItemsPerPage, 
         skip: numOfItemsPerPage * qPage
     });

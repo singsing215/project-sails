@@ -65,6 +65,10 @@
         #div13 {
             border-style: hidden
         }
+
+        #aab{
+            padding: 1px 30px 20px;
+        }
     </style>
 
 
@@ -99,14 +103,14 @@
             </div>
         </div>
         <form action="/rent/details/<%= rent.id %>" method="POST">
-            <div class="card">
+            <div class="card" id="aab">
                 <br>
                 <div class="col-12 col-sm-12 col-lg-12 col-xl-12">
                     <h4><%= rent.title %></h4>
 
                 </div>
 
-                <div class="row">
+                <div class="row" >
                     <div class="col-12 col-sm-12 col-lg-7 col-xl-7">
                         <img class="img-fluid img-thumbnail" src="<%= rent.url %>" value="cover" width="500"
                             height="500" id="div01" />
@@ -123,7 +127,7 @@
                                     <a class="list-group-item list-group-item-action"><div class="row"><h5>Bedrooms：</h4><%= rent.bedroom %></div></a>
                                     <a class="list-group-item list-group-item-action"><div class="row"><h5>Expected Tenants： </h4><%= rent.tenant %></div></a>
                                     <a class="list-group-item list-group-item-action"><div class=" row"><h5>Created：</h4><%= rent.created %></div></a>
-                                    <a class="list-group-item list-group-item-action"><div class="row"><h5>Updated：</h4></div></a>
+                                    <a class="list-group-item list-group-item-action"><div class="row"><h5>Updated：</h4><%= rent.updated %></div></a>
                                     
                                   </div>
 

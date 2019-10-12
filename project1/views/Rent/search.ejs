@@ -71,20 +71,20 @@
             <div id="div01" class="card col-12 col-sm-8 col-lg-8 col-xl-8">
 
                 <div class="row">
-                        <% rents.forEach( function(model) { %>
+                        <% rents.forEach( function(models) { %>
                     <div class="col-6 col-sm-6 col-lg-6 col-xl-6" id="div1">
 
                         
 
-                        <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="350"
+                        <img class="img-fluid img-thumbnail" src="<%= models.url %>" value="cover" width="350"
                             height="350" />
 
-                            <br><h5><a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a></h5>
+                            <br><h5><a href="http://localhost:1337/rent/details/<%= models.id %>""><%= models.title %></a></h5>
                 <br>
                         <ul class="list-group">
-                                <li class="list-group-item"><label><h5>Estate:</h5></label> <%= model.estate %></li>
-                                <li class="list-group-item"><label><h5>Gross Area:</h5></label> <%= model.area %> sq feet</li>
-                                <li class="list-group-item"><label><h5>Rent:</h5></label> $<%= model.rent %></li>
+                                <li class="list-group-item"><label><h5>Estate:</h5></label> <%= models.estate %></li>
+                                <li class="list-group-item"><label><h5>Gross Area:</h5></label> <%= models.area %> sq feet</li>
+                                <li class="list-group-item"><label><h5>Rent:</h5></label> $<%= models.rent %></li>
 
                               </ul>
                                 
