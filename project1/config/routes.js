@@ -42,11 +42,14 @@ module.exports.routes = {
 'POST /rent/delete/:id': 'RentController.delete',
 'GET /rent/update/:id': 'RentController.update',
 'POST /rent/update/:id': 'RentController.update',
-'GET /rent/search': 'RentController.search',
-'POST /rent/search': 'RentController.search',
+
 'GET /rent/paginate': 'RentController.paginate',
 'POST /rent/paginate': 'RentController.paginate',
 'GET /rent/details/:id': 'RentController.details',
+
+
+
+
 '/' : 'RentController.home',
 
 'GET /rent/home': 'RentController.home',
