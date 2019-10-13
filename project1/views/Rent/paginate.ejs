@@ -66,7 +66,7 @@
         </div>
 
 <!--form-->
-        <form action="/rent/paginate?bedroom=" method="POST">
+        
 
         <div class="row">
 
@@ -78,8 +78,8 @@
 
                         
 
-                        <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="350"
-                            height="350" />
+                        <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="250"
+                            height="250" />
 
                             <br><h5><a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a></h5>
                 <br>
@@ -112,13 +112,17 @@
    
        
                     <div id="div01" class="card col-12 col-sm-4 col-lg-4 col-xl-4">
-                        
+                        <!--调用-->
+                  
+<!--form-->
+                            <form action="/rent/paginate?bedroom=" method="POST">
+<div>
                         <h1>Property Search</h1>
                         <div class="row">
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
                                 <label>Estate:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-9">
-                                <select type="string" class="form-control" name="Rent[estate]" id="estate">
+                                <select type="string" class="form-control" name="search[estate]" id="estate">
                                     <option style="text-align:center;text-align-last:center">——Select estate here——
                                     </option>
                                     <option value="Robinson Heights">Robinson Heights</option>
@@ -127,12 +131,12 @@
                                     <option value="AKVO Hotel">AKVO Hotel</option>
                                 </select></div>
                         </div>
-                        <br>
+                        <br><!--bedroom-->
                         <div class="row">
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
                                 <label>Bedroom:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-9">
-                                <input type="number" id="bedroom" min=1 max=4 class="form-control" name="Rent[bedroom]" value=""
+                                <input type="number" id="bedroom" min=1 max=4 class="form-control" name="rent[qbedroom]" value=""
                                     ></div>
                         </div>
                         <br>
@@ -146,14 +150,14 @@
                                 <label>Min:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="bedroom" min=30 max=2000 class="form-control"
-                                    name="Rent[bedroom]" ></div>
+                                    name="search[area]" ></div>
 
 
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
                                 <label>Max:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="bedroom" min=30 max=2000 class="form-control"
-                                    name="Rent[bedroom]" ></div>
+                                    name="search[area]" ></div>
                         </div>
                         <br>
                         <div class="row">
@@ -166,14 +170,14 @@
                                 <label>Min:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="bedroom" min=5000 max=60000 class="form-control"
-                                    name="Rent[bedroom]" ></div>
+                                    name="search[rent]" ></div>
 
 
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
                                 <label>Max:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="bedroom" min=5000 max=60000 class="form-control"
-                                    name="Rent[bedroom]" ></div>
+                                    name="search[rent]" ></div>
                         </div>
                         <br>
                    
@@ -184,14 +188,14 @@
                     
 
                     </div>
+                </form>
           
-     
-         
+                </div>
                  
                 </div>
 
           
-</form>
+
 
 
                 <% const current = parseInt(req.query.page) || 1; %>

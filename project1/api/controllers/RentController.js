@@ -21,6 +21,8 @@ create: async function (req, res) {
     return res.ok("Successfully created!");
 },
 
+
+
 // json function
 json: async function (req, res) {
 
@@ -97,31 +99,14 @@ update: async function (req, res) {
     }
     },
 
-    // search function
-    search: async function (req, res) {
-
-
-        const qEstate = req.query.estate;
-        const qBedroom = req.query.bedroom;
-        const qArea = req.query.area;
-        const qRent = req.query.rent;
-    
-    
-        var models = await Rent.find({
-            where: { estate: qEstate, bedroom: qBedroom, area: qArea, rent: qRent},
-            sort: 'estate'
-          });
-
-          if (!models) return res.notFound();
-    
-        return res.view('rent/search', { rents: models });
-    },
-    
-
-
+ 
 
  // action - paginate + search
  paginate: async function (req, res) {
+   // await search.create(req.body.search);
+   // var searchs = await search.find();
+  //  var smod = await search.findOne(req.params.id);
+//  await Rent.create(req.body.Rent);
 
     const qPage = Math.max(req.query.page - 1, 0) || 0;
     const numOfItemsPerPage = 2;
@@ -144,6 +129,9 @@ update: async function (req, res) {
     var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
 
     return res.view('rent/paginate', { rents: models, count: numOfPage });
+
+
+
 },
    
 
@@ -208,7 +196,28 @@ details: async function (req, res) {
 
 
 
-   
+      // search function
+      search: async function (req, res) {
+
+
+        const qEstate = req.query.estate;
+        const qBedroom = req.query.bedroom;
+        const qArea = req.query.area;
+        const qRent = req.query.rent;
+    
+    
+        var models = await Rent.find({
+            where: { estate: qEstate, bedroom: qBedroom, area: qArea, rent: qRent},
+            sort: 'estate'
+          });
+
+          if (!models) return res.notFound();
+    
+        return res.view('rent/search', { rents: models });
+    },
+    
+
+
 
 };
 

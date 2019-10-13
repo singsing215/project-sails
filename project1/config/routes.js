@@ -35,6 +35,8 @@ module.exports.routes = {
   ***************************************************************************/
  'GET /rent/create' : 'RentController.create',
  'POST /rent/create' : 'RentController.create',
+ 'GET /search/create' : 'SearchController.create',
+ 'POST /search/create' : 'SearchController.create',
  'GET /rent/json' : 'RentController.json',
  'GET /rent/index' : 'RentController.index',
 'GET /rent/view/:id': 'RentController.view',
@@ -42,6 +44,7 @@ module.exports.routes = {
 'POST /rent/delete/:id': 'RentController.delete',
 'GET /rent/update/:id': 'RentController.update',
 'POST /rent/update/:id': 'RentController.update',
+
 
 'GET /rent/paginate': 'RentController.paginate',
 'POST /rent/paginate': 'RentController.paginate',
