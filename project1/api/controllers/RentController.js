@@ -111,6 +111,8 @@ update: async function (req, res) {
     const qPage = Math.max(req.query.page - 1, 0) || 0;
     const numOfItemsPerPage = 2;
 
+
+
     const qEstate = req.query.estate;
     const qBedroom = req.query.bedroom;
     const qArea = req.query.area;
@@ -200,20 +202,25 @@ details: async function (req, res) {
       search: async function (req, res) {
 
 
-        const qEstate = req.query.estate;
-        const qBedroom = req.query.bedroom;
-        const qArea = req.query.area;
-        const qRent = req.query.rent;
-    
+        const qEstate = req.body.Rent.estate;
+        const qBedroom = req.body.Rent.bedroom;
+        const qArea = req.body.Rent.area;
+        const qRent = req.body.Rent.rent;
     
         var models = await Rent.find({
+            
+            estate: req.body.Rent.estate,
+            bedroom: req.body.Rent.bedroom,
+            area: req.body.Rent.area,
+            rent: req.body.Rent.rent,
+
             where: { estate: qEstate, bedroom: qBedroom, area: qArea, rent: qRent},
             sort: 'estate'
           });
 
           if (!models) return res.notFound();
     
-        return res.view('rent/search', { rents: models });
+        return res.view('rent/paginate', { rents: models });
     },
     
 

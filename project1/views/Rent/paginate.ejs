@@ -115,14 +115,14 @@
                         <!--调用-->
                   
 <!--form-->
-                            <form action="/rent/paginate?bedroom=" method="POST">
+                            <form action="/rent/search" method="POST">
 <div>
                         <h1>Property Search</h1>
                         <div class="row">
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
                                 <label>Estate:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-9">
-                                <select type="string" class="form-control" name="search[estate]" id="estate">
+                                <select type="string" class="form-control" name="rent[estate]" id="estate">
                                     <option style="text-align:center;text-align-last:center">——Select estate here——
                                     </option>
                                     <option value="Robinson Heights">Robinson Heights</option>
@@ -136,8 +136,8 @@
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
                                 <label>Bedroom:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-9">
-                                <input type="number" id="bedroom" min=1 max=4 class="form-control" name="rent[qbedroom]" value=""
-                                    ></div>
+                                <input type="number" id="bedroom" min=1 max=4 class="form-control" name="rent[bedroom]">
+                            </div>
                         </div>
                         <br>
                         <div class="row">
@@ -150,14 +150,14 @@
                                 <label>Min:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="bedroom" min=30 max=2000 class="form-control"
-                                    name="search[area]" ></div>
+                                    name="rent[area]" ></div>
 
 
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
                                 <label>Max:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="bedroom" min=30 max=2000 class="form-control"
-                                    name="search[area]" ></div>
+                                    name="rent[area]" ></div>
                         </div>
                         <br>
                         <div class="row">
@@ -170,14 +170,14 @@
                                 <label>Min:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="bedroom" min=5000 max=60000 class="form-control"
-                                    name="search[rent]" ></div>
+                                    name="rent[rent]" ></div>
 
 
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
                                 <label>Max:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="bedroom" min=5000 max=60000 class="form-control"
-                                    name="search[rent]" ></div>
+                                    name="rent[rent]" ></div>
                         </div>
                         <br>
                    
