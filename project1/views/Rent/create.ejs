@@ -134,16 +134,14 @@
                 <div id="div09" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Highlighted Property:
                         <input type="checkbox" value="dummy" class="form-control" name="Rent[property]" id="property"
                             ></label></div>
+                            <div id="div11" class="form-group"><button type="submit" class="btn btn-primary" onclick="btn1Clicked(this)">Submit</button></div>
+                            <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>
 
-                            <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Created:
-
-                                    <input type="date" class="form-control" name="Rent[created]" id="created"></label></div>
+                                    <input type="hidden" class="form-control" name="Rent[created]" id="created"></label></div>
 
 
                             
-                            
-                            <br>
-                <div id="div11" class="form-group"><button type="submit" class="btn btn-primary">Submit</button></div>
+               
                 <br>
 
 
@@ -154,7 +152,10 @@
     </form>
     <script>
 
-
+function btn1Clicked(elem) {
+            var d = new Date().toLocaleDateString();
+            document.getElementById("created").Value=d;
+        };
 
 
     </script>

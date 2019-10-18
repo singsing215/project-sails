@@ -134,9 +134,10 @@
                         <input type="checkbox" value="dummy" class="form-control" name="Rent[property]"
                             id="property"></label></div>
 
-                <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Updated:
-
-                        <input type="date" class="form-control" name="Rent[updated]" id="updated" ></label></div>
+                <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>
+        <!--Updated-->
+                        <input type="hidden" class="form-control" name="Rent[updated]" id="updated" ></label>
+                </div>
 
                 <div id="div11" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
                     <div>
@@ -174,15 +175,16 @@
             </td>
         </tr>
     </table>
+    
 
     <script>
         function btn1Clicked(elem) {
-            var updated= new Date().toLocaleDateString();
-
+            var d = new Date().toLocaleDateString();
+            document.getElementById("updated").Value=d;
         };
 
 
-
+  
 
     </script>
 

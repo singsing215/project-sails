@@ -43,13 +43,13 @@ module.exports = {
       type: "number"
     },
 
-    created: {
-      type: 'ref', columnType: 'datetime',
-    },
+    // created: {
+    //   type: 'ref', columnType: 'datetime',
+    // },
 
-    updated: {
-      type: 'ref', columnType: 'datetime',
-    },
+    // updated: {
+    //   type: 'ref', columnType: 'datetime',
+    // },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
