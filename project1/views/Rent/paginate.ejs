@@ -115,7 +115,7 @@
                         <!---->
                   
 <!--form-->
-                            <form action="/rent/paginate" method="get">
+                            <form action="/rent/paginate" method="post">
                     <div>
                         <h1>Property Search</h1>
                         <div class="row">
@@ -135,7 +135,7 @@
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
                                 <label>Bedroom:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-9">
-                                <input type="number" id="bedroom" min=1 max=4 class="form-control" name="bedroom">
+                                <input type="number" min=1 max=4 id="bedroom" class="form-control" name="bedroom">
                             </div>
                         </div>
                         <br>
@@ -169,14 +169,14 @@
                                 <label>Min:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="minrent" min=5000 max=60000 class="form-control"
-                                    name="minrent" ></div>
+                                    name="minrent"  ></div>
 
 
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
                                 <label>Max:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="maxrent" min=5000 max=60000 class="form-control"
-                                    name="maxrent" ></div>
+                                    name="maxrent"  ></div>
                         </div>
                         <br>
                    

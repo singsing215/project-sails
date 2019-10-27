@@ -112,9 +112,10 @@ module.exports = {
         const qminArea = parseInt(req.query.minarea);
         const qmaxRent = parseInt(req.query.maxrent);
         const qminRent = parseInt(req.query.minrent);
-
-
+        // var w = {};
+        // if (!isNaN(qBedroom)) w.Bedroom = qBedroom;
         if (isNaN(qBedroom)) {
+            console.log("qBEdroom", qBedroom);
             var models = await Rent.find({
                 limit: numOfItemsPerPage,
                 skip: numOfItemsPerPage * qPage,
@@ -122,21 +123,19 @@ module.exports = {
                 sort: 'estate'
             });
         } else {
-
             var models = await Rent.find({
                 limit: numOfItemsPerPage,
                 skip: numOfItemsPerPage * qPage,
                 where: { estate: qEstate, bedroom: qBedroom, area: { '>=': qminArea, '<=': qmaxArea },  rent: { '>=': qminRent, '<=': qmaxRent  }},
                 sort: 'estate'
             });
-    
         }
 
         if (!models) return res.notFound();
 
         var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
 
-        return res.view('rent/paginate', { rents: models, count: numOfPage, estate: qEstate, bedroom: qBedroom, maxarea: qmaxArea, minarea: qminArea, maxrent: qmaxRent, minrent: qminRent });
+        return res.view('rent/paginate', { rents: models, count: numOfPage });
 
     },
 
