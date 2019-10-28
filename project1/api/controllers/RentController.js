@@ -143,32 +143,6 @@ module.exports = {
     },
 
 
-    // search function
-    search: async function (req, res) {
-
-
-        const qEstate = req.body.Rent.estate;
-        const qBedroom = req.body.Rent.bedroom;
-        const qArea = req.body.Rent.area;
-        const qRent = req.body.Rent.rent;
-
-        var models = await Rent.find({
-
-            estate: req.body.Rent.estate,
-            bedroom: req.body.Rent.bedroom,
-            area: req.body.Rent.area,
-            rent: req.body.Rent.rent,
-
-            where: { estate: qEstate, bedroom: qBedroom, area: qArea, rent: qRent },
-            sort: 'estate'
-        });
-
-        if (!models) return res.notFound();
-
-        return res.view('rent/paginate', { rents: models });
-    },
-
-
 
     // action - home
     home: async function (req, res) {
