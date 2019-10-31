@@ -229,6 +229,27 @@ module.exports = {
     },
 
 
+    // action -occupants
+    occupants: async function (req, res) {
+
+        const qPage = Math.max(req.query.page - 1, 0) || 0;
+        const numOfItemsPerPage = 4;
+
+
+
+        var models = await Rent.find({
+            where: { property: "dummy" },
+            sort: 'created',
+            limit: numOfItemsPerPage,
+            skip: numOfItemsPerPage * qPage
+        });
+
+        var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
+
+        return res.view('rent/my', { rents: models, count: numOfPage });
+
+    },
+
 
 
 
