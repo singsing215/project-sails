@@ -73,6 +73,8 @@
             <td><%= model.title %></td>
             <td><%= model.estate %></td>
             <td><a href="http://localhost:1337/rent/update/<%= model.id %>">Edit</a></td>
+            <td><button type="button" class="btn btn-danger" onclick="deleteRent('<%= model.id %>')">Delete</button></td>
+
     
         </tr>
         <% }); %>
@@ -84,8 +86,33 @@
 
     <script>
 
+        async function deleteRent(id) {
 
+            var r = confirm("Confirm Delete?");
 
+            if (r) {
+
+                var response = await fetch("/rent/delete/" + id, {
+                    method: "POST",
+                    credentials: 'same-origin',
+                });
+
+                // var html = await response.text();
+                // alert(html);
+
+                if (response.ok) {
+                    var data = await response.json();
+                    alert(data.message);
+                    window.location = data.url;
+
+                } else {
+                    alert(response.status + ": " + response.statusText);
+                }
+            } else {
+                alert("cancelled");
+            }
+
+        };
 
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
