@@ -47,6 +47,8 @@ module.exports.routes = {
 'GET /rent/paginate': 'RentController.paginate',
 'POST /rent/paginate': 'RentController.paginate',
 
+'GET /rent/my' : 'RentController.my',
+'POST /rent/my' : 'RentController.my',
 
 
 'GET /rent/details/:id': 'RentController.details',

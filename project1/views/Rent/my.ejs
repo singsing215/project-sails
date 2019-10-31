@@ -47,9 +47,9 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link " href="http://localhost:1337/rent/paginate">Search</a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/my">My Rentals</a>
+                    <a class="nav-item nav-link active" href="http://localhost:1337/rent/my">My Rentals<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link " href="http://localhost:1337/rent/create">Create</a>
-                    <a class="nav-item nav-link active" href="http://localhost:1337/rent">Admin<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link " href="http://localhost:1337/rent">Admin</a>
 
                 </div>
             </div>
@@ -63,24 +63,13 @@
                 </p>
             </div>
         </div>
-        <div class="row">
-
-<!--index.ejs-->
-<table class="table">
-        <% rents.forEach( function(model) { %>
-        <tr>
-            <td><%= model.id %></td>
-            <td><%= model.title %></td>
-            <td><%= model.estate %></td>
-            <td><a href="http://localhost:1337/rent/update/<%= model.id %>">Edit</a></td>
-    
-        </tr>
-        <% }); %>
-    </table>
- 
-
-        </div>
     </div>
+
+
+
+
+
+
 
     <script>
 
@@ -100,8 +89,3 @@
 </body>
 
 </html>
-
-
-
-
-

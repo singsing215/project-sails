@@ -47,9 +47,12 @@ const hash = await sails.bcrypt.hash('123456', saltRounds);
 
 await User.createEach([
     { username: "admin", password: hash },
-    { username: "boss", password: hash }
+    { username: "martin", password: hash },
+    { username: "kenny", password: hash }
     // etc.
 ]);
+
+
 
 
 
