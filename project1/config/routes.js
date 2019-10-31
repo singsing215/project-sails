@@ -55,4 +55,11 @@ module.exports.routes = {
 '/' : 'RentController.home',
 
 'GET /rent/home': 'RentController.home',
+
+'GET /user/login': 'UserController.login',
+'POST /user/login': 'UserController.login',
+'POST /user/logout': 'UserController.logout',
+
+
+
 };
