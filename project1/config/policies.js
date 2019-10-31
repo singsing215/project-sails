@@ -10,6 +10,14 @@
 
 module.exports.policies = {
 
+  RentController: {
+
+    create: 'isAdmin',
+    update: 'isAdmin',
+    delete: 'isAdmin'
+
+}
+
   /***************************************************************************
   *                                                                          *
   * Default policy for all controllers and actions, unless overridden.       *
