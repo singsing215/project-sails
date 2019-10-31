@@ -54,13 +54,18 @@ module.exports = {
     // action - delete 
     delete: async function (req, res) {
 
-        if (req.method == "GET") return res.forbidden();
 
-        var models = await Rent.destroy(req.params.id).fetch();
 
-        if (models.length == 0) return res.notFound();
+        if (req.wantsJSON){
+            if (req.method == "GET") return res.forbidden();
 
-        return res.ok("Rent Deleted.");
+            var models = await Rent.destroy(req.params.id).fetch();
+    
+            if (models.length == 0) return res.notFound();
+            return res.json({message: "Rental information deleted.", url: '/'});    // for ajax request
+        } else {
+            return res.redirect('/');           // for normal request
+        }
 
     },
 

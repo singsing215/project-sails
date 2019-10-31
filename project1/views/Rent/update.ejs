@@ -99,7 +99,7 @@
                 </p>
             </div>
         </div>
-<!--form-->
+        <!--form-->
         <form action="/rent/update/<%= rent.id %>" method="POST">
 
             <div class="row">
@@ -136,8 +136,8 @@
                             id="property"></label></div>
 
                 <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>
-        <!--Updated-->
-                        <input type="hidden" class="form-control" name="Rent[updated]" id="updated" ></label>
+                        <!--Updated-->
+                        <input type="hidden" class="form-control" name="Rent[updated]" id="updated"></label>
                 </div>
 
                 <div id="div11" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
@@ -170,22 +170,54 @@
             <td></td>
             <td></td>
             <td>
-                <form action="/rent/delete/<%= rent.id %>" method="post">
-                    <button type="submit" class="btn btn-danger" color=red>Delete</button>
-                </form>
+                <!-- <form action="/rent/delete/<%= rent.id %>" method="post"> -->
+                <button type="button" class="btn btn-danger" onclick="deleteRent('<%= rent.id %>')">Delete</button>
+                <!-- </form> -->
             </td>
         </tr>
     </table>
-    
+
 
     <script>
         function btn1Clicked(elem) {
             var d = new Date().toLocaleDateString();
-            document.getElementById("updated").Value=d;
+            document.getElementById("updated").Value = d;
         };
 
 
-  
+
+
+    </script>
+
+    <script>
+
+        async function deleteRent(id) {
+
+            var r = confirm("Confirm Delete?");
+
+            if (r) {
+
+                var response = await fetch("/rent/delete/" + id, {
+                    method: "POST",
+                    credentials: 'same-origin',
+                });
+
+                // var html = await response.text();
+                // alert(html);
+
+                if (response.ok) {
+                    var data = await response.json();
+                    alert(data.message);
+                    window.location = data.url;
+
+                } else {
+                    alert(response.status + ": " + response.statusText);
+                }
+            } else {
+                alert("cancelled");
+            }
+
+        };
 
     </script>
 
