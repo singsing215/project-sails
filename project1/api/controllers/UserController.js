@@ -78,5 +78,23 @@ module.exports = {
     
     },
 
+
+    remove: async function (req, res) {
+
+        if (!await User.findOne(req.params.id)) return res.notFound();
+        
+        const thatRent = await Rent.findOne(req.params.fk).populate("rentby", {id: req.params.id});
+        
+        if (!thatRent) return res.notFound();
+    
+        if (!thatRent.rentby.length)
+            return res.status(409).send("Nothing to delete.");    // conflict
+    
+        await User.removeFromCollection(req.params.id, "renting").members(req.params.fk);
+    
+        return res.ok('Operation completed.');
+    
+    },
+
 };
 
