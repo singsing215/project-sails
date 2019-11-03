@@ -53,6 +53,13 @@ await User.createEach([
 ]);
 
 
+const martin = await User.findOne({username: "martin"});
+const kenny = await User.findOne({username: "kenny"});
+const admin = await User.findOne({username: "admin"});
+
+const r1 = await Rent.findOne({id:1});
+
+await User.addToCollection(martin.id, 'renting').members(r1.id);
 
 
 

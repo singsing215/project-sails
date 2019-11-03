@@ -43,6 +43,10 @@ module.exports = {
       type: "number"
     },
 
+    rentby: {
+      collection: 'user',
+      via: 'renting'
+    },
     // created: {
     //   type: 'ref', columnType: 'datetime',
     // },

@@ -54,15 +54,13 @@ module.exports = {
     // action - delete 
     delete: async function (req, res) {
 
-
-
         if (req.wantsJSON){
             if (req.method == "GET") return res.forbidden();
-
             var models = await Rent.destroy(req.params.id).fetch();
-    
             if (models.length == 0) return res.notFound();
+
             return res.json({message: "Rental information deleted.", url: '/'});    // for ajax request
+
         } else {
             return res.redirect('/');           // for normal request
         }
@@ -251,6 +249,14 @@ module.exports = {
     },
 
 
+    populate: async function (req, res) {
 
+        var model = await Rent.findOne(req.params.id).populate("rentby");
+    
+        if (!model) return res.notFound();
+    
+        return res.json(model);
+    
+    },
 
 };

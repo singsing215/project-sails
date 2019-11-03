@@ -120,6 +120,7 @@
                     </div>
 
                     <div class="col-12 col-sm-12 col-lg-4 col-xl-4" id="div1">
+                            
                             <div class="list-group">
 
                                     <a class="list-group-item list-group-item-action"> <div class="row"> <h5>Estate： </h4><%= rent.estate %></div></a>
@@ -129,8 +130,9 @@
                                     <a class="list-group-item list-group-item-action"><div class="row"><h5>Expected Tenants： </h4><%= rent.tenant %></div></a>
                                     <a class="list-group-item list-group-item-action"><div class=" row"><h5>Created：</h4><%= new Date(rent.createdAt).toLocaleDateString() %></div></a>
                                     <a class="list-group-item list-group-item-action"><div class="row"><h5>Updated：</h4><%= new Date(rent.updatedAt).toLocaleDateString() %></div></a>
-                                    
+                                    <a class="list-group-item list-group-item-action"><button type="submit" class="btn btn-primary" onclick="add('<%= rent.id %>')">co-rent</button></a>
                                   </div>
+                   
 
     
                     </div>
@@ -139,16 +141,29 @@
         </form>
     </div>
 
-    <script >
+    <script>
 
-       
-
-
-
-
-
-
-    </script>
+            async function add(id) {
+        
+                var r = confirm("Confirm Rent?");
+               
+                if (r) {
+        
+                    var response = await fetch("/user/add/" + id, {
+                        method: "POST",
+                        credentials: 'same-origin',
+                    });
+        
+                    var html = await response.text();
+                    alert(html);
+        
+                } else {
+                    alert("cancelled");
+                }
+        
+            };
+        
+        </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
