@@ -93,8 +93,8 @@
 
             if (r) {
 
-                var response = await fetch("/rent/delete/" + id, {
-                    method: "POST",
+                var response = await fetch("/rent/" + id, {
+                    method: "DELETE",
                     credentials: 'same-origin',
                 });
 
