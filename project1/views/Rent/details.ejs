@@ -66,7 +66,7 @@
             border-style: hidden
         }
 
-        #aab{
+        #aab {
             padding: 1px 30px 20px;
         }
     </style>
@@ -111,7 +111,7 @@
 
                 </div>
 
-                <div class="row" >
+                <div class="row">
                     <div class="col-12 col-sm-12 col-lg-7 col-xl-7">
                         <img class="img-fluid img-thumbnail" src="<%= rent.url %>" value="cover" width="500"
                             height="500" id="div01" />
@@ -120,21 +120,50 @@
                     </div>
 
                     <div class="col-12 col-sm-12 col-lg-4 col-xl-4" id="div1">
-                            
-                            <div class="list-group">
 
-                                    <a class="list-group-item list-group-item-action"> <div class="row"> <h5>Estate： </h4><%= rent.estate %></div></a>
-                                    <a class="list-group-item list-group-item-action"><div class="row"><h5>Gross Area： </h4><%= rent.area %></div></a>
-                                    <a class="list-group-item list-group-item-action"><div class=" row"><h5>Rent：</h4>$<%= rent.rent %></div></a>
-                                    <a class="list-group-item list-group-item-action"><div class="row"><h5>Bedrooms：</h4><%= rent.bedroom %></div></a>
-                                    <a class="list-group-item list-group-item-action"><div class="row"><h5>Expected Tenants： </h4><%= rent.tenant %></div></a>
-                                    <a class="list-group-item list-group-item-action"><div class=" row"><h5>Created：</h4><%= new Date(rent.createdAt).toLocaleDateString() %></div></a>
-                                    <a class="list-group-item list-group-item-action"><div class="row"><h5>Updated：</h4><%= new Date(rent.updatedAt).toLocaleDateString() %></div></a>
-                                    <a class="list-group-item list-group-item-action"><button type="submit" class="btn btn-primary" onclick="add('<%= rent.id %>')">co-rent</button></a>
-                                  </div>
-                   
+                        <div class="list-group">
 
-    
+                            <a class="list-group-item list-group-item-action">
+                                <div class="row">
+                                    <h5>Estate： </h4><%= rent.estate %>
+                                </div>
+                            </a>
+                            <a class="list-group-item list-group-item-action">
+                                <div class="row">
+                                    <h5>Gross Area： </h4><%= rent.area %>
+                                </div>
+                            </a>
+                            <a class="list-group-item list-group-item-action">
+                                <div class=" row">
+                                    <h5>Rent：</h4>$<%= rent.rent %>
+                                </div>
+                            </a>
+                            <a class="list-group-item list-group-item-action">
+                                <div class="row">
+                                    <h5>Bedrooms：</h4><%= rent.bedroom %>
+                                </div>
+                            </a>
+                            <a class="list-group-item list-group-item-action">
+                                <div class="row">
+                                    <h5>Expected Tenants： </h4><%= rent.tenant %>
+                                </div>
+                            </a>
+                            <a class="list-group-item list-group-item-action">
+                                <div class=" row">
+                                    <h5>Created：</h4><%= new Date(rent.createdAt).toLocaleDateString() %>
+                                </div>
+                            </a>
+                            <a class="list-group-item list-group-item-action">
+                                <div class="row">
+                                    <h5>Updated：</h4><%= new Date(rent.updatedAt).toLocaleDateString() %>
+                                </div>
+                            </a>
+                            <a class="list-group-item list-group-item-action"><button type="botton"
+                                    class="btn btn-primary" onclick="add()">co-rent</button></a>
+                        </div>
+
+
+
                     </div>
                 </div>
             </div>
@@ -142,28 +171,25 @@
     </div>
 
     <script>
+//http://localhost:1337/user/2/renting/add/2
+//http://localhost:1337/user/2/renting/remove/2
+        async function add() {
 
-            async function add(id) {
-        
-                var r = confirm("Confirm Rent?");
-               
-                if (r) {
-        
-                    var response = await fetch("/user/add/" + id, {
-                        method: "POST",
-                        credentials: 'same-origin',
-                    });
-        
-                    var html = await response.text();
-                    alert(html);
-        
-                } else {
-                    alert("cancelled");
-                }
-        
-            };
-        
-        </script>
+            var r = confirm("Confirm Rent?");
+
+            if (r) {
+                var response = await fetch("/rent/details" + id, {method: "POST",credentials: 'same-origin',});
+                
+                const martin = await User.findOne({username: "martin"});
+                const r1 = await Rent.findOne({id:1});
+                await User.addToCollection(martin.id, 'renting').members(r1.id);
+            } else {
+                alert("cancelled");
+            }
+
+        };
+
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
