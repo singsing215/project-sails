@@ -72,7 +72,7 @@
             <td><%= model.id %></td>
             <td><%= model.title %></td>
             <td><%= model.estate %></td>
-            <td><a href="http://localhost:1337/rent/occupants/<%= model.id %>">Occupants</a></td>
+            <td><a href="http://localhost:1337/rent/<%= model.id %>/rentby">Occupants</a></td>
             <td><a href="http://localhost:1337/rent/update/<%= model.id %>">Edit</a></td>
             <td><button type="button" class="btn btn-danger" onclick="deleteRent('<%= model.id %>')">Delete</button></td>
 

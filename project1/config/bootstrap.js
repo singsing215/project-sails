@@ -47,19 +47,21 @@ const hash = await sails.bcrypt.hash('123456', saltRounds);
 
 await User.createEach([
     { username: "admin", password: hash },
-    { username: "martin", password: hash },
-    { username: "kenny", password: hash }
+    { username: "martin", password: hash,id:1 },
+    { username: "kenny", password: hash,id:2 }
     // etc.
 ]);
 
 
 const martin = await User.findOne({username: "martin"});
 const kenny = await User.findOne({username: "kenny"});
-const admin = await User.findOne({username: "admin"});
 
 const r1 = await Rent.findOne({id:1});
+const r2 = await Rent.findOne({id:2});
+const r3 = await Rent.findOne({id:3});
+const r4 = await Rent.findOne({id:4});
 
-await User.addToCollection(martin.id, 'renting').members(r1.id);
+
 
 
 
