@@ -49,6 +49,7 @@ await User.createEach([
     { username: "admin", password: hash },
     { username: "martin", password: hash,id:1 },
     { username: "kenny", password: hash,id:2 }
+
     // etc.
 ]);
 

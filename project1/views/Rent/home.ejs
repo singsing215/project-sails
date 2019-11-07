@@ -23,8 +23,8 @@
 
 
 </head>
-
-<body onload="pageLoaded()">
+<body οnlοad="init()">
+<!-- <body onload="pageLoaded()"> -->
     <div class="container ">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="http://localhost:1337/">Home</a>
@@ -35,9 +35,9 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="http://localhost:1337/rent/paginate">Search </a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/my" style = 'display:none'>My Rentals</a>
-                    <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style = 'display:none'>Create</a>
-                    <a class="nav-item nav-link" href="http://localhost:1337/rent" style = 'display:none'>Admin</a>
+                    <a class="nav-item nav-link " href="http://localhost:1337/rent/my" style = 'display:inline' id='myrent'>My Rentals</a>
+                    <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style = 'display:inline' id='create'>Create</a>
+                    <a class="nav-item nav-link" href="http://localhost:1337/rent" style = 'display:inline' id='admin'>Admin</a>
 
                 </div>
 
@@ -99,7 +99,30 @@
    </div>
 
     <script>
+       
+        window.onload = function(){
 
+            var create=document.getElementById("create");
+           console.log(create);
+
+            var admin=document.getElementById("admin");
+            var myrent=document.getElementById("myrent");    
+
+      	  if("<%= req.session.username %>" == 'admin'){
+                myrent.style.display='none';
+            }else if("<%= req.session.username %>" == 'kenny'){
+                create.style.display='none';
+                admin.style.display='none';
+            }else if("<%= req.session.username %>" == 'martin'){
+                create.style.display='none';
+                admin.style.display='none';
+            }else {
+                create.style.display='none';
+                admin.style.display='none';
+                myrent.style.display='none';
+            }
+            
+        }
  
 
     </script>

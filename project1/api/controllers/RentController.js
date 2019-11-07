@@ -149,6 +149,12 @@ module.exports = {
 
     // action - home
     home: async function (req, res) {
+        
+        if(!req.session.username){
+        var visitor = "123";
+        req.session.username = visitor;
+        req.session.abc = visitor;
+        }
 
         const qPage = Math.max(req.query.page - 1, 0) || 0;
         const numOfItemsPerPage = 4;
