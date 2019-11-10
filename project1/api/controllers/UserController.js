@@ -9,6 +9,12 @@ module.exports = {
   
     login: async function (req, res) {
 
+        if(!req.session.username){
+            var visitor = "123";
+            req.session.username = visitor;
+            req.session.abc = visitor;
+            }
+
         if (req.method == "GET") return res.view('user/login');
     
         if (!req.body.username || !req.body.password) return res.badRequest();
