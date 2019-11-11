@@ -70,7 +70,7 @@
 
 </head>
 
-<body onload="pageLoaded()">
+<body οnlοad="init()">
     <form action="/Rent/create" method="POST">
         <div class="container ">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -82,9 +82,9 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-item nav-link " href="http://localhost:1337/rent/paginate">Search</a>
-                        <a class="nav-item nav-link " href="http://localhost:1337/rent/my">My Rentals</a>
-                        <a class="nav-item nav-link active" href="http://localhost:1337/rent/create">Create <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="http://localhost:1337/rent">Admin</a>
+                        <a class="nav-item nav-link " href="http://localhost:1337/rent/my" style = 'display:inline' id='myrent'>My Rentals</a>
+                        <a class="nav-item nav-link active" href="http://localhost:1337/rent/create" style = 'display:inline' id='create'>Create <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="http://localhost:1337/rent" style = 'display:inline' id='admin'>Admin</a>
 
                     </div>
                 </div>
@@ -152,6 +152,30 @@
 
     </form>
     <script>
+
+window.onload = function(){
+
+var create=document.getElementById("create");
+console.log(create);
+
+var admin=document.getElementById("admin");
+var myrent=document.getElementById("myrent");    
+
+if("<%= req.session.username %>" == 'admin'){
+    myrent.style.display='none';
+}else if("<%= req.session.username %>" == 'kenny'){
+    create.style.display='none';
+    admin.style.display='none';
+}else if("<%= req.session.username %>" == 'martin'){
+    create.style.display='none';
+    admin.style.display='none';
+}else {
+    create.style.display='none';
+    admin.style.display='none';
+    myrent.style.display='none';
+}
+
+};
 
 function btn1Clicked(elem) {
             var d = new Date().toLocaleDateString();

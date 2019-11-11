@@ -10,6 +10,12 @@ module.exports = {
     // action - create
     create: async function (req, res) {
 
+        if(!req.session.username){
+            var visitor = "123";
+            req.session.username = visitor;
+            req.session.abc = visitor;
+            }
+
         if (req.method == "GET")
             return res.view('rent/create');
 
@@ -33,6 +39,12 @@ module.exports = {
 
     // action - index
     index: async function (req, res) {
+
+        if(!req.session.username){
+            var visitor = "123";
+            req.session.username = visitor;
+            req.session.abc = visitor;
+            }
 
         var models = await Rent.find();
         return res.view('rent/index', { rents: models });
