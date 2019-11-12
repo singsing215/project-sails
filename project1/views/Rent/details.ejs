@@ -163,8 +163,10 @@
                                     <h5>Updated：</h4><%= new Date(rent.updatedAt).toLocaleDateString() %>
                                 </div>
                             </a>
-                            <a class="list-group-item list-group-item-action"><button type="botton"
-                                    class="btn btn-primary" onclick="btn1Clicked(this)">Co-Rent</button></a>
+                            <!-- <form action="http://localhost:1337/user/2/renting/add/2" method="POST"> -->
+                            <button type="submit"
+                                    class="btn btn-primary" style = 'display:none' id='botton'>Co-Rent</button>
+                            <!-- </form> -->
                         </div>
 
 
@@ -178,22 +180,18 @@
     <script>
 //http://localhost:1337/user/2/renting/add/2
 //http://localhost:1337/user/2/renting/remove/2
-        function btn1Clicked(elem) {
+        // function btn1Clicked(elem) {
 
-            var r = confirm("Confirm Rent?");
+        //     var r = confirm("Confirm Rent?");
 
-            if (r) {
-                // var response = await fetch("/rent/details" + id, {method: "POST",credentials: 'same-origin',});
-                
-                // const martin = await User.findOne({username: "martin"});
-                // const r1 = await Rent.findOne({id:1});
-                // await User.addToCollection(martin.id, 'renting').members(r1.id);
-                elem.innerHTML = "Move-Out";
-            } else {
-                alert("cancelled");
-            }
+        //     if (r) {
 
-        };
+        //         elem.innerHTML = "Move-Out";
+        //     } else {
+        //         alert("cancelled");
+        //     }
+
+        // };
 
         window.onload = function(){
 
@@ -214,12 +212,14 @@ if("<%= req.session.username %>" == 'admin'){
     login.style.display='none';
     logout.style.display='inline';
     hikenny.style.display='inline';
+    botton.style.display='inline';
 }else if("<%= req.session.username %>" == 'martin'){
     create.style.display='none';
     admin.style.display='none';
     login.style.display='none';
     logout.style.display='inline';
     himartin.style.display='inline';
+        botton.style.display='inline';
 }else {
     create.style.display='none';
     admin.style.display='none';
