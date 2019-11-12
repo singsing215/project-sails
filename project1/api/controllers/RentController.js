@@ -82,6 +82,12 @@ module.exports = {
     // action - update
     update: async function (req, res) {
 
+        if(!req.session.username){
+            var visitor = "123";
+            req.session.username = visitor;
+            req.session.abc = visitor;
+            }
+
         if (req.method == "GET") {
 
             var model = await Rent.findOne(req.params.id);
@@ -192,67 +198,7 @@ module.exports = {
         return res.view('rent/home', { rents: models, count: numOfPage });
     },
 
-    // action - adhome
-    adhome: async function (req, res) {
-
-        const qPage = Math.max(req.query.page - 1, 0) || 0;
-        const numOfItemsPerPage = 4;
-
-
-
-        var models = await Rent.find({
-            where: { property: "dummy" },
-            sort: 'created',
-            limit: numOfItemsPerPage,
-            skip: numOfItemsPerPage * qPage
-        });
-
-        var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
-
-        return res.view('rent/adhome', { rents: models, count: numOfPage });
-    },
-
-        // action - khome
-        khome: async function (req, res) {
-
-            const qPage = Math.max(req.query.page - 1, 0) || 0;
-            const numOfItemsPerPage = 4;
-    
-    
-    
-            var models = await Rent.find({
-                where: { property: "dummy" },
-                sort: 'created',
-                limit: numOfItemsPerPage,
-                skip: numOfItemsPerPage * qPage
-            });
-    
-            var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
-    
-            return res.view('rent/khome', { rents: models, count: numOfPage });
-        },
-
-                // action - mhome
-                mhome: async function (req, res) {
-
-                    const qPage = Math.max(req.query.page - 1, 0) || 0;
-                    const numOfItemsPerPage = 4;
-            
-            
-            
-                    var models = await Rent.find({
-                        where: { property: "dummy" },
-                        sort: 'created',
-                        limit: numOfItemsPerPage,
-                        skip: numOfItemsPerPage * qPage
-                    });
-            
-                    var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
-            
-                    return res.view('rent/mhome', { rents: models, count: numOfPage });
-                },
-    
-
+ 
 
 
 

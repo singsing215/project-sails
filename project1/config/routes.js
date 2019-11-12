@@ -36,12 +36,6 @@ module.exports.routes = {
  'GET /rent/create' : 'RentController.create',
  'POST /rent/create' : 'RentController.create',
 
- 'GET /rent/adhome' : 'RentController.adhome',
- 'POST /rent/adhome' : 'RentController.adhome',
- 'GET /rent/khome' : 'RentController.khome',
- 'POST /rent/khome' : 'RentController.khome',
- 'GET /rent/mhome' : 'RentController.mhome',
- 'POST /rent/mhome' : 'RentController.mhome',
 
  'GET /rent/json' : 'RentController.json',
  'GET /rent/index' : 'RentController.index',

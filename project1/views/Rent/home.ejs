@@ -42,7 +42,7 @@
                 </div>
 
             </div>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/login" id='Login'>Login</a>
+            <a class="nav-item nav-link" href="http://localhost:1337/user/login" style = 'display:inline' id='login'>Login</a>
         </nav>
 
         <div class="jumbotron jumbotron-fluid">
@@ -110,6 +110,7 @@
 
       	  if("<%= req.session.username %>" == 'admin'){
                 myrent.style.display='none';
+                login.style.display='none';
             }else if("<%= req.session.username %>" == 'kenny'){
                 create.style.display='none';
                 admin.style.display='none';
