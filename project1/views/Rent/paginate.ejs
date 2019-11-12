@@ -28,9 +28,10 @@
         #div04 {
             border-style: solid
         }
-        #div1{
-    padding: 20px 20px 20px;
-}
+
+        #div1 {
+            padding: 20px 20px 20px;
+        }
     </style>
 
 
@@ -49,9 +50,12 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="http://localhost:1337/rent/paginate">Search<span
                             class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link " href="http://localhost:1337/rent/my" style = 'display:inline' id='myrent'>My Rentals</a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/create" style = 'display:inline' id='create'>Create</a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent" style = 'display:inline' id='admin'>Admin</a>
+                    <a class="nav-item nav-link " href="http://localhost:1337/rent/my" style='display:inline'
+                        id='myrent'>My Rentals</a>
+                    <a class="nav-item nav-link " href="http://localhost:1337/rent/create" style='display:inline'
+                        id='create'>Create</a>
+                    <a class="nav-item nav-link " href="http://localhost:1337/rent" style='display:inline'
+                        id='admin'>Admin</a>
 
                 </div>
             </div>
@@ -67,39 +71,46 @@
         </div>
 
 
-        
+
 
         <div class="row">
 
             <div id="div01" class="card col-12 col-sm-8 col-lg-8 col-xl-8">
 
                 <div class="row">
-                        <% rents.forEach( function(model) { %>
+                    <% rents.forEach( function(model) { %>
                     <div class="col-6 col-sm-6 col-lg-6 col-xl-6" id="div1">
 
-                        
+
 
                         <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="250"
                             height="250" />
 
-                            <br><h5><a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a></h5>
+                        <br>
+                        <h5><a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a></h5>
                 <br>
-                        <ul class="list-group">
-                                <li class="list-group-item"><label><h5>Estate:</h5></label> <%= model.estate %></li>
-                                <li class="list-group-item"><label><h5>Gross Area:</h5></label> <%= model.area %> sq feet</li>
-                                <li class="list-group-item"><label><h5>Rent:</h5></label> $<%= model.rent %></li>
+                        <ul class=" list-group">
+                                <li class="list-group-item"><label>
+                                        <h5>Estate:</h5>
+                                    </label> <%= model.estate %></li>
+                                <li class="list-group-item"><label>
+                                        <h5>Gross Area:</h5>
+                                    </label> <%= model.area %> sq feet</li>
+                                <li class="list-group-item"><label>
+                                        <h5>Rent:</h5>
+                                    </label> $<%= model.rent %></li>
 
-                              </ul>
-                                
-                    
-                    
+                                </ul>
+
+
+
                     </div>
                     <% }); %>
-                    
+
                     <div id=" div01" class="card col-6 col-sm-6 col-lg-6 col-xl-6">
 
 
-                        </div>
+                    </div>
 
 
                 </div>
@@ -109,14 +120,14 @@
 
 
             </div>
-         
-   
-       
-                    <div id="div01" class="card col-12 col-sm-4 col-lg-4 col-xl-4">
-                        <!---->
-                  
-<!--form-->
-                            <form action="/rent/paginate" method="get">
+
+
+
+            <div id="div01" class="card col-12 col-sm-4 col-lg-4 col-xl-4">
+                <!---->
+
+                <!--form-->
+                <form action="/rent/paginate" method="get">
                     <div>
                         <h1>Property Search</h1>
                         <div class="row">
@@ -131,7 +142,8 @@
                                     <option value="AKVO Hotel">AKVO Hotel</option>
                                 </select></div>
                         </div>
-                        <br><!--bedroom-->
+                        <br>
+                        <!--bedroom-->
                         <div class="row">
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
                                 <label>Bedroom:</label></div>
@@ -149,15 +161,15 @@
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
                                 <label>Min:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
-                                <input type="number" id="minarea" min=30 max=2000 class="form-control"
-                                    name="minarea" ></div>
+                                <input type="number" id="minarea" min=30 max=2000 class="form-control" name="minarea">
+                            </div>
 
 
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
                                 <label>Max:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
-                                <input type="number" id="maxarea" min=30 max=2000 class="form-control"
-                                    name="maxarea" ></div>
+                                <input type="number" id="maxarea" min=30 max=2000 class="form-control" name="maxarea">
+                            </div>
                         </div>
                         <br>
                         <div class="row">
@@ -170,98 +182,98 @@
                                 <label>Min:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="minrent" min=5000 max=60000 class="form-control"
-                                    name="minrent"  ></div>
+                                    name="minrent"></div>
 
 
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
                                 <label>Max:</label></div>
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
                                 <input type="number" id="maxrent" min=5000 max=60000 class="form-control"
-                                    name="maxrent"  ></div>
+                                    name="maxrent"></div>
                         </div>
                         <br>
-                   
-                           
-                        <button type="submit" class="btn btn-primary">Search</button>    
-                                     
 
-                    
+
+                        <button type="submit" class="btn btn-primary">Search</button>
+
+
+
 
                     </div>
                 </form>
-          
-                </div>
-                 
-                </div>
-
-          
-
-
-
-                <% const current = parseInt(req.query.page) || 1; %>
-
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="/rent/paginate/?page=<%= Math.max(current-1, 1) %>">Previous</a>
-                        </li>
-
-                        <% for (i = 1; i <= count; i++) { %>
-                        <li class="page-item">
-                            <a class="page-link" href="/rent/paginate/?page=<%= i %>"><%= i %></a>
-                        </li>
-                        <% } %>
-
-                        <li class="page-item">
-                            <a class="page-link" href="/rent/paginate/?page=<%= Math.min(current+1, count) %>">Next</a>
-                        </li>
-                    </ul>
-                </nav>
-
 
             </div>
 
+        </div>
 
 
 
 
-            <script>
-        window.onload = function(){
 
-var create=document.getElementById("create");
-console.log(create);
+        <% const current = parseInt(req.query.page) || 1; %>
 
-var admin=document.getElementById("admin");
-var myrent=document.getElementById("myrent");    
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="/rent/paginate/?page=<%= Math.max(current-1, 1) %>">Previous</a>
+                </li>
 
-if("<%= req.session.username %>" == 'admin'){
-    myrent.style.display='none';
-}else if("<%= req.session.username %>" == 'kenny'){
-    create.style.display='none';
-    admin.style.display='none';
-}else if("<%= req.session.username %>" == 'martin'){
-    create.style.display='none';
-    admin.style.display='none';
-}else {
-    create.style.display='none';
-    admin.style.display='none';
-    myrent.style.display='none';
-}
+                <% for (i = 1; i <= count; i++) { %>
+                <li class="page-item">
+                    <a class="page-link" href="/rent/paginate/?page=<%= i %>"><%= i %></a>
+                </li>
+                <% } %>
 
-}
+                <li class="page-item">
+                    <a class="page-link" href="/rent/paginate/?page=<%= Math.min(current+1, count) %>">Next</a>
+                </li>
+            </ul>
+        </nav>
 
 
+    </div>
 
-            </script>
-            <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-                crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-                crossorigin="anonymous"></script>
+
+
+
+
+    <script>
+        window.onload = function () {
+
+            var create = document.getElementById("create");
+            console.log(create);
+
+            var admin = document.getElementById("admin");
+            var myrent = document.getElementById("myrent");
+
+            if ("<%= req.session.username %>" == 'admin') {
+                myrent.style.display = 'none';
+            } else if ("<%= req.session.username %>" == 'kenny') {
+                create.style.display = 'none';
+                admin.style.display = 'none';
+            } else if ("<%= req.session.username %>" == 'martin') {
+                create.style.display = 'none';
+                admin.style.display = 'none';
+            } else {
+                create.style.display = 'none';
+                admin.style.display = 'none';
+                myrent.style.display = 'none';
+            }
+
+        }
+
+
+
+    </script>
+    <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

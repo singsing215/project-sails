@@ -259,6 +259,12 @@ module.exports = {
     // action - details
     details: async function (req, res) {
 
+        if(!req.session.username){
+            var visitor = "123";
+            req.session.username = visitor;
+            req.session.abc = visitor;
+            }
+
         if (req.method == "GET") {
 
             var model = await Rent.findOne(req.params.id);
