@@ -88,6 +88,11 @@
 
                     </div>
                 </div>
+                <a class="nav-item nav-link" href="http://localhost:1337/user/login" style = 'display:inline' id='login'>Login</a>
+            <text style = 'display:none' id='hiadmin'><h5>hi,admin</h5></text>
+            <text style = 'display:none' id='himartin'><h5>hi,martin</h5></text>
+            <text style = 'display:none' id='hikenny'><h5>hi,kenny</h5></text>
+            <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style = 'display:none' id='logout'>Logout</a>
             </nav>
 
             <div class="jumbotron jumbotron-fluid">
@@ -163,19 +168,28 @@ var myrent=document.getElementById("myrent");
 
 if("<%= req.session.username %>" == 'admin'){
     myrent.style.display='none';
+    login.style.display='none';
+    logout.style.display='inline';
+    hiadmin.style.display='inline';
 }else if("<%= req.session.username %>" == 'kenny'){
     create.style.display='none';
     admin.style.display='none';
+    login.style.display='none';
+    logout.style.display='inline';
+    hikenny.style.display='inline';
 }else if("<%= req.session.username %>" == 'martin'){
     create.style.display='none';
     admin.style.display='none';
+    login.style.display='none';
+    logout.style.display='inline';
+    himartin.style.display='inline';
 }else {
     create.style.display='none';
     admin.style.display='none';
     myrent.style.display='none';
 }
 
-};
+}
 
 function btn1Clicked(elem) {
             var d = new Date().toLocaleDateString();
