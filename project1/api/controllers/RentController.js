@@ -10,11 +10,11 @@ module.exports = {
     // action - create
     create: async function (req, res) {
 
-        if(!req.session.username){
+        if (!req.session.username) {
             var visitor = "123";
             req.session.username = visitor;
             req.session.abc = visitor;
-            }
+        }
 
         if (req.method == "GET")
             return res.view('rent/create');
@@ -40,11 +40,11 @@ module.exports = {
     // action - index
     index: async function (req, res) {
 
-        if(!req.session.username){
+        if (!req.session.username) {
             var visitor = "123";
             req.session.username = visitor;
             req.session.abc = visitor;
-            }
+        }
 
         var models = await Rent.find();
         return res.view('rent/index', { rents: models });
@@ -66,12 +66,12 @@ module.exports = {
     // action - delete 
     delete: async function (req, res) {
 
-        if (req.wantsJSON){
+        if (req.wantsJSON) {
             if (req.method == "GET") return res.forbidden();
             var models = await Rent.destroy(req.params.id).fetch();
             if (models.length == 0) return res.notFound();
 
-            return res.json({message: "Rental information deleted.", url: '/'});    // for ajax request
+            return res.json({ message: "Rental information deleted.", url: '/' });    // for ajax request
 
         } else {
             return res.redirect('/');           // for normal request
@@ -82,11 +82,11 @@ module.exports = {
     // action - update
     update: async function (req, res) {
 
-        if(!req.session.username){
+        if (!req.session.username) {
             var visitor = "123";
             req.session.username = visitor;
             req.session.abc = visitor;
-            }
+        }
 
         if (req.method == "GET") {
 
@@ -125,16 +125,16 @@ module.exports = {
     // action - paginate + search
     paginate: async function (req, res) {
 
-        if(!req.session.username){
+        if (!req.session.username) {
             var visitor = "123";
             req.session.username = visitor;
             req.session.abc = visitor;
-            }
+        }
 
         const qPage = Math.max(req.query.page - 1, 0) || 0;
         const numOfItemsPerPage = 2;
 
-        const qEstate = req.query.estate ;
+        const qEstate = req.query.estate;
         const qBedroom = parseInt(req.query.bedroom);
         const qmaxArea = parseInt(req.query.maxarea);
         const qminArea = parseInt(req.query.minarea);
@@ -148,7 +148,7 @@ module.exports = {
                 limit: numOfItemsPerPage,
                 skip: numOfItemsPerPage * qPage,
 
-                where: { estate:qEstate },
+                where: { estate: qEstate },
                 sort: 'estate'
             });
         } else {
@@ -156,7 +156,7 @@ module.exports = {
                 limit: numOfItemsPerPage,
                 skip: numOfItemsPerPage * qPage,
 
-                where: { estate: qEstate, bedroom: qBedroom, area: { '>=': qminArea, '<=': qmaxArea },  rent: { '>=': qminRent, '<=': qmaxRent  }},
+                where: { estate: qEstate, bedroom: qBedroom, area: { '>=': qminArea, '<=': qmaxArea }, rent: { '>=': qminRent, '<=': qmaxRent } },
                 sort: 'estate'
             });
         }
@@ -174,11 +174,11 @@ module.exports = {
 
     // action - home
     home: async function (req, res) {
-        
-        if(!req.session.username){
-        var visitor = "123";
-        req.session.username = visitor;
-        req.session.abc = visitor;
+
+        if (!req.session.username) {
+            var visitor = "123";
+            req.session.username = visitor;
+            req.session.abc = visitor;
         }
 
         const qPage = Math.max(req.query.page - 1, 0) || 0;
@@ -198,18 +198,18 @@ module.exports = {
         return res.view('rent/home', { rents: models, count: numOfPage });
     },
 
- 
+
 
 
 
     // action - details
     details: async function (req, res) {
 
-        if(!req.session.username){
+        if (!req.session.username) {
             var visitor = "123";
             req.session.username = visitor;
             req.session.abc = visitor;
-            }
+        }
 
         if (req.method == "GET") {
 
@@ -244,25 +244,25 @@ module.exports = {
 
 
     // action - my 
-    my: async function (req, res) {
+    // my: async function (req, res) {
 
-        const qPage = Math.max(req.query.page - 1, 0) || 0;
-        const numOfItemsPerPage = 4;
+    //     const qPage = Math.max(req.query.page - 1, 0) || 0;
+    //     const numOfItemsPerPage = 4;
 
 
 
-        var models = await Rent.find({
-            where: { property: "dummy" },
-            sort: 'created',
-            limit: numOfItemsPerPage,
-            skip: numOfItemsPerPage * qPage
-        });
+    //     var models = await Rent.find({
+    //         where: { property: "dummy" },
+    //         sort: 'created',
+    //         limit: numOfItemsPerPage,
+    //         skip: numOfItemsPerPage * qPage
+    //     });
 
-        var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
+    //     var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
 
-        return res.view('rent/my', { rents: models, count: numOfPage });
+    //     return res.view('rent/my', { rents: models, count: numOfPage });
 
-    },
+    // },
 
 
     // action -occupants
@@ -290,11 +290,11 @@ module.exports = {
     populate: async function (req, res) {
 
         var model = await Rent.findOne(req.params.id).populate("rentby");
-    
+
         if (!model) return res.notFound();
-    
+
         return res.json(model);
-    
+
     },
 
 };

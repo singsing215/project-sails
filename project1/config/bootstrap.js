@@ -9,7 +9,7 @@
  * https://sailsjs.com/config/bootstrap
  */
 
-module.exports.bootstrap = async function() {
+module.exports.bootstrap = async function () {
 
   sails.bcrypt = require('bcryptjs');
   const saltRounds = 10;
@@ -31,36 +31,36 @@ module.exports.bootstrap = async function() {
   // ```
 
 
-if (await Rent.count() == 0) {
+  if (await Rent.count() == 0) {
 
-  await Rent.createEach([
-    {id:1, title: "半山自住品味靚裝-三房兩廁-中高層開揚景觀", estate:"Robinson Heights", url: "https://i1.28hse.com/2019/09/938689_2019094721.jpg", bedroom:3, area:899, tenant:5, rent:43000, property:"dummy"},
-    {id:2, title: "銅鑼灣2房2廳。即租即住。優質罕盤。", estate:"Hoi deen Court", url:"https://i1.28hse.com/2019/10/951089_2019104698.jpg", bedroom:2, area:700, tenant:3, rent:26500, property:"dummy" },
-    {id:3, title: "形品星寓。3分鐘到地鐵站", estate:"Lime Stardom", url:"https://i1.28hse.com/2019/09/930790_2019095031.jpg", bedroom:1, area:390, tenant:2, rent:19000, property:"dummy" },
-    {id:4, title: "中上環服務式住宅 2分鐘到地鐵", estate:"AKVO Hotel", url:" https://i1.28hse.com/2019/10/955789_2019101877.jpg", bedroom:1, area:605, tenant:2, rent:35000, property:"dummy" }
-  ]);
+    await Rent.createEach([
+      { id: 1, title: "半山自住品味靚裝-三房兩廁-中高層開揚景觀", estate: "Robinson Heights", url: "https://i1.28hse.com/2019/09/938689_2019094721.jpg", bedroom: 3, area: 899, tenant: 5, rent: 43000, property: "dummy" },
+      { id: 2, title: "銅鑼灣2房2廳。即租即住。優質罕盤。", estate: "Hoi deen Court", url: "https://i1.28hse.com/2019/10/951089_2019104698.jpg", bedroom: 2, area: 700, tenant: 3, rent: 26500, property: "dummy" },
+      { id: 3, title: "形品星寓。3分鐘到地鐵站", estate: "Lime Stardom", url: "https://i1.28hse.com/2019/09/930790_2019095031.jpg", bedroom: 1, area: 390, tenant: 2, rent: 19000, property: "dummy" },
+      { id: 4, title: "中上環服務式住宅 2分鐘到地鐵", estate: "AKVO Hotel", url: " https://i1.28hse.com/2019/10/955789_2019101877.jpg", bedroom: 1, area: 605, tenant: 2, rent: 35000, property: "dummy" }
+    ]);
 
-}
+  }
 
 
-const hash = await sails.bcrypt.hash('123456', saltRounds);
+  const hash = await sails.bcrypt.hash('123456', saltRounds);
 
-await User.createEach([
+  await User.createEach([
     { username: "admin", password: hash },
-    { username: "martin", password: hash,id:1 },
-    { username: "kenny", password: hash,id:2 }
+    { username: "martin", password: hash, id: 1 },
+    { username: "kenny", password: hash, id: 2 }
 
     // etc.
-]);
+  ]);
 
 
-const martin = await User.findOne({username: "martin"});
-const kenny = await User.findOne({username: "kenny"});
+  const martin = await User.findOne({ username: "martin" });
+  const kenny = await User.findOne({ username: "kenny" });
 
-const r1 = await Rent.findOne({id:1});
-const r2 = await Rent.findOne({id:2}); 
-const r3 = await Rent.findOne({id:3});
-const r4 = await Rent.findOne({id:4});
+  const r1 = await Rent.findOne({ id: 1 });
+  const r2 = await Rent.findOne({ id: 2 });
+  const r3 = await Rent.findOne({ id: 3 });
+  const r4 = await Rent.findOne({ id: 4 });
 
 
 
