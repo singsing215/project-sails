@@ -167,6 +167,7 @@
 
                             
                                 <button type="button" onclick="btn1Clicked(this)"><a href="http://localhost:1337/user/2/renting/add/<%= rent.id %>" style = 'display:none' id='botton'>Co-Rent</a></button>
+                                <button type="button" onclick="btn1Clicked(this)"><a href="http://localhost:1337/user/2/renting/remove/<%= rent.id %>" style = 'display:none' id='botton2'>Move out</a></button>
 
                                 
                             <!-- </form> -->
@@ -184,7 +185,7 @@
 //http://localhost:1337/user/2/renting/add/2
 //http://localhost:1337/user/2/renting/remove/2
 function btn1Clicked(elem) {
-            elem.innerHTML = "Move out";
+    elem.style = 'display:inline';
         };
 
         window.onload = function(){
@@ -207,6 +208,7 @@ if("<%= req.session.username %>" == 'admin'){
     logout.style.display='inline';
     hikenny.style.display='inline';
     botton.style.display='inline';
+    botton2.style.display='inline';
 }else if("<%= req.session.username %>" == 'martin'){
     create.style.display='none';
     admin.style.display='none';
