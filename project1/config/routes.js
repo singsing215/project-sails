@@ -71,5 +71,6 @@ module.exports.routes = {
 'GET /rent/:id/rentby': 'RentController.populate',
 'GET /user/:id/renting': 'UserController.populate',
 'POST /user/:id/renting/add/:fk': 'UserController.add',
+'GET /user/:id/renting/add/:fk': 'UserController.add',
 'POST /user/:id/renting/remove/:fk': 'UserController.remove',
 };

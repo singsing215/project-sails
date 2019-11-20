@@ -164,8 +164,11 @@
                                 </div>
                             </a>
                             <!-- <form action="http://localhost:1337/user/2/renting/add/2" method="POST"> -->
-                            <button type="submit"
-                                    class="btn btn-primary" style = 'display:none' id='botton'>Co-Rent</button>
+
+                            
+                                <button type="button" onclick="btn1Clicked(this)"><a href="http://localhost:1337/user/2/renting/add/<%= rent.id %>" style = 'display:none' id='botton'>Co-Rent</a></button>
+
+                                
                             <!-- </form> -->
                         </div>
 
@@ -180,18 +183,9 @@
     <script>
 //http://localhost:1337/user/2/renting/add/2
 //http://localhost:1337/user/2/renting/remove/2
-        // function btn1Clicked(elem) {
-
-        //     var r = confirm("Confirm Rent?");
-
-        //     if (r) {
-
-        //         elem.innerHTML = "Move-Out";
-        //     } else {
-        //         alert("cancelled");
-        //     }
-
-        // };
+function btn1Clicked(elem) {
+            elem.innerHTML = "Move out";
+        };
 
         window.onload = function(){
 
