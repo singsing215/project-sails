@@ -35,8 +35,10 @@ module.exports = {
 
         req.session.destroy(function (err) {
             if (err) return res.serverError(err);
-            return res.ok("Log out successfully.");
+            return res.redirect("/");
+            
         });
+
     },
 
     populate: async function (req, res) {
