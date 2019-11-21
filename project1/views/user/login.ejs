@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="http://localhost:1337/rent/paginate">Search </a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/user/2/renting" style='display:inline'
+                    <a class="nav-item nav-link " href="http://localhost:1337/user/2/renting" style='display:none'
                         id='myrent'>My Rentals</a>
                     <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style='display:inline'
                         id='create'>Create</a>
@@ -98,7 +98,7 @@ if("<%= req.session.username %>" == 'admin'){
     login.style.display='none';
     logout.style.display='inline';
     hikenny.style.display='inline';
-    myrent2.style.display='inline';
+    myrent.style.display='inline';
 }else if("<%= req.session.username %>" == 'martin'){
     create.style.display='none';
     admin.style.display='none';
