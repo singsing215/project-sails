@@ -86,18 +86,28 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link " href="http://localhost:1337/rent/paginate">Search</a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/user/2/renting" style = 'display:inline' id='myrent'>My Rentals</a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/create" style = 'display:inline' id='create'>Create</a>
-                    <a class="nav-item nav-link active" href="http://localhost:1337/rent" style = 'display:inline' id='admin'>Admin<span
-                            class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link " href="http://localhost:1337/user/2/renting" style='display:inline'
+                        id='myrent'>My Rentals</a>
+                    <a class="nav-item nav-link " href="http://localhost:1337/rent/create" style='display:inline'
+                        id='create'>Create</a>
+                    <a class="nav-item nav-link active" href="http://localhost:1337/rent" style='display:inline'
+                        id='admin'>Admin<span class="sr-only">(current)</span></a>
 
                 </div>
             </div>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/login" style = 'display:inline' id='login'>Login</a>
-            <text style = 'display:none' id='hiadmin'><h5>hi,admin</h5></text>
-            <text style = 'display:none' id='himartin'><h5>hi,martin</h5></text>
-            <text style = 'display:none' id='hikenny'><h5>hi,kenny</h5></text>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style = 'display:none' id='logout'>Logout</a>
+            <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline'
+                id='login'>Login</a>
+            <text style='display:none' id='hiadmin'>
+                <h5>hi,admin</h5>
+            </text>
+            <text style='display:none' id='himartin'>
+                <h5>hi,martin</h5>
+            </text>
+            <text style='display:none' id='hikenny'>
+                <h5>hi,kenny</h5>
+            </text>
+            <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style='display:none'
+                id='logout'>Logout</a>
         </nav>
 
         <div class="jumbotron jumbotron-fluid">
@@ -165,15 +175,17 @@
                             </a>
                             <!-- <form action="http://localhost:1337/user/2/renting/add/2" method="POST"> -->
 
-                            
-                                <!-- <button type="button" onclick="btn1Clicked(this)"><a href="http://localhost:1337/user/2/renting/add/<%= rent.id %>" style = 'display:none' id='botton'>Co-Rent</a></button>
+
+                            <!-- <button type="button" onclick="btn1Clicked(this)"><a href="http://localhost:1337/user/2/renting/add/<%= rent.id %>" style = 'display:none' id='botton'>Co-Rent</a></button>
                                 <button type="button" onclick="btn1Clicked(this)"><a href="http://localhost:1337/user/2/renting/remove/<%= rent.id %>" style = 'display:none' id='botton2'>Move out</a></button> -->
-                                <a href="http://localhost:1337/user/2/renting/add/<%= rent.id %>" style = 'display:none' id='botton'>
-                                    <input type=button value="Co-Rent" >
-                                </a>
-                                <a href="http://localhost:1337/user/2/renting/remove/<%= rent.id %>" style = 'display:none' id='botton2'>
-                                    <input type=button value="Move out" >
-                                </a>
+                            <a href="http://localhost:1337/user/2/renting/add/<%= rent.id %>" style='display:none'
+                                id='botton'>
+                                <input type=button value="Co-Rent">
+                            </a>
+                            <a href="http://localhost:1337/user/2/renting/remove/<%= rent.id %>" style='display:none'
+                                id='botton2'>
+                                <input type=button value="Move out">
+                            </a>
                             <!-- </form> -->
                         </div>
 
@@ -186,47 +198,47 @@
     </div>
 
     <script>
-//http://localhost:1337/user/2/renting/add/2
-//http://localhost:1337/user/2/renting/remove/2
-function btn1Clicked(elem) {
-    elem.style = 'display:inline';
+        //http://localhost:1337/user/2/renting/add/2
+        //http://localhost:1337/user/2/renting/remove/2
+        function btn1Clicked(elem) {
+            elem.style = 'display:inline';
         };
 
-        window.onload = function(){
+        window.onload = function () {
 
-var create=document.getElementById("create");
-console.log(create);
+            var create = document.getElementById("create");
+            console.log(create);
 
-var admin=document.getElementById("admin");
-var myrent=document.getElementById("myrent");    
+            var admin = document.getElementById("admin");
+            var myrent = document.getElementById("myrent");
 
-if("<%= req.session.username %>" == 'admin'){
-    myrent.style.display='none';
-    login.style.display='none';
-    logout.style.display='inline';
-    hiadmin.style.display='inline';
-}else if("<%= req.session.username %>" == 'kenny'){
-    create.style.display='none';
-    admin.style.display='none';
-    login.style.display='none';
-    logout.style.display='inline';
-    hikenny.style.display='inline';
-    botton.style.display='inline';
-    botton2.style.display='inline';
-}else if("<%= req.session.username %>" == 'martin'){
-    create.style.display='none';
-    admin.style.display='none';
-    login.style.display='none';
-    logout.style.display='inline';
-    himartin.style.display='inline';
-        botton.style.display='inline';
-}else {
-    create.style.display='none';
-    admin.style.display='none';
-    myrent.style.display='none';
-}
+            if ("<%= req.session.username %>" == 'admin') {
+                myrent.style.display = 'none';
+                login.style.display = 'none';
+                logout.style.display = 'inline';
+                hiadmin.style.display = 'inline';
+            } else if ("<%= req.session.username %>" == 'kenny') {
+                create.style.display = 'none';
+                admin.style.display = 'none';
+                login.style.display = 'none';
+                logout.style.display = 'inline';
+                hikenny.style.display = 'inline';
+                botton.style.display = 'inline';
+                botton2.style.display = 'inline';
+            } else if ("<%= req.session.username %>" == 'martin') {
+                create.style.display = 'none';
+                admin.style.display = 'none';
+                login.style.display = 'none';
+                logout.style.display = 'inline';
+                himartin.style.display = 'inline';
+                botton.style.display = 'inline';
+            } else {
+                create.style.display = 'none';
+                admin.style.display = 'none';
+                myrent.style.display = 'none';
+            }
 
-}
+        }
 
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
