@@ -52,8 +52,8 @@ module.exports.routes = {
 // 'GET /rent/my' : 'RentController.my',
 // 'POST /rent/my' : 'RentController.my',
 
-'GET /rent/occupants' : 'RentController.occupants',
-'POST /rent/occupants' : 'RentController.occupants',
+// 'GET /rent/occupants' : 'RentController.occupants',
+// 'POST /rent/occupants' : 'RentController.occupants',
 
 
 'GET /rent/details/:id': 'RentController.details',

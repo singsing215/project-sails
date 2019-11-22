@@ -15,8 +15,8 @@ module.exports.policies = {
     create: 'isAdmin',
     update: 'isAdmin',
     delete: 'isAdmin',
-    occupants: 'isAdmin',
-    my:'isUser'
+    // occupants: 'isAdmin',
+    // my:'isUser'
 
 
 }

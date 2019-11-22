@@ -54,13 +54,7 @@ module.exports.bootstrap = async function () {
   ]);
 
 
-  const martin = await User.findOne({ username: "martin" });
-  const kenny = await User.findOne({ username: "kenny" });
 
-  const r1 = await Rent.findOne({ id: 1 });
-  const r2 = await Rent.findOne({ id: 2 });
-  const r3 = await Rent.findOne({ id: 3 });
-  const r4 = await Rent.findOne({ id: 4 });
 
 
 
