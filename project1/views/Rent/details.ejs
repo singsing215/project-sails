@@ -178,13 +178,11 @@
 
                             <!-- <button type="button" onclick="btn1Clicked(this)"><a href="http://localhost:1337/user/2/renting/add/<%= rent.id %>" style = 'display:none' id='botton'>Co-Rent</a></button>
                                 <button type="button" onclick="btn1Clicked(this)"><a href="http://localhost:1337/user/2/renting/remove/<%= rent.id %>" style = 'display:none' id='botton2'>Move out</a></button> -->
-                            <a href="http://localhost:1337/user/2/renting/add/<%= rent.id %>" style='display:none'
-                                id='botton'>
-                                <input type=button value="Co-Rent" onclick="btn1Clicked(this)">
+                            <a style='display:none' id='botton'>
+                                <input type=button value="Co-Rent" onclick="corent('<%= rent.id %>')">
                             </a>
-                            <a href="http://localhost:1337/user/2/renting/remove/<%= rent.id %>" style='display:none'
-                                id='botton2'>
-                                <input type=button value="Move out">
+                            <a style='display:none' id='botton2'>
+                                <input type=button value="Move out" onclick="remove('<%= rent.id %>')">
                             </a>
                             <!-- </form> -->
                         </div>
@@ -200,14 +198,52 @@
     <script>
         //http://localhost:1337/user/2/renting/add/2
         //http://localhost:1337/user/2/renting/remove/2
-        function btn1Clicked(elem) {
-            if(rentby.username.length>=rent.tenant){
-                return res.view('rent/detail',{model:rent, message:"Already full."});
-            }
-            
-            elem.style = 'display:inline';
 
+        async function corent(id) {
+            var r = confirm("Confirm Rent?");
+            if (r) {
+                var response = await fetch("/user/2/renting/add/" + id, {
+                    method: "POST",
+                    credentials: 'same-origin',
+                });
+                if (response.ok) {
+                    var data = await response.json();
+                    alert(data.message);
+                    window.location = data.url;
+                } else {
+                    alert(response.status + ": " + response.statusText);
+                }
+            } else {
+                alert("cancelled");
+            }
         };
+
+        async function remove(id) {
+            var r = confirm("Confirm Remove?");
+            if (r) {
+                var response = await fetch("/user/2/renting/remove/" + id, {
+                    method: "POST",
+                    credentials: 'same-origin',
+                });
+                if (response.ok) {
+                    var data = await response.json();
+                    alert(data.message);
+                    window.location = data.url;
+                } else {
+                    alert(response.status + ": " + response.statusText);
+                }
+            } else {
+                alert("cancelled");
+            }
+        };
+        // function btn1Clicked(elem) {
+        //     if (rentby.username.length >= rent.tenant) {
+        //         return res.view('rent/detail', { model: rent, message: "Already full." });
+        //     }
+
+        //     elem.style = 'display:inline';
+
+        // };
 
         window.onload = function () {
 

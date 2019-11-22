@@ -36,7 +36,7 @@ module.exports = {
         req.session.destroy(function (err) {
             if (err) return res.serverError(err);
             return res.redirect("/");
-            
+
         });
 
     },
@@ -52,41 +52,60 @@ module.exports = {
     },
 
 
-
     add: async function (req, res) {
+        if (req.wantsJSON) {
 
-        if (!await User.findOne(req.params.id)) return res.notFound();
+            if (!await User.findOne(req.params.id)) return res.notFound();
+            const thatRent = await Rent.findOne(req.params.fk).populate("rentby", { id: req.params.id });
+            if (!thatRent) return res.notFound();
+            if (thatRent.rentby.length)
 
-        const thatRent = await Rent.findOne(req.params.fk).populate("rentby", { id: req.params.id });
-
-        if (!thatRent) return res.notFound();
-
-        if (thatRent.rentby.length)
-            return res.status(409).send("Already rent.");   // conflict
-
-        await User.addToCollection(req.params.id, "renting").members(req.params.fk);
-
-        return res.ok('Operation completed.');
-
+                return res.json({ message: "Already rent.", url: '/' });
+            await User.addToCollection(req.params.id, "renting").members(req.params.fk);
+            return res.json({ message: 'Operation completed.', url: '/' });
+        } else {
+            return res.redirect('/');           // for normal request
+        }
     },
 
+    // add: async function (req, res) {
 
+    //     if (!await User.findOne(req.params.id)) return res.notFound();
+    //     const thatRent = await Rent.findOne(req.params.fk).populate("rentby", { id: req.params.id });
+    //     if (!thatRent) return res.notFound();
+    //     if (thatRent.rentby.length)
+    //         return res.status(409).send("Already rent.");   // conflict
+
+    //     await User.addToCollection(req.params.id, "renting").members(req.params.fk);
+    //     return res.ok('Operation completed.');
+
+    // },
     remove: async function (req, res) {
+        if (req.wantsJSON) {
 
-        if (!await User.findOne(req.params.id)) return res.notFound();
+            if (!await User.findOne(req.params.id)) return res.notFound();
+            const thatRent = await Rent.findOne(req.params.fk).populate("rentby", { id: req.params.id });
+            if (!thatRent) return res.notFound();
+            if (!thatRent.rentby.length)
 
-        const thatRent = await Rent.findOne(req.params.fk).populate("rentby", { id: req.params.id });
-
-        if (!thatRent) return res.notFound();
-
-        if (!thatRent.rentby.length)
-            return res.status(409).send("Nothing to delete.");    // conflict
-
-        await User.removeFromCollection(req.params.id, "renting").members(req.params.fk);
-
-        return res.ok('Operation completed.');
-
+                return res.json({ message: "Nothing to delete.", url: '/' });
+                await User.removeFromCollection(req.params.id, "renting").members(req.params.fk);
+            return res.json({ message: 'Operation completed.', url: '/' });
+        } else {
+            return res.redirect('/');           // for normal request
+        }
     },
+
+    // remove: async function (req, res) {
+    //     if (!await User.findOne(req.params.id)) return res.notFound();
+    //     const thatRent = await Rent.findOne(req.params.fk).populate("rentby", { id: req.params.id });
+    //     if (!thatRent) return res.notFound();
+    //     if (!thatRent.rentby.length)
+    //         return res.status(409).send("Nothing to delete.");    // conflict
+    //     await User.removeFromCollection(req.params.id, "renting").members(req.params.fk);
+    //     return res.ok('Operation completed.');
+
+    // },
 
 };
 
