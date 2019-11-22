@@ -59,8 +59,11 @@ module.exports = {
             const thatRent = await Rent.findOne(req.params.fk).populate("rentby", { id: req.params.id });
             if (!thatRent) return res.notFound();
             if (thatRent.rentby.length)
-
                 return res.json({ message: "Already rent.", url: '/' });
+
+                if (thatRent.rentby.username >= thatRent.rent.tenant) //Make sure there’s enough room (tenants) from the properties.
+                    return res.json({ message: 'Already full.', url: '/' });
+                
             await User.addToCollection(req.params.id, "renting").members(req.params.fk);
             return res.json({ message: 'Operation completed.', url: '/' });
         } else {

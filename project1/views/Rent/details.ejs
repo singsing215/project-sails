@@ -230,6 +230,7 @@
                     var data = await response.json();
                     alert(data.message);
                     window.location = data.url;
+                    location.reload(true);
                 } else {
                     alert(response.status + ": " + response.statusText);
                 }
@@ -238,9 +239,9 @@
             }
         };
         // function btn1Clicked(elem) {
-        //     if (rentby.username.length >= rent.tenant) {
-        //         return res.view('rent/detail', { model: rent, message: "Already full." });
-        //     }
+            // if (rentby.username.length >= rent.tenant) {
+            //     return res.view('rent/detail', { model: rent, message: "Already full." });
+            // }
 
         //     elem.style = 'display:inline';
 
