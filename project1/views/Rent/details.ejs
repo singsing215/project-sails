@@ -210,6 +210,7 @@
                     var data = await response.json();
                     alert(data.message);
                     window.location = data.url;
+                    location.reload(true);
                 } else {
                     alert(response.status + ": " + response.statusText);
                 }
