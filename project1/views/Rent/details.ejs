@@ -180,7 +180,7 @@
                                 <button type="button" onclick="btn1Clicked(this)"><a href="http://localhost:1337/user/2/renting/remove/<%= rent.id %>" style = 'display:none' id='botton2'>Move out</a></button> -->
                             <a href="http://localhost:1337/user/2/renting/add/<%= rent.id %>" style='display:none'
                                 id='botton'>
-                                <input type=button value="Co-Rent">
+                                <input type=button value="Co-Rent" onclick="btn1Clicked(this)">
                             </a>
                             <a href="http://localhost:1337/user/2/renting/remove/<%= rent.id %>" style='display:none'
                                 id='botton2'>
@@ -201,7 +201,12 @@
         //http://localhost:1337/user/2/renting/add/2
         //http://localhost:1337/user/2/renting/remove/2
         function btn1Clicked(elem) {
+            if(rentby.username.length>=rent.tenant){
+                return res.view('rent/detail',{model:rent, message:"Already full."});
+            }
+            
             elem.style = 'display:inline';
+
         };
 
         window.onload = function () {
