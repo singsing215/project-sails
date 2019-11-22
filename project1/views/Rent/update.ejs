@@ -226,26 +226,26 @@
 
         }
 
-        sync function deleteRent(id) {
+        // sync function deleteRent(id) {
 
-            var r = confirm("Confirm Delete?");
+        //     var r = confirm("Confirm Delete?");
 
-            if (r) {
-                var response = await fetch("/rent/delete/" + id, { method: "POST", credentials: 'same-origin' });
-                // var html = await response.text();
-                // alert(html);
-                if (response.ok) {
-                    var data = await response.json();
-                    alert(data.message);
-                    window.location = data.url;
-                } else {
-                    alert(response.status + ": " + response.statusText);
-                }
-            }
-            else {
-                alert("cancelled");
-            }
-        };
+        //     if (r) {
+        //         var response = await fetch("/rent/delete/" + id, { method: "POST", credentials: 'same-origin' });
+        //         // var html = await response.text();
+        //         // alert(html);
+        //         if (response.ok) {
+        //             var data = await response.json();
+        //             alert(data.message);
+        //             window.location = data.url;
+        //         } else {
+        //             alert(response.status + ": " + response.statusText);
+        //         }
+        //     }
+        //     else {
+        //         alert("cancelled");
+        //     }
+        // };
 
     </script>
 
