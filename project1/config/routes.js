@@ -57,6 +57,7 @@ module.exports.routes = {
 
 
 'GET /rent/details/:id': 'RentController.details',
+
 '/' : 'RentController.home',
 
 'GET /rent/home': 'RentController.home',

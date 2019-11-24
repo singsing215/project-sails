@@ -204,25 +204,30 @@ module.exports = {
 
     // action - details
     details: async function (req, res) {
-
         if (!req.session.username) {
             var visitor = "123";
             req.session.username = visitor;
             req.session.abc = visitor;
         }
+        if (!req.session.message) {
+            var msg = "123";
+            req.session.message = msg;
+        }
 
         if (req.method == "GET") {
-
+            // var model = await Rent.findOne(req.params.id);
+            // if (!model) return res.notFound();
+            // return res.view('rent/details', { rent: model });
             var model = await Rent.findOne(req.params.id);
-
             if (!model) return res.notFound();
-
-            return res.view('rent/details', { rent: model });
-
+            var thatRent = await Rent.findOne(req.params.id).populate("rentby");
+            if (!thatRent) return res.notFound();
+            if (thatRent.rentby.length >= Rent.tenant) return res.view('rent/details', { rent: model, message: "full" }); 
+            const thatRentby = await Rent.findOne(req.params.id).populate("rentby", { id:"2" });//req.session userId
+            if (thatRentby.rentby.length) return res.view('rent/details', { rent: model, message: "moveout" });
+            if (!thatRentby.rentby.length) return res.view('rent/details', { rent: model, message: "corent" });
         } else {
-
             if (!req.body.Rent) return res.badRequest("Form-data not received.");
-
             var models = await Rent.details(req.params.id).set({
                 title: req.body.Rent.title,
                 url: req.body.Rent.url,
@@ -231,16 +236,42 @@ module.exports = {
                 area: req.body.Rent.area,
                 tenant: req.body.Rent.tenant,
                 rent: req.body.Rent.rent
-
-
-
             }).fetch();
-
             if (models.length == 0) return res.notFound();
-
-            return res.ok("Record updated");
         }
+
     },
+
+    // detail: async function (req, res) {
+    //     if (!req.session.username) {
+    //         var visitor = "123";
+    //         req.session.username = visitor;
+    //         req.session.abc = visitor;
+    //     }
+    //     if (!req.session.message) {
+    //         var msg = "corent";
+    //         req.session.message = msg;
+    //     }
+
+    //     var model = await Rent.findOne(req.params.id);
+    //     if (!model) return res.notFound();
+    //     var thatRent = await Rent.findOne(req.params.id).populate("rentby");
+    //     if (!thatRent) return res.notFound();
+    //     const thatRentby = await Rent.findOne(req.params.id).populate("rentby", { id: "2" });
+    //     if (thatRentby.rentby.length)
+    //         return res.view('rent/details', { rent: model, message: "moveout" });
+    //     if (thatRent.rentby.length >= Rent.tenant) { return res.view('rent/details', { rent: model, message: "full" }); }
+    //     return res.view('rent/details', { rent: model, message: "corent" });
+
+
+        // var thatRent = await rent.findOne(req.params.fk).populate("rentby");
+        // const thatUser = await User.findOne(req.params.id).populate("renting", {id: req.rent.id});
+        // const thatRent = await Rent.findOne(req.params.id).populate("rentby", {username: req.session.username});
+        // if (thatRent.rentby.length){return res.view('rent/details', {model:rent, message:"moveout"});}
+        // if (thatRent.rentby.length >= rent.tenant){return res.view('rent/details', {model:rent, message:"full"});}
+        // if (!thatRent.rentby.length){return res.view('rent/details', {model:rent, message:"corent"});}
+
+    // },
 
 
     // action - my 

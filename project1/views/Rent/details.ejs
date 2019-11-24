@@ -119,6 +119,7 @@
             </div>
         </div>
         <form action="/rent/details/<%= rent.id %>" method="POST">
+            <!-- <form action="/rent/detail/<%= rent.id %>" method="POST"> -->
             <div class="card" id="aab">
                 <br>
                 <div class="col-12 col-sm-12 col-lg-12 col-xl-12">
@@ -192,6 +193,7 @@
                     </div>
                 </div>
             </div>
+        <!-- </form> -->
         </form>
     </div>
 
@@ -247,46 +249,46 @@
 
         // };
 
-        window.onload = function () {
+                window.onload = function () {
+            var create = document.getElementById("create");
+            var admin = document.getElementById("admin");
+            var myrent = document.getElementById("myrent");
+            if ("<%= req.session.username %>" == 'admin') {
+                myrent.style.display = 'none';
+                login.style.display = 'none';
+                logout.style.display = 'inline';
+                hiadmin.style.display = 'inline';
+            } else if ("<%= req.session.username %>" == 'kenny') {
+                create.style.display = 'none';
+                admin.style.display = 'none';
+                login.style.display = 'none';
+                logout.style.display = 'inline';
+                hikenny.style.display = 'inline';
+//                 botton.style.display = 'inline';
+//                 botton2.style.display = 'inline';
+                // botton2.style.display = 'none';
+            } else if ("<%= req.session.username %>" == 'martin') {
+                create.style.display = 'none';
+                admin.style.display = 'none';
+                login.style.display = 'none';
+                logout.style.display = 'inline';
+                himartin.style.display = 'inline';
+                // botton.style.display = 'inline';
+            }else {
+                create.style.display = 'none';
+                admin.style.display = 'none';
+                myrent.style.display = 'none';
+            }
 
-// var check = document.getElementById("status").innerHTML;
-// if (check == "rented"){
-//     document.getElementById("botton").setAttribute("style","display:none");
-//     document.getElementById("botton2").setAttribute("style","display:inline");
-// }
-
-            var create = document.getElementById("create");
-            var admin = document.getElementById("admin");
-            var myrent = document.getElementById("myrent");
-
-            if ("<%= req.session.username %>" == 'admin') {
-                myrent.style.display = 'none';
-                login.style.display = 'none';
-                logout.style.display = 'inline';
-                hiadmin.style.display = 'inline';
-            } else if ("<%= req.session.username %>" == 'kenny') {
-                create.style.display = 'none';
-                admin.style.display = 'none';
-                login.style.display = 'none';
-                logout.style.display = 'inline';
-                hikenny.style.display = 'inline';
-                botton.style.display = 'inline';
-                botton2.style.display = 'inline';
-                // botton2.style.display = 'none';
-            } else if ("<%= req.session.username %>" == 'martin') {
-                create.style.display = 'none';
-                admin.style.display = 'none';
-                login.style.display = 'none';
-                logout.style.display = 'inline';
-                himartin.style.display = 'inline';
-                botton.style.display = 'inline';
-            } else {
-                create.style.display = 'none';
-                admin.style.display = 'none';
-                myrent.style.display = 'none';
-            }
-
-        }
+            if ("<%= req.session.message %>" == 'moveout') {
+                botton2.style.display = 'inline';
+            }else if("<%= req.session.message %>" == 'full'){
+                botton.style.display = 'none';
+                botton2.style.display = 'none';
+            }else if("<%= req.session.message %>" == 'corent'){
+                botton.style.display = 'inline';
+            }
+        }
 
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
