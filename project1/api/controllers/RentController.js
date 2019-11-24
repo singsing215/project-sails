@@ -209,23 +209,39 @@ module.exports = {
             req.session.username = visitor;
             req.session.abc = visitor;
         }
-        if (!req.session.message) {
-            var msg = "123";
-            req.session.message = msg;
+        if (req.session.username == 'kenny') {
+            var thatRent = await Rent.findOne(req.params.id).populate("rentby");
+            const thatRentby = await Rent.findOne(req.params.id).populate("rentby", { id: req.session.userId });
+        if (thatRentby.rentby.length == 0) {
+            req.session.message = "corent";
         }
-
+        if (thatRentby.rentby.length >= 1) {
+            req.session.message = "moveout";
+        }
+        if (thatRent.rentby.length >= Rent.tenant){
+            req.session.message = "full";
+        }
+    }
         if (req.method == "GET") {
             // var model = await Rent.findOne(req.params.id);
             // if (!model) return res.notFound();
             // return res.view('rent/details', { rent: model });
+
             var model = await Rent.findOne(req.params.id);
             if (!model) return res.notFound();
             var thatRent = await Rent.findOne(req.params.id).populate("rentby");
             if (!thatRent) return res.notFound();
-            if (thatRent.rentby.length >= Rent.tenant) return res.view('rent/details', { rent: model, message: "full" }); 
-            const thatRentby = await Rent.findOne(req.params.id).populate("rentby", { id:"2" });//req.session userId
-            if (thatRentby.rentby.length) return res.view('rent/details', { rent: model, message: "moveout" });
-            if (!thatRentby.rentby.length) return res.view('rent/details', { rent: model, message: "corent" });
+            if (thatRent.rentby.length >= Rent.tenant){
+            return res.view('rent/details', { rent: model, message: "full" });
+        }
+            const thatRentby = await Rent.findOne(req.params.id).populate("rentby", { id: req.session.userId });//req.session.userId
+            if (thatRentby.rentby.length >= 1) {
+            return res.view('rent/details', { rent: model, message: "moveout" });
+        }
+            if (thatRentby.rentby.length == 0){
+                return res.view('rent/details', { rent: model, message: "corent" });
+            } 
+            sails.log("[Session] ", req.session);
         } else {
             if (!req.body.Rent) return res.badRequest("Form-data not received.");
             var models = await Rent.details(req.params.id).set({

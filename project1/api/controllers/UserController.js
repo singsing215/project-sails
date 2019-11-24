@@ -61,7 +61,7 @@ module.exports = {
             if (thatRent.rentby.length)
                 return res.json({ message: "Already rent.", url: '/' });
 
-                if (thatRent.rentby.username >= thatRent.rent.tenant) //Make sure there’s enough room (tenants) from the properties.
+                if (thatRent.rentby.length >= Rent.tenant) //Make sure there’s enough room (tenants) from the properties.
                     return res.json({ message: 'Already full.', url: '/' });
                 
             await User.addToCollection(req.params.id, "renting").members(req.params.fk);

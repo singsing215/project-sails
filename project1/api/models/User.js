@@ -26,7 +26,7 @@ module.exports = {
     },
 
 
-status:{
+message:{
   type: "string"
 },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
