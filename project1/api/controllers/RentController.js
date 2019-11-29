@@ -142,7 +142,7 @@ module.exports = {
         const qminRent = parseInt(req.query.minrent);
         // var models = {};
         // if (!isNaN(qBedroom)) models.Bedroom = qBedroom;
-        if (isNaN(qBedroom)) {
+        if (isNaN(qmaxArea)) {
 
             var models = await Rent.find({
                 limit: numOfItemsPerPage,
@@ -150,11 +150,11 @@ module.exports = {
                 where: { estate: qEstate },
                 sort: 'estate'
             });
-        } else if(!isNaN(qBedroom)){
+        } else if(!isNaN(qmaxArea)){
             var models = await Rent.find({
                 limit: numOfItemsPerPage,
                 skip: numOfItemsPerPage * qPage,
-                where: { bedroom: qBedroom },
+                where: { area: {'<=': qmaxArea } },
                 sort: 'estate'
             });
         } else {
@@ -162,7 +162,7 @@ module.exports = {
                 limit: numOfItemsPerPage,
                 skip: numOfItemsPerPage * qPage,
 
-                where: { estate: qEstate, bedroom: qBedroom },
+                where: { estate: qEstate, area: {'<=': qmaxArea } },
                 sort: 'estate'
             });
         }
