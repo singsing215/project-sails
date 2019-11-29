@@ -140,15 +140,21 @@ module.exports = {
         const qminArea = parseInt(req.query.minarea);
         const qmaxRent = parseInt(req.query.maxrent);
         const qminRent = parseInt(req.query.minrent);
-        // var w = {};
-        // if (!isNaN(qBedroom)) w.Bedroom = qBedroom;
-        if (isNaN(qmaxRent)) {
+        // var models = {};
+        // if (!isNaN(qBedroom)) models.Bedroom = qBedroom;
+        if (isNaN(qBedroom)) {
 
             var models = await Rent.find({
                 limit: numOfItemsPerPage,
                 skip: numOfItemsPerPage * qPage,
-
                 where: { estate: qEstate },
+                sort: 'estate'
+            });
+        } else if(!isNaN(qBedroom)){
+            var models = await Rent.find({
+                limit: numOfItemsPerPage,
+                skip: numOfItemsPerPage * qPage,
+                where: { bedroom: qBedroom },
                 sort: 'estate'
             });
         } else {
@@ -156,11 +162,10 @@ module.exports = {
                 limit: numOfItemsPerPage,
                 skip: numOfItemsPerPage * qPage,
 
-                where: { estate: qEstate, bedroom: qBedroom, area: { '>=': qminArea, '<=': qmaxArea }, rent: { '>=': qminRent, '<=': qmaxRent } },
+                where: { estate: qEstate, bedroom: qBedroom },
                 sort: 'estate'
             });
         }
-
 
         if (!models) return res.notFound();
 
