@@ -37,7 +37,11 @@ module.exports.bootstrap = async function () {
       { id: 1, title: "半山自住品味靚裝-三房兩廁-中高層開揚景觀", estate: "Robinson Heights", url: "https://i1.28hse.com/2019/09/938689_2019094721.jpg", bedroom: 3, area: 899, tenant: 5, rent: 43000, property: "dummy" },
       { id: 2, title: "銅鑼灣2房2廳。即租即住。優質罕盤。", estate: "Hoi deen Court", url: "https://i1.28hse.com/2019/10/951089_2019104698.jpg", bedroom: 2, area: 700, tenant: 3, rent: 26500, property: "dummy" },
       { id: 3, title: "形品星寓。3分鐘到地鐵站", estate: "Lime Stardom", url: "https://i1.28hse.com/2019/09/930790_2019095031.jpg", bedroom: 1, area: 390, tenant: 2, rent: 19000, property: "dummy" },
-      { id: 4, title: "中上環服務式住宅 2分鐘到地鐵", estate: "AKVO Hotel", url: " https://i1.28hse.com/2019/10/955789_2019101877.jpg", bedroom: 1, area: 605, tenant: 2, rent: 35000, property: "dummy" }
+      { id: 4, title: "中上環服務式住宅 2分鐘到地鐵", estate: "AKVO Hotel", url: " https://i1.28hse.com/2019/10/955789_2019101877.jpg", bedroom: 1, area: 605, tenant: 2, rent: 35000, property: "dummy" },
+      { id: 5, title: "極近地鐵！全包家私！3人房間", estate: "Robinson Heights", url: "https://i1.28hse.com/2018/07/640386_2018070545.jpg", bedroom: 3, area: 695, tenant: 4, rent: 39000, property: "" },
+      { id: 6, title: "新裝特色Studio", estate: "Hoi deen Court", url: "https://i1.28hse.com/2018/04/574152_2018042996.jpg", bedroom: 1, area: 150, tenant: 1, rent: 8000, property: "" },
+      { id: 7, title: "3房1廳電梯洋樓，豪華全新裝修", estate: "Lime Stardom", url: "https://i1.28hse.com/2019/11/1011832_2019111529.jpg", bedroom: 3, area: 955, tenant: 5, rent: 49000, property: "" },
+      { id: 8, title: "獨立套房，齊傢電，景觀開揚", estate: "AKVO Hotel", url: "https://i1.28hse.com/2018/05/1011605_2018052995.jpg", bedroom: 2, area: 655, tenant: 3, rent: 25000, property: "" }
     ]);
 
   }

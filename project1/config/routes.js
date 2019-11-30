@@ -64,6 +64,7 @@ module.exports.routes = {
 
 'GET /rent/home': 'RentController.home',
 'GET /rent/jhome': 'RentController.jhome',
+'GET /rent/jestate': 'RentController.jestate',
 
 'GET /user/login': 'UserController.login',
 'POST /user/login': 'UserController.login',

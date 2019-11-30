@@ -31,9 +31,7 @@ module.exports = {
 
     // json function
     json: async function (req, res) {
-
         var rents = await Rent.find();
-
         return res.json(rents);
     },
 
@@ -167,6 +165,10 @@ module.exports = {
         return res.view('rent/paginate', { rents: models, count: numOfPage });
     },
 
+    jestate: async function (req, res) {
+        var rents = await Rent.find();
+        return res.json(rents);
+    },
     // json - to search max bedroom
     jpaginate: async function (req, res) {
         const qEstate = req.query.estate;
