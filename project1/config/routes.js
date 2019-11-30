@@ -47,6 +47,8 @@ module.exports.routes = {
 'POST /rent/update/:id': 'RentController.update',
 
 'GET /rent/paginate': 'RentController.paginate',
+'GET /rent/jpaginate': 'RentController.jpaginate',
+'GET /rent/jjpaginate': 'RentController.jjpaginate',
 'POST /rent/paginate': 'RentController.paginate',
 
 // 'GET /rent/my' : 'RentController.my',
@@ -61,6 +63,7 @@ module.exports.routes = {
 '/' : 'RentController.home',
 
 'GET /rent/home': 'RentController.home',
+'GET /rent/jhome': 'RentController.jhome',
 
 'GET /user/login': 'UserController.login',
 'POST /user/login': 'UserController.login',

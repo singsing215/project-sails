@@ -66,6 +66,15 @@ module.exports = {
       type: "number"
     },
 
+    qmaxbedroom: {
+      type: "number"
+    },
+
+    qminbedroom: {
+      type: "number"
+    },
+
+
     qarea: {
       type: "number"
     },

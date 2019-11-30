@@ -124,16 +124,13 @@ module.exports = {
 
     // action - paginate + search
     paginate: async function (req, res) {
-
         if (!req.session.username) {
             var visitor = "123";
             req.session.username = visitor;
             req.session.abc = visitor;
         }
-
         const qPage = Math.max(req.query.page - 1, 0) || 0;
         const numOfItemsPerPage = 2;
-
         const qEstate = req.query.estate;
         const qBedroom = parseInt(req.query.bedroom);
         const qmaxArea = parseInt(req.query.maxarea);
@@ -143,7 +140,6 @@ module.exports = {
         // var models = {};
         // if (!isNaN(qBedroom)) models.Bedroom = qBedroom;
         if (isNaN(qmaxArea)) {
-
             var models = await Rent.find({
                 limit: numOfItemsPerPage,
                 skip: numOfItemsPerPage * qPage,
@@ -166,16 +162,66 @@ module.exports = {
                 sort: 'estate'
             });
         }
-
         if (!models) return res.notFound();
-
         var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
-
         return res.view('rent/paginate', { rents: models, count: numOfPage });
-
     },
 
+    // json - to search max bedroom
+    jpaginate: async function (req, res) {
+        const qEstate = req.query.estate;
+        const qmaxBedroom = parseInt(req.query.maxbedroom);
+        const qmaxArea = parseInt(req.query.maxarea);
+        const qminArea = parseInt(req.query.minarea);
+        const qmaxRent = parseInt(req.query.maxrent);
+        const qminRent = parseInt(req.query.minrent);
+        if (isNaN(qmaxArea)) {
+            var models = await Rent.find({
+                where: { estate: qEstate },
+                sort: 'estate'
+            });
+        } else if(!isNaN(qmaxArea)){
+            var models = await Rent.find({
+                where: { bedroom: {'<=': qmaxArea } },
+                sort: 'estate'
+            });
+        } else {
+            var models = await Rent.find({
+                where: { estate: qEstate, bedroom: {'<=': qmaxArea } },
+                sort: 'estate'
+            });
+        }
+        if (!models) return res.notFound();
+        return res.json(models);
+    },
 
+        // json - to search min bedroom
+        jjpaginate: async function (req, res) {
+            const qEstate = req.query.estate;
+            const qmaxBedroom = parseInt(req.query.maxbedroom);
+            const qmaxArea = parseInt(req.query.maxarea);
+            const qminArea = parseInt(req.query.minarea);
+            const qmaxRent = parseInt(req.query.maxrent);
+            const qminRent = parseInt(req.query.minrent);
+            if (isNaN(qmaxArea)) {
+                var models = await Rent.find({
+                    where: { estate: qEstate },
+                    sort: 'estate'
+                });
+            } else if(!isNaN(qmaxArea)){
+                var models = await Rent.find({
+                    where: { bedroom: {'>=': qmaxArea } },
+                    sort: 'estate'
+                });
+            } else {
+                var models = await Rent.find({
+                    where: { estate: qEstate, bedroom: {'>=': qmaxArea } },
+                    sort: 'estate'
+                });
+            }
+            if (!models) return res.notFound();
+            return res.json(models);
+        },
 
     // action - home
     home: async function (req, res) {
@@ -203,7 +249,24 @@ module.exports = {
         return res.view('rent/home', { rents: models, count: numOfPage });
     },
 
-
+    // action - home
+    jhome: async function (req, res) {
+        if (!req.session.username) {
+            var visitor = "123";
+            req.session.username = visitor;
+            req.session.abc = visitor;
+        }
+        const qPage = Math.max(req.query.page - 1, 0) || 0;
+        const numOfItemsPerPage = 4;
+        var models = await Rent.find({
+            where: { property: "dummy" },
+            sort: 'created',
+            limit: numOfItemsPerPage,
+            skip: numOfItemsPerPage * qPage
+        });
+        var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
+        return res.json(models);
+    },
 
 
 
