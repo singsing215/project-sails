@@ -247,7 +247,8 @@ module.exports = {
         });
 
         var numOfPage = Math.ceil(await Rent.count() / numOfItemsPerPage);
-
+        sails.log("[Session] ", req.session);
+        sails.log("[body] ", req.body);
         return res.view('rent/home', { rents: models, count: numOfPage });
     },
 

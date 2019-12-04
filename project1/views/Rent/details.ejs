@@ -203,8 +203,10 @@
 
         async function corent(id) {
             var r = confirm("Confirm Rent?");
+            var uid ="<%= req.session.uid %>";
+            console.log(uid);
             if (r) {
-                var response = await fetch("/user/2/renting/add/" + id, {
+                var response = await fetch("/user/"+uid+"/renting/add/" + id, {
                     method: "POST",
                     credentials: 'same-origin',
                 });

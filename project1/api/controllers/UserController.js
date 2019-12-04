@@ -24,7 +24,9 @@ module.exports = {
         req.session.regenerate(function (err) {
             if (err) return res.serverError(err);
             req.session.username = req.body.username;
+            req.session.uid = "2";
             sails.log("[Session] ", req.session);
+            sails.log("[body] ", req.body);
             return res.ok("Login successfully.");
         });
 
@@ -60,12 +62,11 @@ module.exports = {
             if (!thatRent) return res.notFound();
             if (thatRent.rentby.length)
                 return res.json({ message: "Already rent.", url: '/' });
-
-                if (thatRent.rentby.length >= Rent.tenant) //Make sure there’s enough room (tenants) from the properties.
-                    return res.json({ message: 'Already full.', url: '/' });
-                
+            if (thatRent.rentby.length >= Rent.tenant) //Make sure there’s enough room (tenants) from the properties.
+                return res.json({ message: 'Already full.', url: '/' });
             await User.addToCollection(req.params.id, "renting").members(req.params.fk);
-            return res.json({ message: 'Operation completed.', url: '/' });
+            sails.log("[Session] ", req.session);
+            return res.json({ message: 'Move-in succssfully.', url: '/' });
         } else {
             return res.redirect('/');           // for normal request
         }
