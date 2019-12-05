@@ -61,20 +61,17 @@
 
         <div>
             <form action="/user/login" method="POST" onsubmit="submitForm(this);return false">
-
                 <div class="form-group">
                     <label for="exampleInputEmail1">Username</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                         placeholder="Enter email" name="username">
                 </div>
-
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
                         name="password">
                 </div>
-
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-primary" >Sign in</button>
             </form>
         </div>
 
@@ -113,14 +110,15 @@ if("<%= req.session.username %>" == 'admin'){
 
 };
 
-            async function submitForm(oFormElement) {
-
-                var response = await fetch(oFormElement.action, {
-                    method: oFormElement.method,
+            async function submitForm(a) {
+                var response = await fetch(a.action, {
+                    method: a.method,
                     credentials: 'same-origin',
-                    body: new FormData(oFormElement),
+                    body: new FormData(a),
                 });
-
+                // var response = await fetch(
+                //     body: "username=kenny&password=123456"
+                // );
                 if (response.ok) {
                     var data = await response.json();   // for res.ok() or res.json()
                     alert(data);
