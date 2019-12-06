@@ -46,17 +46,24 @@ module.exports = {
             sails.log("[body] ", req.body);
             return res.json({ message: "Login successfully.", url: '/' });
         });
+        sails.log("[Session] ", req.session);
     },
 
 
     logout: async function (req, res) {
-
         req.session.destroy(function (err) {
             if (err) return res.serverError(err);
             return res.redirect("/");
-
         });
+    },
 
+    jlogout: async function (req, res) {
+        req.session.destroy(function (err) {
+            if (err) return res.serverError(err);
+            return res.json({ message: "Logout successfully.", url: '/' });
+        });
+        sails.log("[body] ", req.body);
+        sails.log("[Session] ", req.session);
     },
 
     populate: async function (req, res) {
