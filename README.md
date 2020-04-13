@@ -1,7 +1,7 @@
 # comp7270-project-sails-app-singsing215
 comp7270-project-sails-app-singsing215 created by GitHub Classroom
 
-The project mainly uses node.js, sails. Js, vue.js and NativeScript framework, applies AJAX front-end technology, realizes the CRUD of renting information, and the permission control of administrator and user.
+The project mainly uses node.js, sails.js, vue.js and NativeScript framework, applies AJAX front-end technology, realizes the CRUD of renting information, and the permission control of administrator and user.
 
 Author: GUO Fusheng 19413238
 
