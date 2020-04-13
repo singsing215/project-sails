@@ -18,7 +18,12 @@ Otherwise, you will see the error that
 Cannot read property 'columnName' of undefined
 ```
 
-the specific code in line 591 should be
+The specific code in line 591 should be
 ```js
 var columnName = model.schema[attrName];
+```
+
+After modification, run the following code to start 
+```
+sails lift --models.migrate='drop'
 ```
