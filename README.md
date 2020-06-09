@@ -1,7 +1,7 @@
 # comp7270-project-sails-app-singsing215
 comp7270-project-sails-app-singsing215 created by GitHub Classroom
 
-The project mainly uses node.js, sails.js, vue.js and NativeScript framework, applies AJAX front-end technology, realizes the CRUD of renting information, and the permission control of administrator and user.
+The rental website uses Node.js, Sails.js, AJAX and RESTful API technology to implement CRUD of the rental information, the user's rental operation, and the permission control of the administrator and the user. Sails is an MVC framework built on Node and using Express to process HTTP requests. The ORM layer (Waterline.js) in Sails handles all database operations for the house rental system.
 
 Author: GUO Fusheng 19413238
 
