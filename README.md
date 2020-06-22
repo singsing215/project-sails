@@ -10,7 +10,7 @@ System admins: { username: "admin", password: 123456 }
 Clients: { username: "kenny", password: 123456 }
 
 # IMPORTANT NOTE
-After installing node modules from package.json, you need to delete '.columnName' from 
+After installing node modules from package.json in sails-app, you need to delete '.columnName' from 
 ```
 project-sails\project1\node_modules\waterline\lib\waterline\utils\query\forge-stage-three-query.js:591:49
 ```
