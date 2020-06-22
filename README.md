@@ -1,7 +1,7 @@
 # comp7270-project-react-sails-singsing215
 comp7270-project-react-sails-singsing215 created by GitHub Classroom
 
-The front end of the rental system uses React and Vue. The overall design of the system interface is simple and elegant. It uses the Bootstrap CSS framework and adopts a responsive web design. It will hide unnecessary components according to the user identity. The back end of the rental system uses Sails built on Node and uses the ejs template engine. The ORM layer (Waterline.js) in Sails handles all database operations for the housing rental system. The rental system uses AJAX and RESTful API technologies, and implement CRUD of rental information as well as effective rental operations for users, and permission control for visitor, user and administrator.
+The overall design of the system interface is simple and elegant. It uses the Bootstrap CSS framework and adopts a responsive web design. It will hide unnecessary components according to the user identity. The back end of the rental system uses Sails built on Node and uses the ejs template engine. The ORM layer (Waterline.js) in Sails handles all database operations for the housing rental system. The rental system uses AJAX and RESTful API technologies, and implement CRUD of rental information as well as effective rental operations for users, and permission control for visitor, user and administrator.
 
 Author: GUO Fusheng 19413238
 
