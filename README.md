@@ -27,8 +27,5 @@ var columnName = model.schema[attrName];
 
 After modification, run the following code to start 
 ```
-npm start
-```
-```
 sails lift --models.migrate='drop'
 ```
