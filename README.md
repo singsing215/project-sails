@@ -10,7 +10,9 @@ System admins: { username: "admin", password: 123456 }
 Clients: { username: "kenny", password: 123456 }
 
 # IMPORTANT NOTE
-After installing node modules from package.json, you need to delete '.columnName' from 
+Installed dependencies with `npm install`
+
+After installing node modules from package.json in sails-app, you need to delete '.columnName' from 
 ```
 project-sails\project1\node_modules\waterline\lib\waterline\utils\query\forge-stage-three-query.js:591:49
 ```
@@ -26,9 +28,6 @@ var columnName = model.schema[attrName];
 ```
 
 After modification, run the following code to start 
-```
-npm start
-```
 ```
 sails lift --models.migrate='drop'
 ```
