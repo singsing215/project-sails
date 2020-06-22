@@ -1,7 +1,7 @@
 # comp7270-project-react-sails-singsing215
 comp7270-project-sails-app-singsing215 created by GitHub Classroom
 
-The rental website uses Node.js, Sails.js, AJAX and RESTful API technology to implement CRUD of the rental information, the user's rental operation, and the permission control of the administrator and the user. Sails is an MVC framework built on Node and using Express to process HTTP requests. The ORM layer (Waterline.js) in Sails handles all database operations for the house rental system.
+The front end of the rental system uses React and Vue. The overall design of the system interface is simple and elegant. It uses the Bootstrap CSS framework and adopts a responsive web design. It will hide unnecessary components according to the user identity. The back end of the rental system uses Sails built on Node and uses the ejs template engine. The ORM layer (Waterline.js) in Sails handles all database operations for the housing rental system. The rental system uses AJAX and RESTful API technologies, and implement CRUD of rental information as well as effective rental operations for users, and permission control for visitor, user and administrator.
 
 Author: GUO Fusheng 19413238
 
@@ -26,6 +26,9 @@ var columnName = model.schema[attrName];
 ```
 
 After modification, run the following code to start 
+```
+npm start
+```
 ```
 sails lift --models.migrate='drop'
 ```
