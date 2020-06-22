@@ -14,7 +14,7 @@ Installed dependencies with `npm install`
 
 After installing node modules from package.json in sails-app, you need to delete '.columnName' from 
 ```
-project-sails\project1\node_modules\waterline\lib\waterline\utils\query\forge-stage-three-query.js:591:49
+\node_modules\waterline\lib\waterline\utils\query\forge-stage-three-query.js:591:49
 ```
 
 Otherwise, you will see the error that 
