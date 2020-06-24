@@ -4,9 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <!-- jQuery: clear all input -->
+ <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+ </script>
+ <script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
+        $("#title").val("");
+        $("#url").val("");
+        $("#estate").val("");
+        $("#bedroom").val("");
+        $("#area").val("");
+        $("#tenant").val("");
+        $("#rent").val("");
+        });
+    });
+ </script>
+
     <title>admin2</title>
     <style>
         .class3 {
@@ -120,10 +134,10 @@
 
 
                 <div id="div02" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Property title:</label>
-                    <input type="label" class="form-control" name="Rent[title]" value="<%= rent.title %>" required>
+                    <input type="label" id="title" class="form-control" name="Rent[title]" value="<%= rent.title %>" required>
                 </div>
                 <div id="div03" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Image
-                        URL:</label><input type="text" class="form-control" name="Rent[url]" value="<%= rent.url %>"
+                        URL:</label><input type="text" class="form-control" id="url" name="Rent[url]" value="<%= rent.url %>"
                         required></div>
                 <div id="div04" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Estate:</label> <select
                         type="string" class="form-control" name="Rent[estate]" value="<%= rent.estate %>" required>
@@ -154,23 +168,21 @@
                         <input type="hidden" class="form-control" name="Rent[updated]" id="updated"></label>
                 </div>
 
-                <div id="div11" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
-                    <div>
+                
 
-                    </div>
-                </div>
 
-                <div id="div12" class="card col-12 col-sm-6 col-lg-4 col-xl-6">
-                    <div>
 
-                    </div>
-                </div>
+
+
+
 
 
             </div>
 
-
+<div class="row">
             <button type="submit;button" class="btn btn-primary" onclick="btn1Clicked(this)">Submit</button>
+            <button id="btn">Clear</button>
+        </div>
         </form>
 
     </div>

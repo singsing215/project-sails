@@ -125,33 +125,33 @@ if("<%= req.session.username %>" == 'admin'){
 
 }
 
-        async function deleteRent(id) {
+async function deleteRent(id) {
 
-            var r = confirm("Confirm Delete?");
+    var r = confirm("Confirm Delete?");
 
-            if (r) {
+    if (r) {
 
-                var response = await fetch("/rent/" + id, {
-                    method: "DELETE",
-                    credentials: 'same-origin',
-                });
+        var response = await fetch("/rent/" + id, {
+            method: "DELETE",
+            credentials: 'same-origin',
+        });
 
-                // var html = await response.text();
-                // alert(html);
+        // var html = await response.text();
+        // alert(html);
 
-                if (response.ok) {
-                    var data = await response.json();
-                    alert(data.message);
-                    window.location = data.url;
-                    location.reload(true);
-                } else {
-                    alert(response.status + ": " + response.statusText);
-                }
-            } else {
-                alert("cancelled");
-            }
+        if (response.ok) {
+            var data = await response.json();
+            alert(data.message);
+            window.location = data.url;
+            location.reload(true);
+        } else {
+            alert(response.status + ": " + response.statusText);
+        }
+    } else {
+        alert("cancelled");
+    }
 
-        };
+};
 
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
