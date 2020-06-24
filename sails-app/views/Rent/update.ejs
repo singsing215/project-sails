@@ -139,7 +139,7 @@
                 <div id="div03" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Image
                         URL:</label><input type="text" class="form-control" id="url" name="Rent[url]" value="<%= rent.url %>"
                         required></div>
-                <div id="div04" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Estate:</label> <select
+                <div id="div04" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Estate:</label> <select id="estate"
                         type="string" class="form-control" name="Rent[estate]" value="<%= rent.estate %>" required>
                         <option value="<%= rent.estate %>"><%= rent.estate %></option>
                         <option value="Robinson Heights">Robinson Heights</option>
@@ -179,12 +179,12 @@
 
             </div>
 
-<div class="row">
-            <button type="submit;button" class="btn btn-primary" onclick="btn1Clicked(this)">Submit</button>
-            <button id="btn">Clear</button>
-        </div>
-        </form>
 
+            <button type="submit;button" class="btn btn-primary" onclick="btn1Clicked(this)">Submit</button>
+
+        </form>
+        <br>
+        <button id="btn">Clear</button>
     </div>
     <table>
         <tr>
