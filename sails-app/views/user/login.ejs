@@ -4,11 +4,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>index</title>
     <style>
+                nav a {
+            font-family: "MuseoModerno", cursive;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .jumbotron {
+            padding: 2rem 0rem;
+            margin-bottom: 1rem;
+        }
+
+        .jumbotron h1 {
+            font-family: "Sofia", cursive;
+        }
+
+        .jumbotron .lead {
+            font-family: "Noto Sans HK", sans-serif;
+            font-size: 1.25rem;
+        }
+
+        #content{
+            margin-bottom: 368px;
+        }
         #div01 {
             padding: 20px 20px 20px;
         }
@@ -16,6 +36,85 @@
         #Login {
             float: right;
         }
+
+        footer {
+            border-top: solid 1px #e4e4e4;
+            margin-top: 41px;
+            position: initial;
+            bottom: 0;
+            width: 100%;
+            background-color: #f2f2f2;
+        }
+
+        footer img {
+            width: 72px;
+            float: left;
+        }
+
+        footer .lead {
+            font-size: 15px;
+        }
+
+        footer .container {
+            margin-top: 8px;
+
+        }
+
+        footer p {
+            font-family: "open Sans", sans-serif;
+            font-size: 14px;
+            color: rgb(92, 92, 92);
+            margin-bottom: 1px;
+        }
+
+        footer h5 {
+            font-family: "Noto Sans TC", sans-serif;
+            font-size: 18px;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            float: left;
+            margin-right: 70px;
+        }
+
+        footer ul li {
+            margin-bottom: 7px;
+        }
+
+        footer ul li a {
+            color: rgb(92, 92, 92);
+        }
+
+        @media only screen and (max-width: 1200px) {
+
+footer .lead {
+    margin-left: 72px;
+}
+
+}
+@media only screen and (max-width: 767px) {
+#links {
+    margin-top: 20px;
+}
+}
+
+@media only screen and (max-width: 574px) {
+#links {
+    margin-top: 1px;
+}
+}
+@media only screen and (max-width: 991px) {
+
+footer .lead {
+    margin-left: 72px;
+    margin-top: 8px;
+}
+footer ul {
+    margin-bottom: 0;
+}
+}
     </style>
 
 
@@ -24,10 +123,10 @@
 
 <body οnlοad="init()">
     <div class="container ">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="http://localhost:1337/">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                id="flip" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -42,39 +141,86 @@
                         <a class="nav-item nav-link active" href="http://localhost:1337/user/login" style = 'display:inline' id='login'>Login<span
                             class="sr-only">(current)</span></a>
                 </div>
-
             </div>
-            <text style = 'display:none' id='hiadmin'><h5>hi,admin</h5></text>
-            <text style = 'display:none' id='himartin'><h5>hi,martin</h5></text>
-            <text style = 'display:none' id='hikenny'><h5>hi,kenny</h5></text>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style = 'display:none' id='logout'>Logout</a>
+            <text style='display:none' id='hiadmin'>
+                <h5>hi,admin</h5>
+            </text>
+            <text style='display:none' id='himartin'>
+                <h5>hi,martin</h5>
+            </text>
+            <text style='display:none' id='hikenny'>
+                <h5>hi,kenny</h5>
+            </text>
+            <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style='display:none'
+                id='logout'>Logout</a>
         </nav>
-
-        <div class="jumbotron jumbotron-fluid">
+    </div>
+    <div id="highlight" class="jumbotron jumbotron-fluid">
+        <div class="jumbotron">
             <div class="container">
-                <h1 class="display-4">Real Estate Rental System</h1>
-                <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare and
-                    finding roommates.
-                </p>
+                <div class="col-md-12">
+                    <h1 class="display-4">Real Estate Rental System</h1>
+                    <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare
+                        and
+                        finding roommates.
+                    </p>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div>
+        <div class="container " id="content">
             <form action="/user/login" method="POST" onsubmit="submitForm(this);return false">
-                <div class="form-group">
+                <div class="col-md-6">
+                <div class="form-group ">
                     <label for="exampleInputEmail1">Username</label>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                         placeholder="Enter email" name="username">
                 </div>
+            </div>
+            <div class="col-md-6">
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
                         name="password">
                 </div>
+            
                 <button type="submit" class="btn btn-primary" >Sign in</button>
+            </div>
             </form>
         </div>
-
+        <div id="footer">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 text-left" style="padding: 0" id="fdiv" }}>
+                            <img src='https://i.ibb.co/vDHHmnS/logo.png'></img>
+                            <h5 id="links">Real Estate Rental System</h5>
+                            <p class="lead">Simple and easy-to-use rental system can find roommates for you.
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-left" id="fdiv">
+                            <h5 id="links">Links</h5>
+                            <ul>
+                                <li><a href="http://localhost:3000/">Home</a></li>
+                                <li><a href="http://localhost:1337/rent/paginate">Search</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 text-left" id="fdiv">
+                            <h5>Contact Me</h5>
+                            <p>香港浸會大學吳多泰博士國際中心809房<br>
+                                Phone: (852) 9047-3975<br>
+                                E-Mail: <a href="mailto:19413238@life.hkbu.edu.hk">19413238@life.hkbu.edu.hk</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
         <script>
 
 window.onload = function(){
@@ -134,15 +280,7 @@ if("<%= req.session.username %>" == 'admin'){
 
 
         </script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+
 </body>
 
 </html>
