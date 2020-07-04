@@ -200,18 +200,12 @@ footer ul {
 
 <div class="container" id="content">
         <div class="row">
-
             <div id="div01" class="card col-12 col-sm-8 col-lg-8 col-xl-8">
-
                 <div class="row">
                     <% rents.forEach( function(model) { %>
                     <div class="col-6 col-sm-6 col-lg-6 col-xl-6" id="div1">
-
-
-
                         <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="250"
                             height="250" />
-
                         <br>
                         <h5><a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a></h5>
                 <br>
@@ -234,32 +228,17 @@ footer ul {
                     <% }); %>
 
                     <div id=" div01" class="card col-6 col-sm-6 col-lg-6 col-xl-6">
-
-
                     </div>
-
-
                 </div>
-
-
-
-
-
             </div>
-
-
-
             <div id="div01" class="card col-12 col-sm-4 col-lg-4 col-xl-4">
-                <!---->
-
-                <!--form-->
                 <form action="/rent/paginate" method="get">
                     <div>
                         <h1>Property Search</h1>
                         <div class="row">
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
                                 <label>Estate:</label></div>
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-9">
+                            <div class="col-12 col-sm-8 col-lg-8 col-xl-9">
                                 <select type="string" class="form-control" name="estate" id="estate">
                                     <option value="">--please select a estate--</option>
                                     <option value="Robinson Heights">Robinson Heights</option>
@@ -273,68 +252,55 @@ footer ul {
                         <div class="row">
                             <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
                                 <label>Bedroom:</label></div>
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-9">
+                            <div class="col-12 col-sm-8 col-lg-8 col-xl-9">
                                 <input type="number" min=1 max=4 id="bedroom" class="form-control" name="bedroom">
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-6">
+                            <div class="col-12 col-sm-12 col-lg-12 col-xl-6">
                                 <label>Area (Sq feet):</label></div>
                         </div>
 
                         <div class="row">
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
+                            <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
                                 <label>Min:</label></div>
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
+                            <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
                                 <input type="number" id="minarea" min=30 max=2000 class="form-control" name="minarea">
                             </div>
 
-
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
+                            <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
                                 <label>Max:</label></div>
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
+                            <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
                                 <input type="number" id="maxarea" min=30 max=2000 class="form-control" name="maxarea">
                             </div>
                         </div>
                         <br>
                         <div class="row">
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-6">
+                            <div class="col-12 col-sm-12 col-lg-12 col-xl-6">
                                 <label>Rent (HK$):</label></div>
                         </div>
 
                         <div class="row">
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
+                            <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
                                 <label>Min:</label></div>
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
+                            <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
                                 <input type="number" id="minrent" min=5000 max=60000 class="form-control"
                                     name="minrent"></div>
 
 
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-2">
+                            <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
                                 <label>Max:</label></div>
-                            <div class="col-12 col-sm-4 col-lg-4 col-xl-4">
+                            <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
                                 <input type="number" id="maxrent" min=5000 max=60000 class="form-control"
                                     name="maxrent"></div>
                         </div>
                         <br>
-
-
                         <button type="submit" class="btn btn-primary">Search</button>
-
-
-
-
                     </div>
                 </form>
-
             </div>
-
         </div>
-
-
-
-
 
         <% const current = parseInt(req.query.page) || 1; %>
 
