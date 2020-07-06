@@ -32,14 +32,16 @@
             margin-bottom: 82px;
         }
         #btn{
-            margin-top: 370px;
+            margin-top: 362px;
         }
         @media only screen and (max-width: 991px) {
             #btn{
             margin-top: 10px;
         }
         }
-
+        #img01{
+            margin-top: 12px;
+        }
 
         .class3 {
             background-color: lightsalmon
@@ -243,7 +245,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-lg-6 col-xl-6">
                         <img class="img-fluid img-thumbnail" src="<%= rent.url %>" value="cover" width="500"
-                            height="500" id="div01" />
+                            height="500" id="img01" />
                     </div>
                     <div class="col-12 col-sm-12 col-lg-4 col-xl-4" id="div1">
                         <div class="list-group">
@@ -283,21 +285,15 @@
                                 </div>
                             </a>
                             <br>
-                            <!-- <a style='display:none' id='botton'>
-                                <input type=button value="Co-Rent" onclick="corent('<%= rent.id %>')">
-                            </a>
-                            <a style='display:none' id='botton2'>
-                                <input type=button value="Move out" onclick="remove('<%= rent.id %>')">
-                            </a> -->
                         </div>
                     </div>
                         <div class="col-12 col-sm-12 col-lg-2 col-xl-2" id="btn">
-                            <a style='display:none' id='botton'>
-                                <input type=button value="Co-Rent" onclick="corent('<%= rent.id %>')">
-                            </a>
-                            <a style='display:none' id='botton2'>
-                                <input type=button value="Move out" onclick="remove('<%= rent.id %>')">
-                            </a>
+                            <div style='display:none' id='botton'>
+                                <button type="button" class="btn btn-primary" onclick="corent('<%= rent.id %>')">Move in</button>
+                            </div>
+                            <div style='display:none' id='botton2' >
+                                <button type="button" class="btn btn-danger" onclick="remove('<%= rent.id %>')">Move out</button>
+                            </div>
                         </div>
                 </div>
             </div>
