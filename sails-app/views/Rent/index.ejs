@@ -272,20 +272,11 @@
 
         }
 
+        //RESTful + AJAX + JSON
         async function deleteRent(id) {
-
             var r = confirm("Confirm Delete?");
-
             if (r) {
-
-                var response = await fetch("/rent/" + id, {
-                    method: "DELETE",
-                    credentials: 'same-origin',
-                });
-
-                // var html = await response.text();
-                // alert(html);
-
+                var response = await fetch("/rent/" + id, {method: "DELETE",credentials: 'same-origin'});
                 if (response.ok) {
                     var data = await response.json();
                     alert(data.message);
@@ -297,7 +288,6 @@
             } else {
                 alert("cancelled");
             }
-
         };
 
     </script>
