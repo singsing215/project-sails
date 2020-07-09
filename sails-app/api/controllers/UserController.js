@@ -7,7 +7,7 @@
 
 module.exports = {
 
-    login: async function (req, res) {
+    login: async function(req, res) {
         sails.log("[body] ", req.body);
         if (!req.session.username) {
             var visitor = "123";
@@ -20,17 +20,17 @@ module.exports = {
         if (!user) return res.status(401).send("User not found");
         const match = await sails.bcrypt.compare(req.body.password, user.password);
         if (!match) return res.status(401).send("Wrong Password");
-        req.session.regenerate(function (err) {
+        req.session.regenerate(function(err) {
             if (err) return res.serverError(err);
             req.session.username = req.body.username;
             req.session.uid = "2";
             sails.log("[Session] ", req.session);
             sails.log("[body] ", req.body);
-            return res.ok("Login successfully.");
+            return res.json({ message: "Login successfully.", url: 'http://localhost:1337/' });
         });
     },
 
-    jlogin: async function (req, res) {
+    jlogin: async function(req, res) {
         sails.log("[body] ", req.body);
         if (req.method == "GET") return res.view('user/login');
         if (!req.body.username || !req.body.password) return res.badRequest();
@@ -38,7 +38,7 @@ module.exports = {
         if (!user) return res.status(401).json({ message: "User not found", url: '/' });
         const match = await sails.bcrypt.compare(req.body.password, user.password);
         if (!match) return res.status(401).json({ message: "Wrong Password", url: '/' });
-        req.session.regenerate(function (err) {
+        req.session.regenerate(function(err) {
             if (err) return res.serverError(err);
             req.session.username = req.body.username;
             req.session.uid = "2";
@@ -50,15 +50,15 @@ module.exports = {
     },
 
 
-    logout: async function (req, res) {
-        req.session.destroy(function (err) {
+    logout: async function(req, res) {
+        req.session.destroy(function(err) {
             if (err) return res.serverError(err);
             return res.redirect("/");
         });
     },
 
-    jlogout: async function (req, res) {
-        req.session.destroy(function (err) {
+    jlogout: async function(req, res) {
+        req.session.destroy(function(err) {
             if (err) return res.serverError(err);
             return res.json({ message: "Logout successfully.", url: '/' });
         });
@@ -66,14 +66,14 @@ module.exports = {
         sails.log("[Session] ", req.session);
     },
 
-    populate: async function (req, res) {
+    populate: async function(req, res) {
         var model = await User.findOne(req.params.id).populate("renting");
         if (!model) return res.notFound();
         return res.json(model);
     },
 
 
-    add: async function (req, res) {
+    add: async function(req, res) {
         if (req.wantsJSON) {
             if (!await User.findOne(req.params.id)) return res.notFound();
             const thatRent = await Rent.findOne(req.params.fk).populate("rentby", { id: req.params.id });
@@ -86,23 +86,22 @@ module.exports = {
             sails.log("[Session] ", req.session);
             return res.json({ message: 'Move-in succssfully.', url: '/' });
         } else {
-            return res.redirect('/');           // for normal request
+            return res.redirect('/');            // for normal request
         }
     },
 
-    remove: async function (req, res) {
+    remove: async function(req, res) {
         if (req.wantsJSON) {
             if (!await User.findOne(req.params.id)) return res.notFound();
             const thatRent = await Rent.findOne(req.params.fk).populate("rentby", { id: req.params.id });
             if (!thatRent) return res.notFound();
             if (!thatRent.rentby.length)
                 return res.json({ message: "Nothing to delete.", url: '/' });
-                await User.removeFromCollection(req.params.id, "renting").members(req.params.fk);
+            await User.removeFromCollection(req.params.id, "renting").members(req.params.fk);
             return res.json({ message: 'Operation completed.', url: '/' });
         } else {
-            return res.redirect('/');           // for normal request
+            return res.redirect('/');            // for normal request
         }
     }
 
 };
-
