@@ -96,11 +96,7 @@ module.exports = {
         const qPage = Math.max(req.query.page - 1, 0) || 0;
         const numOfItemsPerPage = 2;
         const qEstate = req.query.estate;
-        const qBedroom = parseInt(req.query.bedroom);
         const qmaxArea = parseInt(req.query.maxarea);
-        const qminArea = parseInt(req.query.minarea);
-        const qmaxRent = parseInt(req.query.maxrent);
-        const qminRent = parseInt(req.query.minrent);
         // var models = {};
         // if (!isNaN(qBedroom)) models.Bedroom = qBedroom;
         if (isNaN(qmaxArea)) {
@@ -139,26 +135,16 @@ module.exports = {
     // json - to search max bedroom
     jpaginate: async function(req, res) {
         const qEstate = req.query.estate;
-        const qmaxBedroom = parseInt(req.query.maxbedroom);
-        const qmaxArea = parseInt(req.query.maxarea);
-        const qminArea = parseInt(req.query.minarea);
-        const qmaxRent = parseInt(req.query.maxrent);
-        const qminRent = parseInt(req.query.minrent);
-        if (isNaN(qmaxArea)) {
-            var models = await Rent.find({
-                where: { estate: qEstate },
-                sort: "estate",
-            });
-        } else if (!isNaN(qmaxArea)) {
-            var models = await Rent.find({
-                where: { bedroom: { "<=": qmaxArea } },
-                sort: "estate",
-            });
-        } else {
-            var models = await Rent.find({
-                where: { estate: qEstate, bedroom: { "<=": qmaxArea } },
-                sort: "estate",
-            });
+        const qBedroom = parseInt(req.query.bedroom);
+
+        var models = await Rent.find({
+            where: { estate: qEstate, bedroom: qBedroom },
+            sort: "estate",
+        });
+        if (!isNaN(qBedroom)) models.bedroom = qBedroom; //require
+        else {
+            models.estate = qEstate;
+            models.bedroom = qBedroom;
         }
         if (!models) return res.notFound();
         return res.json(models);

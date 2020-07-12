@@ -8,7 +8,6 @@
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
-    <link rel="stylesheet" href="./css/home.scss">
     <title>index</title>
     <style>
         nav a {
@@ -16,62 +15,60 @@
             font-size: 16px;
             font-weight: 400;
         }
-
+        
         .jumbotron {
             padding: 2rem 0rem;
             margin-bottom: 1rem;
         }
-
+        
         .jumbotron h1 {
             font-family: "Sofia", cursive;
         }
-
+        
         .jumbotron .lead {
             font-family: "Noto Sans HK", sans-serif;
             font-size: 1.25rem;
         }
-
-
+        
         section #div01 {
             padding: 20px 20px 20px;
         }
-
+        
         section h5 {
             font-family: "Noto Sans TC", sans-serif;
             font-size: 18px;
         }
-
+        
         section #title {
             font-family: "Noto Sans TC", sans-serif;
             font-size: 20px;
             margin-bottom: 20px;
         }
-
+        
         section li {
             font-family: "open Sans", sans-serif;
             font-size: 14px;
         }
-
+        
         section i {
             font-size: smaller;
             color: dimgrey;
         }
-
+        
         section img {
             width: 100%;
         }
-
+        
         section .container {
             margin-bottom: 63px;
         }
-
+        
         @media only screen and (max-width: 991px) {
             section #div01 {
                 margin-bottom: 17px;
-
             }
         }
-
+        
         footer {
             border-top: solid 1px #e4e4e4;
             position: initial;
@@ -79,68 +76,66 @@
             width: 100%;
             background-color: #f2f2f2;
         }
-
+        
         footer img {
             width: 72px;
             float: left;
         }
-
+        
         footer .lead {
             font-size: 15px;
         }
-
+        
         footer .container {
             margin-top: 8px;
-
         }
-
+        
         footer p {
             font-family: "open Sans", sans-serif;
             font-size: 14px;
             color: rgb(92, 92, 92);
             margin-bottom: 1px;
         }
-
+        
         footer h5 {
             font-family: "Noto Sans TC", sans-serif;
             font-size: 18px;
         }
-
+        
         footer ul {
             list-style: none;
             padding: 0;
             float: left;
             margin-right: 70px;
         }
-
+        
         footer ul li {
             margin-bottom: 7px;
         }
-
+        
         footer ul li a {
             color: rgb(92, 92, 92);
         }
-
+        
         @media only screen and (max-width: 1200px) {
-
             footer .lead {
                 margin-left: 72px;
             }
-
         }
+        
         @media only screen and (max-width: 767px) {
             #links {
                 margin-top: 20px;
             }
         }
-
+        
         @media only screen and (max-width: 574px) {
             #links {
                 margin-top: 1px;
             }
         }
+        
         @media only screen and (max-width: 991px) {
-
             footer .lead {
                 margin-left: 72px;
                 margin-top: 8px;
@@ -149,7 +144,6 @@
                 margin-bottom: 0;
             }
         }
-
     </style>
 </head>
 
@@ -157,23 +151,17 @@
     <div class="container ">
         <nav class="navbar navbar-expand-lg navbar-light">
             <a class="navbar-brand" href="http://localhost:1337/">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                id="flip" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" id="flip" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="http://localhost:1337/rent/paginate">Search </a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/user/1/renting" style='display:none'
-                        id='myrent1'>My Rentals</a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/user/2/renting" style='display:none'
-                        id='myrent2'>My Rentals</a>
-                    <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style='display:inline'
-                        id='create'>Create</a>
-                    <a class="nav-item nav-link" href="http://localhost:1337/rent" style='display:inline'
-                        id='admin'>Admin</a>
-                    <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline'
-                        id='login'>Login</a>
+                    <a class="nav-item nav-link " href="http://localhost:1337/user/1/renting" style='display:none' id='myrent1'>My Rentals</a>
+                    <a class="nav-item nav-link " href="http://localhost:1337/user/2/renting" style='display:none' id='myrent2'>My Rentals</a>
+                    <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style='display:inline' id='create'>Create</a>
+                    <a class="nav-item nav-link" href="http://localhost:1337/rent" style='display:inline' id='admin'>Admin</a>
+                    <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline' id='login'>Login</a>
                 </div>
             </div>
             <text style='display:none' id='hiadmin'>
@@ -185,8 +173,7 @@
             <text style='display:none' id='hikenny'>
                 <h5>hi,kenny</h5>
             </text>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style='display:none'
-                id='logout'>Logout</a>
+            <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style='display:none' id='logout'>Logout</a>
         </nav>
     </div>
     <div id="highlight" class="jumbotron jumbotron-fluid">
@@ -194,9 +181,7 @@
             <div class="container">
                 <div class="col-md-12">
                     <h1 class="display-4">Real Estate Rental System</h1>
-                    <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare
-                        and
-                        finding roommates.
+                    <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare and finding roommates.
                     </p>
                 </div>
             </div>
@@ -206,34 +191,42 @@
         <div class="container ">
             <div class="row">
                 <% rents.forEach( function(model) { %>
-                <div id="div01" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
-                    <h5><a href="http://localhost:1337/rent/details/<%= model.id %>"><%= model.title %></a></h5>
+                    <div id="div01" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
+                        <h5>
+                            <a href="http://localhost:1337/rent/details/<%= model.id %>">
+                                <%= model.title %>
+                            </a>
+                        </h5>
                         <div class=" row">
-                            <div class="col-12 col-sm-6 col-lg-6 col-xl-6"> <img class="img-fluid img-thumbnail"
-                                    src="<%= model.url %>" value="cover" width="350" height="350" /></div>
+                            <div class="col-12 col-sm-6 col-lg-6 col-xl-6"> <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="350" height="350" /></div>
                             <div class="col-12 col-sm-6 col-lg-6 col-xl-6" id="div1">
                                 <ul class="list-group">
                                     <li class="list-group-item"><label>
                                             <h5><i class="fas fa-home"></i> Estate:</h5>
-                                        </label> <%= model.estate %></li>
+                                        </label>
+                                        <%= model.estate %>
+                                    </li>
                                     <li class="list-group-item"><label>
                                             <h5><i class="fas fa-th"></i> Gross Area:</h5>
-                                        </label> <%= model.area %> sq feet</li>
+                                        </label>
+                                        <%= model.area %> sq feet</li>
                                     <li class="list-group-item"><label>
                                             <h5><i class="fas fa-hand-holding-usd"></i> Rent:</h5>
-                                        </label> $<%= model.rent %></li>
+                                        </label> $
+                                        <%= model.rent %>
+                                    </li>
                                 </ul>
                             </div>
-                </div>
+                        </div>
+                    </div>
+                    <% }); %>
+                        <div id="div02" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
+                        </div>
+                        <div id="div03" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
+                        </div>
+                        <div id="div04" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
+                        </div>
             </div>
-            <% }); %>
-            <div id="div02" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
-            </div>
-            <div id="div03" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
-            </div>
-            <div id="div04" class="card col-12 col-sm-12 col-lg-6 col-xl-6">
-            </div>
-        </div>
         </div>
     </section>
 
@@ -260,9 +253,7 @@
                     </div>
                     <div class="col-md-4 text-left" id="fdiv">
                         <h5>Contact Me</h5>
-                        <p>香港浸會大學吳多泰博士國際中心809房<br>
-                            Phone: (852) 9047-3975<br>
-                            E-Mail: <a href="mailto:19413238@life.hkbu.edu.hk">19413238@life.hkbu.edu.hk</a>
+                        <p>香港浸會大學吳多泰博士國際中心809房<br> Phone: (852) 9047-3975<br> E-Mail: <a href="mailto:19413238@life.hkbu.edu.hk">19413238@life.hkbu.edu.hk</a>
                         </p>
                     </div>
                 </div>
@@ -271,7 +262,7 @@
     </div>
 
     <script>
-        window.onload = function () {
+        window.onload = function() {
 
 
             var create = document.getElementById("create");
