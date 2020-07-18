@@ -22,7 +22,7 @@ Otherwise, you will see the error that
 Cannot read property 'columnName' of undefined
 ```
 
-The modified code in line 591 should be
+The modified code in line 591 in forge-stage-three-query.js should be
 ```js
 var columnName = model.schema[attrName];
 ```
