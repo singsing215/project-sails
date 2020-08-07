@@ -254,9 +254,7 @@ module.exports = {
     //   'https://example.com',
     //   'https://staging.example.com',
     // ],
-    onlyAllowOrigins: [
-      'https://stormy-temple-57912.herokuapp.com'
-    ],
+
 
     /***************************************************************************
     *                                                                          *
