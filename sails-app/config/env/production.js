@@ -255,7 +255,7 @@ module.exports = {
     //   'https://staging.example.com',
     // ],
     onlyAllowOrigins: [
-      'https://vast-falls-43133.herokuapp.com'
+      'https://stormy-temple-57912.herokuapp.com'
     ],
 
     /***************************************************************************
