@@ -10,7 +10,9 @@ System admins: { username: "admin", password: 123456 }
 Clients: { username: "kenny", password: 123456 }
 
 # IMPORTANT NOTE
-Installed dependencies with `npm install`
+Install dependencies with `npm install`
+
+Install Sails with `npm install sails -g`
 
 After installing node modules from package.json in sails-app, you need to delete '.columnName' from 
 ```
