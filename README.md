@@ -14,14 +14,14 @@ Install dependencies with `npm install`
 
 Install Sails with `npm install sails -g`
 
+Since the project involves modifying the node_modules code in the node.js project, the following error will occur during the first run.
+```
+Cannot read property 'columnName' of undefined
+```
+
 After installing node modules from package.json in sails-app, you need to delete '.columnName' from 
 ```
 \node_modules\waterline\lib\waterline\utils\query\forge-stage-three-query.js:591:49
-```
-
-Otherwise, you will see the error that 
-```
-Cannot read property 'columnName' of undefined
 ```
 
 The modified code in line 591 in forge-stage-three-query.js should be
