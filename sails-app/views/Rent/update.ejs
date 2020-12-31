@@ -8,8 +8,8 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
     </script>
     <script>
-        $(document).ready(function() {
-            $("#btn").click(function() {
+        $(document).ready(function () {
+            $("#btn").click(function () {
                 $("#title").val("");
                 $("#url").val("");
                 $("#estate").val("");
@@ -23,163 +23,174 @@
 
     <title>admin2</title>
     <style>
+        #container {
+            position: relative;
+            width: 100%;
+            min-height: 100%;
+            padding-bottom: 100px;
+            box-sizing: border-box;
+        }
+
+        footer {
+            border-top: solid 1px #e4e4e4;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            margin-top: 10px;
+            background-color: #f2f2f2;
+        }
+
         nav a {
             font-family: "MuseoModerno", cursive;
             font-size: 16px;
             font-weight: 400;
         }
-        
+
         .jumbotron {
             padding: 2rem 0rem;
             margin-bottom: 1rem;
         }
-        
+
         .jumbotron h1 {
             font-family: "Sofia", cursive;
         }
-        
+
         .jumbotron .lead {
             font-family: "Noto Sans HK", sans-serif;
             font-size: 1.25rem;
         }
-        
+
         #content {
             margin-bottom: 129px;
         }
-        
+
         @media only screen and (max-width: 1200px) {
             #content {
                 margin-bottom: 198px;
             }
         }
-        
+
         .class3 {
             background-color: lightsalmon
         }
-        
+
         #div01 {
             border-style: hidden
         }
-        
+
         #div02 {
             border-style: hidden
         }
-        
+
         #div03 {
             border-style: hidden
         }
-        
+
         #div04 {
             border-style: hidden
         }
-        
+
         #div05 {
             border-style: hidden
         }
-        
+
         #div06 {
             border-style: hidden
         }
-        
+
         #div07 {
             border-style: hidden
         }
-        
+
         #div08 {
             border-style: hidden
         }
-        
+
         #div09 {
             border-style: hidden
         }
-        
+
         #div10 {
             border-style: hidden
         }
-        
+
         #div11 {
             border-style: hidden
         }
-        
+
         #div12 {
             border-style: hidden
         }
-        
+
         #div13 {
             border-style: hidden
         }
-        
-        footer {
-            border-top: solid 1px #e4e4e4;
-            position: initial;
-            bottom: 0;
-            width: 100%;
-            background-color: #f2f2f2;
-        }
-        
+
         footer img {
             width: 72px;
             float: left;
         }
-        
+
         footer .lead {
             font-size: 15px;
         }
-        
+
         footer .container {
             margin-top: 8px;
         }
-        
+
         footer p {
             font-family: "open Sans", sans-serif;
             font-size: 14px;
             color: rgb(92, 92, 92);
             margin-bottom: 1px;
         }
-        
+
         footer h5 {
             font-family: "Noto Sans TC", sans-serif;
             font-size: 18px;
         }
-        
+
         footer ul {
             list-style: none;
             padding: 0;
             float: left;
             margin-right: 70px;
         }
-        
+
         footer ul li {
             margin-bottom: 7px;
         }
-        
+
         footer ul li a {
             color: rgb(92, 92, 92);
         }
-        
+
         @media only screen and (max-width: 1200px) {
             footer .lead {
                 margin-left: 72px;
             }
         }
-        
+
         @media only screen and (max-width: 767px) {
             #links {
                 margin-top: 20px;
             }
         }
-        
+
         @media only screen and (max-width: 574px) {
             #links {
                 margin-top: 1px;
             }
         }
-        
+
         @media only screen and (max-width: 991px) {
             footer .lead {
                 margin-left: 72px;
                 margin-top: 8px;
             }
+
             footer ul {
                 margin-bottom: 0;
             }
@@ -191,117 +202,143 @@
 </head>
 
 <body οnlοad="init()">
-    <div class="container ">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="http://localhost:1337/">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" id="flip" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/paginate">Search</a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/my" style='display:inline' id='myrent'>My Rentals</a>
-                    <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style='display:inline' id='create'>Create</a>
-                    <a class="nav-item nav-link active" href="http://localhost:1337/rent" style='display:inline' id='admin'>Admin<span class="sr-only">(current)</span></a>
+    <div id="container">
+        <div class="container ">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="http://localhost:1337/">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    id="flip" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link " href="http://localhost:1337/rent/paginate">Search</a>
+                        <a class="nav-item nav-link " href="http://localhost:1337/rent/my" style='display:inline'
+                            id='myrent'>My Rentals</a>
+                        <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style='display:inline'
+                            id='create'>Create</a>
+                        <a class="nav-item nav-link active" href="http://localhost:1337/rent" style='display:inline'
+                            id='admin'>Admin<span class="sr-only">(current)</span></a>
 
+                    </div>
                 </div>
-            </div>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline' id='login'>Login</a>
-            <text style='display:none' id='hiadmin'>
-                <h5>hi,admin</h5>
-            </text>
-            <text style='display:none' id='himartin'>
-                <h5>hi,martin</h5>
-            </text>
-            <text style='display:none' id='hikenny'>
-                <h5>hi,kenny</h5>
-            </text>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style='display:none' id='logout'>Logout</a>
-        </nav>
-    </div>
-    <div id="highlight" class="jumbotron jumbotron-fluid">
-        <div class="jumbotron">
-            <div class="container">
-                <div class="col-md-12">
-                    <h1 class="display-4">Real Estate Rental System</h1>
-                    <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare and finding roommates.
-                    </p>
+                <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline'
+                    id='login'>Login</a>
+                <text style='display:none' id='hiadmin'>
+                    <h5>hi,admin</h5>
+                </text>
+                <text style='display:none' id='himartin'>
+                    <h5>hi,martin</h5>
+                </text>
+                <text style='display:none' id='hikenny'>
+                    <h5>hi,kenny</h5>
+                </text>
+                <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style='display:none'
+                    id='logout'>Logout</a>
+            </nav>
+        </div>
+        <div id="highlight" class="jumbotron jumbotron-fluid">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h1 class="display-4">Real Estate Rental System</h1>
+                        <p class="lead">Real Estate Rental Management System is a web-based system to facilitate
+                            flatshare and finding roommates.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="container " id="content">
-        <!--form-->
-        <form action="/rent/update/<%= rent.id %>" method="POST">
-            <div class="row">
-                <div id="div02" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Property title:</label>
-                    <input type="label" id="title" class="form-control" name="Rent[title]" value="<%= rent.title %>" required>
-                </div>
-                <div id="div03" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Image
-                        URL:</label><input type="text" class="form-control" id="url" name="Rent[url]" value="<%= rent.url %>" required></div>
-                <div id="div04" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Estate:</label> <select id="estate" type="string" class="form-control" name="Rent[estate]" value="<%= rent.estate %>" required>
-                        <option value="<%= rent.estate %>"><%= rent.estate %></option>
-                        <option value="Robinson Heights">Robinson Heights</option>
-                        <option value="Hoi deen Court">Hoi deen Court</option>
-                        <option value="Lime Stardom">Lime Stardom</option>
-                        <option value="AKVO Hotel">AKVO Hotel</option>
-                    </select></div>
-                <div id="div05" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Bedrooms:</label><input type="number" id="bedroom" min=1 max=4 class="form-control" name="Rent[bedroom]" value="<%= rent.bedroom %>" required></div>
-                <div id="div06" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Gross
-                        Area:</label><input type="number" id="area" min=30 max=2000 class="form-control" name="Rent[area]" value="<%= rent.area %>" required></div>
-                <div id="div07" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Expected
-                        Tenants:</label><input type="number" id="tenant" min=1 max=6 class="form-control" name="Rent[tenant]" value="<%= rent.tenant %>" required></div>
-                <div id="div08" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Rent:</label><input type="number" id="rent" min=5000 max=60000 class="form-control" name="Rent[rent]" value="<%= rent.rent %>" required></div>
-                <div id="div09" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Highlighted Property:
-                        <input type="checkbox" value="dummy" class="form-control" name="Rent[property]"
-                            id="property"></label></div>
-
-                <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>
-                        <!--Updated-->
-                        <input type="hidden" class="form-control" name="Rent[updated]" id="updated"></label>
-                </div>
-            </div>
-            <button type="submit;button" class="btn btn-primary" onclick="btn1Clicked(this)">Submit</button>
-        </form>
-
-        <br>
-        <button id="btn" class="btn btn-secondary">Clear</button>
-    </div>
-
-    <div id="footer" class="fixed-bottom">
-        <footer>
-            <div class="container">
+        <div class="container " id="content">
+            <!--form-->
+            <form action="/rent/update/<%= rent.id %>" method="POST">
                 <div class="row">
-                    <div class="col-md-4 text-left" style="padding: 0" id="fdiv" }}>
-                        <img src='https://i.ibb.co/vDHHmnS/logo.png'></img>
-                        <h5 id="links">Real Estate Rental System</h5>
-                        <p class="lead">Simple and easy-to-use rental system can find roommates for you.
-                        </p>
+                    <div id="div02" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Property
+                            title:</label>
+                        <input type="label" id="title" class="form-control" name="Rent[title]" value="<%= rent.title %>"
+                            required>
                     </div>
-                    <div class="col-md-4 text-left" id="fdiv">
-                        <h5 id="links">Links</h5>
-                        <ul>
-                            <li><a href="http://localhost:3000/">Home</a></li>
-                            <li><a href="http://localhost:1337/rent/paginate">Search</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
+                    <div id="div03" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Image
+                            URL:</label><input type="text" class="form-control" id="url" name="Rent[url]"
+                            value="<%= rent.url %>" required></div>
+                    <div id="div04" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Estate:</label>
+                        <select id="estate" type="string" class="form-control" name="Rent[estate]"
+                            value="<%= rent.estate %>" required>
+                            <option value="<%= rent.estate %>">
+                                <%= rent.estate %>
+                            </option>
+                            <option value="Robinson Heights">Robinson Heights</option>
+                            <option value="Hoi deen Court">Hoi deen Court</option>
+                            <option value="Lime Stardom">Lime Stardom</option>
+                            <option value="AKVO Hotel">AKVO Hotel</option>
+                        </select>
                     </div>
-                    <div class="col-md-4 text-left" id="fdiv">
-                        <h5>Contact Me</h5>
-                        <p>香港浸會大學吳多泰博士國際中心809房<br> Phone: (852) 9047-3975<br> E-Mail: <a href="mailto:19413238@life.hkbu.edu.hk">19413238@life.hkbu.edu.hk</a>
-                        </p>
+                    <div id="div05" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6">
+                        <label>Bedrooms:</label><input type="number" id="bedroom" min=1 max=4 class="form-control"
+                            name="Rent[bedroom]" value="<%= rent.bedroom %>" required>
+                    </div>
+                    <div id="div06" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Gross
+                            Area:</label><input type="number" id="area" min=30 max=2000 class="form-control"
+                            name="Rent[area]" value="<%= rent.area %>" required></div>
+                    <div id="div07" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Expected
+                            Tenants:</label><input type="number" id="tenant" min=1 max=6 class="form-control"
+                            name="Rent[tenant]" value="<%= rent.tenant %>" required></div>
+                    <div id="div08" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Rent:</label><input
+                            type="number" id="rent" min=5000 max=60000 class="form-control" name="Rent[rent]"
+                            value="<%= rent.rent %>" required></div>
+                    <div id="div09" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Highlighted
+                            Property:
+                            <input type="checkbox" value="dummy" class="form-control" name="Rent[property]"
+                                id="property"></label></div>
+
+                    <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>
+                            <!--Updated-->
+                            <input type="hidden" class="form-control" name="Rent[updated]" id="updated">
+                        </label>
                     </div>
                 </div>
-            </div>
-        </footer>
-    </div>
+                <button type="submit;button" class="btn btn-primary" onclick="btn1Clicked(this)">Submit</button>
+            </form>
 
+            <br>
+            <button id="btn" class="btn btn-secondary">Clear</button>
+        </div>
+
+        <div id="footer">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 text-left" style="padding: 0" id="fdiv" }}>
+                            <img src='https://i.ibb.co/vDHHmnS/logo.png'></img>
+                            <h5 id="links">Real Estate Rental System</h5>
+                            <p class="lead">Simple and easy-to-use rental system can find roommates for you.
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-left" id="fdiv">
+                            <h5 id="links">Links</h5>
+                            <ul>
+                                <li><a href="http://localhost:3000/">Home</a></li>
+                                <li><a href="http://localhost:1337/rent/paginate">Search</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 text-left" id="fdiv">
+                            <h5>Contact Me</h5>
+                            <p>香港浸會大學吳多泰博士國際中心809房<br> Phone: (852) 9047-3975<br> E-Mail: <a
+                                    href="mailto:19413238@life.hkbu.edu.hk">19413238@life.hkbu.edu.hk</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
     <script>
-        window.onload = function() {
+        window.onload = function () {
 
             var create = document.getElementById("create");
             console.log(create);
