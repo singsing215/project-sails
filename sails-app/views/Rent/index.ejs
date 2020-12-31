@@ -9,6 +9,24 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>admin1</title>
     <style>
+        #container {
+            position: relative;
+            width: 100%;
+            min-height: 100%;
+            padding-bottom: 100px;
+            box-sizing: border-box;
+        }
+
+        footer {
+            border-top: solid 1px #e4e4e4;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            margin-top: 10px;
+            background-color: #f2f2f2;
+        }
+
         nav a {
             font-family: "MuseoModerno", cursive;
             font-size: 16px;
@@ -28,7 +46,8 @@
             font-family: "Noto Sans HK", sans-serif;
             font-size: 1.25rem;
         }
-        #content{
+
+        #content {
             margin-bottom: 56px;
         }
 
@@ -52,13 +71,6 @@
             border-style: solid
         }
 
-        footer {
-            border-top: solid 1px #e4e4e4;
-            position: initial;
-            bottom: 0;
-            width: 100%;
-            background-color: #f2f2f2;
-        }
 
         footer img {
             width: 72px;
@@ -108,6 +120,7 @@
             }
 
         }
+
         @media only screen and (max-width: 767px) {
             #links {
                 margin-top: 20px;
@@ -119,12 +132,14 @@
                 margin-top: 1px;
             }
         }
+
         @media only screen and (max-width: 991px) {
 
             footer .lead {
                 margin-left: 72px;
                 margin-top: 8px;
             }
+
             footer ul {
                 margin-bottom: 0;
             }
@@ -136,106 +151,116 @@
 </head>
 
 <body οnlοad="init()">
-    <div class="container ">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="http://localhost:1337/">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                id="flip" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/paginate">Search</a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/my" style='display:inline'
-                        id='myrent'>My Rentals</a>
-                    <a class="nav-item nav-link " href="http://localhost:1337/rent/create" style='display:inline'
-                        id='create'>Create</a>
-                    <a class="nav-item nav-link active" href="http://localhost:1337/rent" style='display:inline'
-                        id='admin'>Admin<span class="sr-only">(current)</span></a>
+    <div id="container">
+        <div class="container ">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="http://localhost:1337/">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    id="flip" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link " href="http://localhost:1337/rent/paginate">Search</a>
+                        <a class="nav-item nav-link " href="http://localhost:1337/rent/my" style='display:inline'
+                            id='myrent'>My Rentals</a>
+                        <a class="nav-item nav-link " href="http://localhost:1337/rent/create" style='display:inline'
+                            id='create'>Create</a>
+                        <a class="nav-item nav-link active" href="http://localhost:1337/rent" style='display:inline'
+                            id='admin'>Admin<span class="sr-only">(current)</span></a>
 
-                </div>
-            </div>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline'
-                id='login'>Login</a>
-            <text style='display:none' id='hiadmin'>
-                <h5>hi,admin</h5>
-            </text>
-            <text style='display:none' id='himartin'>
-                <h5>hi,martin</h5>
-            </text>
-            <text style='display:none' id='hikenny'>
-                <h5>hi,kenny</h5>
-            </text>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style='display:none'
-                id='logout'>Logout</a>
-        </nav>
-    </div>
-    <div id="highlight" class="jumbotron jumbotron-fluid">
-        <div class="jumbotron">
-            <div class="container">
-                <div class="col-md-12">
-                    <h1 class="display-4">Real Estate Rental System</h1>
-                    <p class="lead">Real Estate Rental Management System is a web-based system to facilitate flatshare
-                        and
-                        finding roommates.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container " id="content">
-        <div class="row" style="margin-bottom: 100px;">
-            <!--index.ejs-->
-            <table class="table">
-                <% rents.forEach( function(model) { %>
-                <tr>
-                    <td><%= model.id %></td>
-                    <td><%= model.title %></td>
-                    <td><%= model.estate %></td>
-                    <td><a href="http://localhost:1337/rent/<%= model.id %>/rentby">Occupants</a></td>
-                    <td><a href="http://localhost:1337/rent/update/<%= model.id %>">Edit</a></td>
-                    <td><button type="button" class="btn btn-danger"
-                            onclick="deleteRent('<%= model.id %>')">Delete</button></td>
-                </tr>
-                <% }); %>
-            </table>
-        </div>
-    </div>
-
-    <div id="footer" class="fixed-bottom">
-        <footer >
-            <div class="container" >
-                <div class="row">
-                    <div class="col-md-4 text-left" style="padding: 0" id="fdiv" }}>
-                        <img src='https://i.ibb.co/vDHHmnS/logo.png'></img>
-                        <h5 id="links">Real Estate Rental System</h5>
-                        <p class="lead">Simple and easy-to-use rental system can find roommates for you.
-                        </p>
                     </div>
-                    <div class="col-md-4 text-left" id="fdiv">
-                        <h5 id="links">Links</h5>
-                        <ul>
-                            <li><a href="http://localhost:3000/">Home</a></li>
-                            <li><a href="http://localhost:1337/rent/paginate">Search</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 text-left" id="fdiv">
-                        <h5>Contact Me</h5>
-                        <p>香港浸會大學吳多泰博士國際中心809房<br>
-                            Phone: (852) 9047-3975<br>
-                            E-Mail: <a href="mailto:19413238@life.hkbu.edu.hk">19413238@life.hkbu.edu.hk</a>
+                </div>
+                <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline'
+                    id='login'>Login</a>
+                <text style='display:none' id='hiadmin'>
+                    <h5>hi,admin</h5>
+                </text>
+                <text style='display:none' id='himartin'>
+                    <h5>hi,martin</h5>
+                </text>
+                <text style='display:none' id='hikenny'>
+                    <h5>hi,kenny</h5>
+                </text>
+                <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style='display:none'
+                    id='logout'>Logout</a>
+            </nav>
+        </div>
+        <div id="highlight" class="jumbotron jumbotron-fluid">
+            <div class="jumbotron">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h1 class="display-4">Real Estate Rental System</h1>
+                        <p class="lead">Real Estate Rental Management System is a web-based system to facilitate
+                            flatshare
+                            and
+                            finding roommates.
                         </p>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+
+
+        <div class="container " id="content">
+            <div class="row" style="margin-bottom: 100px;">
+                <!--index.ejs-->
+                <table class="table">
+                    <% rents.forEach( function(model) { %>
+                        <tr>
+                            <td>
+                                <%= model.id %>
+                            </td>
+                            <td>
+                                <%= model.title %>
+                            </td>
+                            <td>
+                                <%= model.estate %>
+                            </td>
+                            <td><a href="http://localhost:1337/rent/<%= model.id %>/rentby">Occupants</a></td>
+                            <td><a href="http://localhost:1337/rent/update/<%= model.id %>">Edit</a></td>
+                            <td><button type="button" class="btn btn-danger"
+                                    onclick="deleteRent('<%= model.id %>')">Delete</button></td>
+                        </tr>
+                        <% }); %>
+                </table>
+            </div>
+        </div>
+
+        <div id="footer">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 text-left" style="padding: 0" id="fdiv" }}>
+                            <img src='https://i.ibb.co/vDHHmnS/logo.png'></img>
+                            <h5 id="links">Real Estate Rental System</h5>
+                            <p class="lead">Simple and easy-to-use rental system can find roommates for you.
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-left" id="fdiv">
+                            <h5 id="links">Links</h5>
+                            <ul>
+                                <li><a href="http://localhost:3000/">Home</a></li>
+                                <li><a href="http://localhost:1337/rent/paginate">Search</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 text-left" id="fdiv">
+                            <h5>Contact Me</h5>
+                            <p>香港浸會大學吳多泰博士國際中心809房<br>
+                                Phone: (852) 9047-3975<br>
+                                E-Mail: <a href="mailto:19413238@life.hkbu.edu.hk">19413238@life.hkbu.edu.hk</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
+
 
     <script>
 
@@ -276,7 +301,7 @@
         async function deleteRent(id) {
             var r = confirm("Confirm Delete?");
             if (r) {
-                var response = await fetch("/rent/" + id, {method: "DELETE",credentials: 'same-origin'});
+                var response = await fetch("/rent/" + id, { method: "DELETE", credentials: 'same-origin' });
                 if (response.ok) {
                     var data = await response.json();
                     alert(data.message);
