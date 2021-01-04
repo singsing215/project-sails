@@ -34,6 +34,8 @@ After modification, run the following code to start
 sails lift --models.migrate='drop'
 ```
 
+# serve with hot reload at localhost:1337
+
 ## 项目描述
 1、房屋租赁系统的后端使用建立于Node上的MVC框架Sails。
 
