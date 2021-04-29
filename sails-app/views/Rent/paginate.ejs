@@ -1,446 +1,440 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>search</title>
-    <style>
-        #container {
-            position: relative;
-            width: 100%;
-            min-height: 100%;
-            padding-bottom: 100px;
-            box-sizing: border-box;
-        }
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>search</title>
+  <style>
+    #container {
+      position: relative;
+      width: 100%;
+      min-height: 100%;
+      padding-bottom: 100px;
+      box-sizing: border-box;
+    }
 
-        footer {
-            border-top: solid 1px #e4e4e4;
-            width: 100%;
-            position: absolute;
-            bottom: 0px;
-            left: 0px;
-            margin-top: 10px;
-            background-color: #f2f2f2;
-        }
+    footer {
+      border-top: solid 1px #e4e4e4;
+      width: 100%;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      margin-top: 10px;
+      background-color: #f2f2f2;
+    }
 
-        nav a {
-            font-family: "MuseoModerno", cursive;
-            font-size: 16px;
-            font-weight: 400;
-        }
+    nav a {
+      font-family: "MuseoModerno", cursive;
+      font-size: 16px;
+      font-weight: 400;
+    }
 
-        .jumbotron {
-            padding: 2rem 0rem;
-            margin-bottom: 1rem;
-        }
+    .jumbotron {
+      padding: 2rem 0rem;
+      margin-bottom: 1rem;
+    }
 
-        .jumbotron h1 {
-            font-family: "Sofia", cursive;
-        }
+    .jumbotron h1 {
+      font-family: "Sofia", cursive;
+    }
 
-        .jumbotron .lead {
-            font-family: "Noto Sans HK", sans-serif;
-            font-size: 1.25rem;
-        }
+    .jumbotron .lead {
+      font-family: "Noto Sans HK", sans-serif;
+      font-size: 1.25rem;
+    }
 
-        #content {
-            margin-bottom: 65px;
-        }
+    #content {
+      margin-bottom: 65px;
+    }
 
-        i {
-            font-size: smaller;
-            color: dimgrey;
-        }
+    i {
+      font-size: smaller;
+      color: dimgrey;
+    }
 
-        .class3 {
-            background-color: lightsalmon
-        }
+    .class3 {
+      background-color: lightsalmon
+    }
 
-        #div01 {
-            border-style: solid
-        }
+    #div01 {
+      border-style: solid
+    }
 
-        #div02 {
-            border-style: solid
-        }
+    #div02 {
+      border-style: solid
+    }
 
-        #div03 {
-            border-style: solid
-        }
+    #div03 {
+      border-style: solid
+    }
 
-        #div04 {
-            border-style: solid
-        }
+    #div04 {
+      border-style: solid
+    }
 
-        #div1 {
-            padding: 20px 20px 20px;
-        }
+    #div1 {
+      padding: 20px 20px 20px;
+    }
 
 
-        footer img {
-            width: 72px;
-            float: left;
-        }
+    footer img {
+      width: 72px;
+      float: left;
+    }
 
-        footer .lead {
-            font-size: 15px;
-        }
+    footer .lead {
+      font-size: 15px;
+    }
 
-        footer .container {
-            margin-top: 8px;
+    footer .container {
+      margin-top: 8px;
 
-        }
+    }
 
-        footer p {
-            font-family: "open Sans", sans-serif;
-            font-size: 14px;
-            color: rgb(92, 92, 92);
-            margin-bottom: 1px;
-        }
+    footer p {
+      font-family: "open Sans", sans-serif;
+      font-size: 14px;
+      color: rgb(92, 92, 92);
+      margin-bottom: 1px;
+    }
 
-        footer h5 {
-            font-family: "Noto Sans TC", sans-serif;
-            font-size: 18px;
-        }
+    footer h5 {
+      font-family: "Noto Sans TC", sans-serif;
+      font-size: 18px;
+    }
 
-        footer ul {
-            list-style: none;
-            padding: 0;
-            float: left;
-            margin-right: 70px;
-        }
+    footer ul {
+      list-style: none;
+      padding: 0;
+      float: left;
+      margin-right: 70px;
+    }
 
-        footer ul li {
-            margin-bottom: 7px;
-        }
+    footer ul li {
+      margin-bottom: 7px;
+    }
 
-        footer ul li a {
-            color: rgb(92, 92, 92);
-        }
+    footer ul li a {
+      color: rgb(92, 92, 92);
+    }
 
-        @media only screen and (max-width: 1200px) {
+    @media only screen and (max-width: 1200px) {
 
-            footer .lead {
-                margin-left: 72px;
-            }
+      footer .lead {
+        margin-left: 72px;
+      }
 
-        }
+    }
 
-        @media only screen and (max-width: 767px) {
-            #links {
-                margin-top: 20px;
-            }
-        }
+    @media only screen and (max-width: 767px) {
+      #links {
+        margin-top: 20px;
+      }
+    }
 
-        @media only screen and (max-width: 574px) {
-            #links {
-                margin-top: 1px;
-            }
-        }
+    @media only screen and (max-width: 574px) {
+      #links {
+        margin-top: 1px;
+      }
+    }
 
-        @media only screen and (max-width: 991px) {
+    @media only screen and (max-width: 991px) {
 
-            footer .lead {
-                margin-left: 72px;
-                margin-top: 8px;
-            }
+      footer .lead {
+        margin-left: 72px;
+        margin-top: 8px;
+      }
 
-            footer ul {
-                margin-bottom: 0;
-            }
-        }
-    </style>
+      footer ul {
+        margin-bottom: 0;
+      }
+    }
+
+  </style>
 
 
 
 </head>
 
 <body οnlοad="init()">
-    <div id='container'>
-        <div class="container ">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="http://localhost:1337/">Home</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                    id="flip" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="http://localhost:1337/rent/paginate">Search <span
-                                class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link " href="http://localhost:1337/user/1/renting" style='display:none'
-                            id='myrent1'>My Rentals</a>
-                        <a class="nav-item nav-link " href="http://localhost:1337/user/2/renting" style='display:none'
-                            id='myrent2'>My Rentals</a>
-                        <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style='display:inline'
-                            id='create'>Create</a>
-                        <a class="nav-item nav-link" href="http://localhost:1337/rent" style='display:inline'
-                            id='admin'>Admin</a>
-                        <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline'
-                            id='login'>Login</a>
-                    </div>
-                </div>
-                <text style='display:none' id='hiadmin'>
-                    <h5>hi,admin</h5>
-                </text>
-                <text style='display:none' id='himartin'>
-                    <h5>hi,martin</h5>
-                </text>
-                <text style='display:none' id='hikenny'>
-                    <h5>hi,kenny</h5>
-                </text>
-                <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style='display:none'
-                    id='logout'>Logout</a>
-            </nav>
+  <div id='container'>
+    <div class="container ">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="http://localhost:1337/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" id="flip"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="http://localhost:1337/rent/paginate">Search <span
+                class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link " href="http://localhost:1337/user/1/renting" style='display:none'
+              id='myrent1'>My Rentals</a>
+            <a class="nav-item nav-link " href="http://localhost:1337/user/2/renting" style='display:none'
+              id='myrent2'>My Rentals</a>
+            <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style='display:none'
+              id='create'>Create</a>
+            <a class="nav-item nav-link" href="http://localhost:1337/rent" style='display:none' id='admin'>Admin</a>
+            <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline'
+              id='login'>Login</a>
+          </div>
         </div>
-        <div id="highlight" class="jumbotron jumbotron-fluid">
-            <div class="jumbotron">
-                <div class="container">
-                    <div class="col-md-12">
-                        <h1 class="display-4">Real Estate Rental System</h1>
-                        <p class="lead">Real Estate Rental Management System is a web-based system to facilitate
-                            flatshare
-                            and
-                            finding roommates.
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <text style='display:none' id='hiadmin'>
+          <h5>hi,admin</h5>
+        </text>
+        <text style='display:none' id='himartin'>
+          <h5>hi,martin</h5>
+        </text>
+        <text style='display:none' id='hikenny'>
+          <h5>hi,kenny</h5>
+        </text>
+        <a class="nav-item nav-link" href="http://localhost:1337/user/logout" style='display:none'
+          id='logout'>Logout</a>
+      </nav>
+    </div>
+    <div id="highlight" class="jumbotron jumbotron-fluid">
+      <div class="jumbotron">
+        <div class="container">
+          <div class="col-md-12">
+            <h1 class="display-4">Real Estate Rental System</h1>
+            <p class="lead">Real Estate Rental Management System is a web-based system to facilitate
+              flatshare
+              and
+              finding roommates.
+            </p>
+          </div>
         </div>
-
-
-
-        <div class="container" id="content">
-            <div class="row">
-                <div id="div01" class="card col-12 col-sm-8 col-lg-8 col-xl-8">
-                    <div class="row">
-                        <% rents.forEach( function(model) { %>
-                            <div class="col-6 col-sm-6 col-lg-6 col-xl-6" id="div1">
-                                <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="250"
-                                    height="250" />
-                                <br>
-                                <h5><a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a></h5>
-                <br>
-                        <ul class=" list-group">
-                                        <li class="list-group-item"><label>
-                                                <h5><i class="fas fa-home"></i> Estate:</h5>
-                                            </label>
-                                            <%= model.estate %>
-                                        </li>
-                                        <li class="list-group-item"><label>
-                                                <h5><i class="fas fa-th"></i> Gross Area:</h5>
-                                            </label>
-                                            <%= model.area %> sq feet
-                                        </li>
-                                        <li class="list-group-item"><label>
-                                                <h5><i class="fas fa-hand-holding-usd"></i> Rent:</h5>
-                                            </label> $<%= model.rent %>
-                                        </li>
-
-                                        </ul>
-                            </div>
-                            <% }); %>
-
-                                <div id=" div01" class="card col-6 col-sm-6 col-lg-6 col-xl-6">
-                                </div>
-                    </div>
-                </div>
-                <div id="div01" class="card col-12 col-sm-4 col-lg-4 col-xl-4">
-                    <form action="/rent/paginate" method="get">
-                        <div>
-                            <h1>Property Search</h1>
-                            <div class="row">
-                                <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
-                                    <label>Estate:</label>
-                                </div>
-                                <div class="col-12 col-sm-8 col-lg-8 col-xl-9">
-                                    <select type="string" class="form-control" name="estate" id="estate">
-                                        <option value="">--please select a estate--</option>
-                                        <option value="Robinson Heights">Robinson Heights</option>
-                                        <option value="Hoi deen Court">Hoi deen Court</option>
-                                        <option value="Lime Stardom">Lime Stardom</option>
-                                        <option value="AKVO Hotel">AKVO Hotel</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                            <!--bedroom-->
-                            <div class="row">
-                                <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
-                                    <label>Bedroom:</label>
-                                </div>
-                                <div class="col-12 col-sm-8 col-lg-8 col-xl-9">
-                                    <input type="number" min=1 max=4 id="bedroom" class="form-control" name="bedroom">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-lg-12 col-xl-6">
-                                    <label>Area (Sq feet):</label>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
-                                    <label>Min:</label>
-                                </div>
-                                <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
-                                    <input type="number" id="minarea" min=30 max=2000 class="form-control"
-                                        name="minarea">
-                                </div>
-
-                                <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
-                                    <label>Max:</label>
-                                </div>
-                                <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
-                                    <input type="number" id="maxarea" min=30 max=2000 class="form-control"
-                                        name="maxarea">
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-12 col-sm-12 col-lg-12 col-xl-6">
-                                    <label>Rent (HK$):</label>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
-                                    <label>Min:</label>
-                                </div>
-                                <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
-                                    <input type="number" id="minrent" min=5000 max=60000 class="form-control"
-                                        name="minrent">
-                                </div>
-
-
-                                <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
-                                    <label>Max:</label>
-                                </div>
-                                <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
-                                    <input type="number" id="maxrent" min=5000 max=60000 class="form-control"
-                                        name="maxrent">
-                                </div>
-                            </div>
-                            <br>
-                            <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <% const current=parseInt(req.query.page) || 1; %>
-
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="/rent/paginate/?page=<%= Math.max(current-1, 1) %>">Previous</a>
-                        </li>
-
-                        <% for (i=1; i <=count; i++) { %>
-                            <li class="page-item">
-                                <a class="page-link" href="/rent/paginate/?page=<%= i %>">
-                                    <%= i %>
-                                </a>
-                            </li>
-                            <% } %>
-
-                                <li class="page-item">
-                                    <a class="page-link"
-                                        href="/rent/paginate/?page=<%= Math.min(current+1, count) %>">Next</a>
-                                </li>
-                    </ul>
-                </nav>
-        </div>
-
-        <div id="footer">
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-4 text-left" style="padding: 0" id="fdiv" }}>
-                            <img src='https://i.ibb.co/vDHHmnS/logo.png'></img>
-                            <h5 id="links">Real Estate Rental System</h5>
-                            <p class="lead">Simple and easy-to-use rental system can find roommates for you.
-                            </p>
-                        </div>
-                        <div class="col-md-4 text-left" id="fdiv">
-                            <h5 id="links">Links</h5>
-                            <ul>
-                                <li><a href="http://localhost:3000/">Home</a></li>
-                                <li><a href="http://localhost:1337/rent/paginate">Search</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="#">FAQ</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4 text-left" id="fdiv">
-                            <h5>Contact Me</h5>
-                            <p>香港浸會大學吳多泰博士國際中心809房<br>
-                                Phone: (852) 9047-3975<br>
-                                E-Mail: <a href="mailto:19413238@life.hkbu.edu.hk">19413238@life.hkbu.edu.hk</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
+      </div>
     </div>
 
 
 
+    <div class="container" id="content">
+      <div class="row">
+        <div id="div01" class="card col-12 col-sm-8 col-lg-8 col-xl-8">
+          <div class="row">
+            <% rents.forEach( function(model) { %>
+            <div class="col-6 col-sm-6 col-lg-6 col-xl-6" id="div1">
+              <img class="img-fluid img-thumbnail" src="<%= model.url %>" value="cover" width="250" height="250" />
+              <br>
+              <h5><a href="http://localhost:1337/rent/details/<%= model.id %>""><%= model.title %></a></h5>
+                <br>
+                        <ul class=" list-group">
+                  <li class="list-group-item"><label>
+                      <h5><i class="fas fa-home"></i> Estate:</h5>
+                    </label>
+                    <%= model.estate %>
+                  </li>
+                  <li class="list-group-item"><label>
+                      <h5><i class="fas fa-th"></i> Gross Area:</h5>
+                    </label>
+                    <%= model.area %> sq feet
+                  </li>
+                  <li class="list-group-item"><label>
+                      <h5><i class="fas fa-hand-holding-usd"></i> Rent:</h5>
+                    </label> $<%= model.rent %>
+                  </li>
+
+                  </ul>
+            </div>
+            <% }); %>
+
+            <div id=" div01" class="card col-6 col-sm-6 col-lg-6 col-xl-6">
+            </div>
+          </div>
+        </div>
+        <div id="div01" class="card col-12 col-sm-4 col-lg-4 col-xl-4">
+          <form action="/rent/paginate" method="get">
+            <div>
+              <h1>Property Search</h1>
+              <div class="row">
+                <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
+                  <label>Estate:</label>
+                </div>
+                <div class="col-12 col-sm-8 col-lg-8 col-xl-9">
+                  <select type="string" class="form-control" name="estate" id="estate">
+                    <option value="">--please select a estate--</option>
+                    <option value="Robinson Heights">Robinson Heights</option>
+                    <option value="Hoi deen Court">Hoi deen Court</option>
+                    <option value="Lime Stardom">Lime Stardom</option>
+                    <option value="AKVO Hotel">AKVO Hotel</option>
+                  </select>
+                </div>
+              </div>
+              <br>
+              <!--bedroom-->
+              <div class="row">
+                <div class="col-12 col-sm-4 col-lg-4 col-xl-3">
+                  <label>Bedroom:</label>
+                </div>
+                <div class="col-12 col-sm-8 col-lg-8 col-xl-9">
+                  <input type="number" min=1 max=4 id="bedroom" class="form-control" name="bedroom">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-12 col-sm-12 col-lg-12 col-xl-6">
+                  <label>Area (Sq feet):</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
+                  <label>Min:</label>
+                </div>
+                <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
+                  <input type="number" id="minarea" min=30 max=2000 class="form-control" name="minarea">
+                </div>
+
+                <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
+                  <label>Max:</label>
+                </div>
+                <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
+                  <input type="number" id="maxarea" min=30 max=2000 class="form-control" name="maxarea">
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-12 col-sm-12 col-lg-12 col-xl-6">
+                  <label>Rent (HK$):</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
+                  <label>Min:</label>
+                </div>
+                <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
+                  <input type="number" id="minrent" min=5000 max=60000 class="form-control" name="minrent">
+                </div>
 
 
-    <script>
-        window.onload = function () {
+                <div class="col-12 col-sm-2 col-lg-2 col-xl-2">
+                  <label>Max:</label>
+                </div>
+                <div class="col-12 col-sm-10 col-lg-10 col-xl-4">
+                  <input type="number" id="maxrent" min=5000 max=60000 class="form-control" name="maxrent">
+                </div>
+              </div>
+              <br>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
 
-            var create = document.getElementById("create");
-            console.log(create);
+      <% const current=parseInt(req.query.page) || 1; %>
 
-            var admin = document.getElementById("admin");
-            var myrent = document.getElementById("myrent");
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="/rent/paginate/?page=<%= Math.max(current-1, 1) %>">Previous</a>
+          </li>
 
-            if ("<%= req.session.username %>" == 'admin') {
-                login.style.display = 'none';
-                logout.style.display = 'inline';
-                hiadmin.style.display = 'inline';
-            } else if ("<%= req.session.username %>" == 'kenny') {
-                create.style.display = 'none';
-                admin.style.display = 'none';
-                login.style.display = 'none';
-                logout.style.display = 'inline';
-                hikenny.style.display = 'inline';
-                myrent2.style.display = 'inline';
-            } else if ("<%= req.session.username %>" == 'martin') {
-                create.style.display = 'none';
-                admin.style.display = 'none';
-                login.style.display = 'none';
-                logout.style.display = 'inline';
-                himartin.style.display = 'inline';
-                myrent1.style.display = 'inline';
-            } else {
-                create.style.display = 'none';
-                admin.style.display = 'none';
-            }
+          <% for (i=1; i <=count; i++) { %>
+          <li class="page-item">
+            <a class="page-link" href="/rent/paginate/?page=<%= i %>">
+              <%= i %>
+            </a>
+          </li>
+          <% } %>
 
-        }
+          <li class="page-item">
+            <a class="page-link" href="/rent/paginate/?page=<%= Math.min(current+1, count) %>">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div id="footer">
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 text-left" style="padding: 0" id="fdiv" }}>
+              <img src='https://i.ibb.co/vDHHmnS/logo.png'></img>
+              <h5 id="links">Real Estate Rental System</h5>
+              <p class="lead">Simple and easy-to-use rental system can find roommates for you.
+              </p>
+            </div>
+            <div class="col-md-4 text-left" id="fdiv">
+              <h5 id="links">Links</h5>
+              <ul>
+                <li><a href="http://localhost:3000/">Home</a></li>
+                <li><a href="http://localhost:1337/rent/paginate">Search</a></li>
+              </ul>
+              <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 text-left" id="fdiv">
+              <h5>Contact Me</h5>
+              <p>香港浸會大學吳多泰博士國際中心809房<br>
+                Phone: (852) 9047-3975<br>
+                E-Mail: <a href="mailto:19413238@life.hkbu.edu.hk">19413238@life.hkbu.edu.hk</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
 
 
 
-    </script>
-    <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+
+
+  <script>
+    window.onload = function () {
+
+      var create = document.getElementById("create");
+      console.log(create);
+
+      var admin = document.getElementById("admin");
+      var myrent = document.getElementById("myrent");
+
+      if ("<%= req.session.username %>" == 'admin') {
+        create.style.display = 'inline';
+        admin.style.display = 'inline';
+        login.style.display = 'none';
+        logout.style.display = 'inline';
+        hiadmin.style.display = 'inline';
+      } else if ("<%= req.session.username %>" == 'kenny') {
+        create.style.display = 'none';
+        admin.style.display = 'none';
+        login.style.display = 'none';
+        logout.style.display = 'inline';
+        hikenny.style.display = 'inline';
+        myrent2.style.display = 'inline';
+      } else if ("<%= req.session.username %>" == 'martin') {
+        create.style.display = 'none';
+        admin.style.display = 'none';
+        login.style.display = 'none';
+        logout.style.display = 'inline';
+        himartin.style.display = 'inline';
+        myrent1.style.display = 'inline';
+      } else {
+        create.style.display = 'none';
+        admin.style.display = 'none';
+      }
+
+    }
+
+  </script>
+  <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>
