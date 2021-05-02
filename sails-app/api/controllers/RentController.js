@@ -49,14 +49,14 @@ module.exports = {
 
   // action - delete
   delete: async function (req, res) {
-    if (req.wantsJSON) {
+    if (req.wantsJSON) { // 检查是否ajax request
       if (req.method == "GET") return res.forbidden();
       var models = await Rent.destroy(req.params.id).fetch();
       if (models.length == 0) return res.notFound();
       return res.json({
         message: "Rental information deleted.",
         url: "/"
-      }); // for ajax request
+      }); 
     } else {
       return res.redirect("/"); // for normal request
     }
