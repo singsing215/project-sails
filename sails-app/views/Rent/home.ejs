@@ -83,6 +83,13 @@
       }
     }
 
+    @media only screen and (min-height: 1060px) {
+      footer {
+        position: fixed;
+      }
+    }
+
+
 
     footer img {
       width: 72px;
@@ -140,6 +147,9 @@
       #links {
         margin-top: 1px;
       }
+      section {
+        margin-bottom: 146px;
+      }
     }
 
     @media only screen and (max-width: 991px) {
@@ -172,10 +182,10 @@
               id='myrent1'>My Rentals</a>
             <a class="nav-item nav-link " href="http://localhost:1337/user/2/renting" style='display:none'
               id='myrent2'>My Rentals</a>
-            <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style='display:inline'
+            <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style='display:none'
               id='create'>Create</a>
-            <a class="nav-item nav-link" href="http://localhost:1337/rent" style='display:inline' id='admin'>Admin</a>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline'
+            <a class="nav-item nav-link" href="http://localhost:1337/rent" style='display:none' id='admin'>Admin</a>
+            <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:none'
               id='login'>Login</a>
           </div>
         </div>
@@ -290,6 +300,8 @@
       var admin = document.getElementById("admin");
       var myrent = document.getElementById("myrent");
       if ("<%= req.session.username %>" == 'admin') {
+        create.style.display = 'inline';
+        admin.style.display = 'inline';
         login.style.display = 'none';
         logout.style.display = 'inline';
         hiadmin.style.display = 'inline';
@@ -301,6 +313,7 @@
         hikenny.style.display = 'inline';
         myrent2.style.display = 'inline';
       } else {
+        login.style.display = 'inline';
         create.style.display = 'none';
         admin.style.display = 'none';
       }

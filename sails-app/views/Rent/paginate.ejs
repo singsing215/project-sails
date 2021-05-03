@@ -130,6 +130,12 @@
 
     }
 
+    @media only screen and (min-height: 1060px) {
+      footer {
+        position: fixed;
+      }
+    }
+
     @media only screen and (max-width: 767px) {
       #links {
         margin-top: 20px;
@@ -180,7 +186,7 @@
             <a class="nav-item nav-link" href="http://localhost:1337/rent/create" style='display:none'
               id='create'>Create</a>
             <a class="nav-item nav-link" href="http://localhost:1337/rent" style='display:none' id='admin'>Admin</a>
-            <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline'
+            <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:none'
               id='login'>Login</a>
           </div>
         </div>
@@ -419,6 +425,7 @@
         himartin.style.display = 'inline';
         myrent1.style.display = 'inline';
       } else {
+        login.style.display = 'inline';
         create.style.display = 'none';
         admin.style.display = 'none';
       }
