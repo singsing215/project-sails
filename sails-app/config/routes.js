@@ -43,8 +43,10 @@ module.exports.routes = {
   'GET /rent/index': 'RentController.index',
   'GET /rent/view/:id': 'RentController.view',
   'DELETE /rent/:id': 'RentController.delete',
+  
   'GET /rent/update/:id': 'RentController.update',
   'POST /rent/update/:id': 'RentController.update',
+  
   'GET /rent/paginate': 'RentController.paginate',
   'GET /rent/jpaginate': 'RentController.jpaginate',
   'GET /rent/jjpaginate': 'RentController.jjpaginate',

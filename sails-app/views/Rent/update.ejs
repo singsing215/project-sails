@@ -9,7 +9,7 @@
   </script>
   <script>
     $(document).ready(function () {
-      $("#btn").click(function () {
+      $("#btnClear").click(function () {
         $("#title").val("");
         $("#url").val("");
         $("#estate").val("");
@@ -225,7 +225,6 @@
               id='create'>Create</a>
             <a class="nav-item nav-link active" href="http://localhost:1337/rent" style='display:inline'
               id='admin'>Admin<span class="sr-only">(current)</span></a>
-
           </div>
         </div>
         <a class="nav-item nav-link" href="http://localhost:1337/user/login" style='display:inline' id='login'>Login</a>
@@ -254,9 +253,7 @@
         </div>
       </div>
     </div>
-
     <div class="container " id="content">
-      <!--form-->
       <form action="/rent/update/<%= rent.id %>" method="POST">
         <div class="row">
           <div id="div02" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Property
@@ -279,34 +276,34 @@
             </select>
           </div>
           <div id="div05" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6">
-            <label>Bedrooms:</label><input type="number" id="bedroom" min=1 max=4 class="form-control"
-              name="Rent[bedroom]" value="<%= rent.bedroom %>" required>
+            <label>Bedrooms:</label><input type="number" id="bedroom" class="form-control" name="Rent[bedroom]"
+              value="<%= rent.bedroom %>" required>
           </div>
           <div id="div06" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Gross
-              Area:</label><input type="number" id="area" min=30 max=2000 class="form-control" name="Rent[area]"
+              Area:</label><input type="number" id="area" class="form-control" name="Rent[area]"
               value="<%= rent.area %>" required></div>
           <div id="div07" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Expected
-              Tenants:</label><input type="number" id="tenant" min=1 max=6 class="form-control" name="Rent[tenant]"
+              Tenants:</label><input type="number" id="tenant" class="form-control" name="Rent[tenant]"
               value="<%= rent.tenant %>" required></div>
           <div id="div08" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Rent:</label><input
-              type="number" id="rent" min=5000 max=60000 class="form-control" name="Rent[rent]" value="<%= rent.rent %>"
-              required></div>
-          <div id="div09" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>Highlighted
+              type="number" id="rent" class="form-control" name="Rent[rent]" value="<%= rent.rent %>" required></div>
+          <div id="div09" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label
+              style="display: flex; ">Highlighted
               Property:
-              <input type="checkbox" value="dummy" class="form-control" name="Rent[property]" id="property"></label>
+              <input type="checkbox" value="dummy" class="form-control" name="Rent[property]" id="property"
+                style="width: 40px;margin-left: 7px; "></label>
           </div>
-
           <div id="div10" class="form-group card col-12 col-sm-6 col-lg-4 col-xl-6"><label>
-              <!--Updated-->
               <input type="hidden" class="form-control" name="Rent[updated]" id="updated">
             </label>
           </div>
         </div>
-        <button type="submit;button" class="btn btn-primary" onclick="btn1Clicked(this)">Submit</button>
+        <div id="div11" class="form-group" style="width: 184px; ">
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" id="btnClear" class="btn btn-secondary">Clear</button>
+        </div>
       </form>
-
       <br>
-      <button id="btn" class="btn btn-secondary">Clear</button>
     </div>
 
     <div id="footer">

@@ -8,11 +8,6 @@
 module.exports = {
   // action - create
   create: async function (req, res) {
-    if (!req.session.username) {
-      var visitor = "123";
-      req.session.username = visitor;
-      req.session.abc = visitor;
-    }
     if (req.method == "GET") return res.view("rent/create");
     if (!req.body.Rent) return res.badRequest("Form-data not received.");
     await Rent.create(req.body.Rent);
@@ -64,11 +59,6 @@ module.exports = {
 
   // action - update
   update: async function (req, res) {
-    if (!req.session.username) {
-      var visitor = "123";
-      req.session.username = visitor;
-      req.session.abc = visitor;
-    }
     if (req.method == "GET") {
       var model = await Rent.findOne(req.params.id);
       if (!model) return res.notFound();
