@@ -15,9 +15,9 @@ module.exports = {
   },
 
   // action - read all data
-  index: async function (req, res) {
+  viewAllDate: async function (req, res) {
     var models = await Rent.find();
-    return res.view("rent/index", {
+    return res.view("rent/viewAllData", {
       rents: models
     });
   },

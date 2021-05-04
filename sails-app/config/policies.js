@@ -11,22 +11,23 @@
 module.exports.policies = {
 
   RentController: {
-
     create: 'isAdmin',
     update: 'isAdmin',
     delete: 'isAdmin',
-    // occupants: 'isAdmin',
-    // my:'isUser'
+    viewAllDate: 'isAdmin',
+  },
 
+  UserController: {
+    populate: 'isUser',
+  }
 
-}
 
   /***************************************************************************
-  *                                                                          *
-  * Default policy for all controllers and actions, unless overridden.       *
-  * (`true` allows public access)                                            *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * Default policy for all controllers and actions, unless overridden.       *
+   * (`true` allows public access)                                            *
+   *                                                                          *
+   ***************************************************************************/
 
   // '*': true,
 

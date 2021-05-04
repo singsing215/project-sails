@@ -20,9 +20,6 @@ module.exports = {
       type: "string"
     },
 
-
- 
-
     url: {
       type: "string"
     },
@@ -90,4 +87,3 @@ module.exports = {
   },
 
 };
-
