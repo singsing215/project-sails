@@ -21,7 +21,9 @@ module.exports = {
     },
 
 
- 
+    property: {
+      type: "string"
+    },
 
     url: {
       type: "string"

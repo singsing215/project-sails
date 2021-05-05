@@ -54,6 +54,7 @@ module.exports.routes = {
   '/': 'RentController.home',
 
   'GET /rent/home': 'RentController.home',
+  
   'GET /rent/jhome': 'RentController.jhome',
   'GET /rent/jestate': 'RentController.jestate',
 

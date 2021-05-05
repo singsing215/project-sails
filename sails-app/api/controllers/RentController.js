@@ -226,7 +226,6 @@ module.exports = {
       limit: numOfItemsPerPage,
     });
     sails.log("[Session] ", req.session);
-    sails.log("[body] ", req.body);
     return res.view("rent/home", {
       rents: models
     });
