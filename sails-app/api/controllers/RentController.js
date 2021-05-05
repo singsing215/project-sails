@@ -8,67 +8,22 @@
 module.exports = {
   // action - create
   create: async function (req, res) {
-    if (!req.session.username) {
-      var visitor = "123";
-      req.session.username = visitor;
-      req.session.abc = visitor;
-    }
     if (req.method == "GET") return res.view("rent/create");
     if (!req.body.Rent) return res.badRequest("Form-data not received.");
     await Rent.create(req.body.Rent);
     return res.ok("Successfully created!");
   },
 
-  // json function
-  json: async function (req, res) {
-    var rents = await Rent.find();
-    return res.json(rents);
-  },
-
-  // action - index
-  index: async function (req, res) {
-    if (!req.session.username) {
-      var visitor = "123";
-      req.session.username = visitor;
-      req.session.abc = visitor;
-    }
+  // action - read all data
+  viewAllDate: async function (req, res) {
     var models = await Rent.find();
-    return res.view("rent/index", {
+    return res.view("rent/viewAllData", {
       rents: models
     });
   },
 
-  // action - view
-  view: async function (req, res) {
-    var model = await Rent.findOne(req.params.id);
-    if (!model) return res.notFound();
-    return res.view("rent/view", {
-      rent: model
-    });
-  },
-
-  // action - delete
-  delete: async function (req, res) {
-    if (req.wantsJSON) { // 检查是否ajax request
-      if (req.method == "GET") return res.forbidden();
-      var models = await Rent.destroy(req.params.id).fetch();
-      if (models.length == 0) return res.notFound();
-      return res.json({
-        message: "Rental information deleted.",
-        url: "/"
-      }); 
-    } else {
-      return res.redirect("/"); // for normal request
-    }
-  },
-
   // action - update
   update: async function (req, res) {
-    if (!req.session.username) {
-      var visitor = "123";
-      req.session.username = visitor;
-      req.session.abc = visitor;
-    }
     if (req.method == "GET") {
       var model = await Rent.findOne(req.params.id);
       if (!model) return res.notFound();
@@ -93,6 +48,36 @@ module.exports = {
       if (models.length == 0) return res.notFound();
       return res.ok("Record updated");
     }
+  },
+
+  // action - delete
+  delete: async function (req, res) {
+    if (req.wantsJSON) { // 检查是否 ajax request
+      if (req.method !== "DELETE") return res.forbidden();
+      var models = await Rent.destroy(req.params.id).fetch();
+      if (models.length == 0) return res.notFound();
+      return res.json({
+        message: "Rental information deleted.",
+        url: "/"
+      }); 
+    } else {
+      return res.redirect("/"); // for normal request
+    }
+  },
+
+  // json function
+  json: async function (req, res) {
+    var rents = await Rent.find();
+    return res.json(rents);
+  },
+
+  // action - view
+  view: async function (req, res) {
+    var model = await Rent.findOne(req.params.id);
+    if (!model) return res.notFound();
+    return res.view("rent/view", {
+      rent: model
+    });
   },
 
   // action - paginate + search

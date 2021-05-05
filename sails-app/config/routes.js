@@ -19,11 +19,9 @@ module.exports.routes = {
    *                                                                          *
    ***************************************************************************/
 
-
   '/': {
     view: 'rent/home'
   },
-
 
   /***************************************************************************
    *                                                                          *
@@ -35,16 +33,18 @@ module.exports.routes = {
    * not match any of those, it is matched against static assets.             *
    *                                                                          *
    ***************************************************************************/
-  'GET /rent/create': 'RentController.create',
-  'POST /rent/create': 'RentController.create',
-
+  'GET /rent/create': 'RentController.create', //create
+  'POST /rent/create': 'RentController.create', //create
 
   'GET /rent/json': 'RentController.json',
-  'GET /rent/index': 'RentController.index',
+  'GET /rent/viewAllDate': 'RentController.viewAllDate', //viewAllDate
   'GET /rent/view/:id': 'RentController.view',
-  'DELETE /rent/:id': 'RentController.delete',
-  'GET /rent/update/:id': 'RentController.update',
-  'POST /rent/update/:id': 'RentController.update',
+  
+  'DELETE /rent/:id': 'RentController.delete', //delete
+  
+  'GET /rent/update/:id': 'RentController.update', //update
+  'POST /rent/update/:id': 'RentController.update', //update
+
   'GET /rent/paginate': 'RentController.paginate',
   'GET /rent/jpaginate': 'RentController.jpaginate',
   'GET /rent/jjpaginate': 'RentController.jjpaginate',

@@ -172,7 +172,7 @@
               Rentals</a>
             <a class="nav-item nav-link " href="http://localhost:1337/rent/create" style='display:inline'
               id='create'>Create</a>
-            <a class="nav-item nav-link active" href="http://localhost:1337/rent" style='display:inline'
+            <a class="nav-item nav-link active" href="http://localhost:1337/rent/viewAllDate" style='display:inline'
               id='admin'>Admin<span class="sr-only">(current)</span></a>
 
           </div>
@@ -209,9 +209,9 @@
 
     <div class="container " id="content">
       <div class="row" style="margin-bottom: 100px;">
-        <!--index.ejs-->
+        <!--viewAllDate.ejs-->
         <table class="table">
-          <% rents.forEach( function(model) { %>
+          <% rents.forEach( (model) => { %>
             <tr>
               <td>
                 <%= model.id %>
@@ -272,8 +272,6 @@
     window.onload = function () {
 
       var create = document.getElementById("create");
-      console.log(create);
-
       var admin = document.getElementById("admin");
       var myrent = document.getElementById("myrent");
 
@@ -305,16 +303,16 @@
 
     //RESTful + AJAX + JSON
     async function deleteRent(id) {
-      var popover = confirm("Confirm Delete?");
-      if (popover) {
-        var response = await fetch("/rent/" + id, { method: "DELETE", credentials: 'same-origin' });
-        if (response.ok) {
-          var data = await response.json();
+      var isConfirm = confirm("Confirm Delete?");
+      if (isConfirm) {
+        var res = await fetch("/rent/" + id, { method: "DELETE", credentials: 'same-origin' });
+        if (res.ok) {
+          var data = await res.json();
           alert(data.message);
           window.location = data.url;
           location.reload(true);
         } else {
-          alert(response.status + ": " + response.statusText);
+          alert(res.status + ": " + res.statusText);
         }
       } else {
         alert("cancelled");
