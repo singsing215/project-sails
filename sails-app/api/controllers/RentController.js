@@ -6,20 +6,21 @@
  */
 
 module.exports = {
+  // action - read all data
+  viewAllDate: async function (req, res) {
+    var models = await Rent.find();
+    console.log(models)
+    return res.view("rent/viewAllData", {
+      rents: models
+    });
+  },
+
   // action - create
   create: async function (req, res) {
     if (req.method == "GET") return res.view("rent/create");
     if (!req.body.Rent) return res.badRequest("Form-data not received.");
     await Rent.create(req.body.Rent);
     return res.ok("Successfully created!");
-  },
-
-  // action - read all data
-  viewAllDate: async function (req, res) {
-    var models = await Rent.find();
-    return res.view("rent/viewAllData", {
-      rents: models
-    });
   },
 
   // action - update
