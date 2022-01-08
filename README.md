@@ -23,7 +23,7 @@
 
 * 控制层`Controller`：各种视图和模型之间的中介，负责处理http请求、访问数据库、将数据填充到视图上等。
 
-###  2.1 路由
+###  2.1 路由(routes)
 
 > `config\routes.js`
 
@@ -36,7 +36,7 @@ module.exports.routes = {
 当用`GET`方法请求`localhost:1337/rent/viewAllDate`时，执行`RentController.js`里的`viewAllDate`方法。
 
 
-###  2.2 控制器
+###  2.2 控制器(controller)
 
 > `api\controllers\RentController.js`
 
@@ -53,7 +53,7 @@ module.exports = {
 }
 ```
 
-###  2.3 模型层
+###  2.3 模型层(model)
 
 > `api\models\Rent.js`
 
@@ -75,7 +75,7 @@ module.exports = {
 
 这里指定了每个模型属性的类型。
 
-###  2.4 视图层
+###  2.4 视图层(view)
 
 > `views\Rent\viewAllData.ejs`
 
