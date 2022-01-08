@@ -259,14 +259,9 @@ Install dependencies with `npm install`
 
 Install Sails with `npm install sails -g`
 
-Run the following code to start:
-```
-sails lift --models.migrate='drop'
-```
+Run the following code to start `sails lift --models.migrate='drop'`
 
-```
-serve with hot reload at localhost:1337
-```
+serve with hot reload at `localhost:1337`
 
 If occur the following error during  the first run:
 ```
