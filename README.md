@@ -223,13 +223,13 @@ module.exports = {
 ```
 ##  4. 项目描述
 
-1、房屋租赁系统的后端使用建立于Node上的MVC框架Sails。
+1、房屋租赁系统使用MVC框架Sails开发。
 
 2、系统所有的数据库操作由Sails的ORM层(Waterline.js)处理。
 
 3、租赁系统实现租借信息的CRUD，用户有效的租赁操作，以及管理员和用户的权限控制。
 
-4、使用大量async function进行前后端交互，接口符合RESTful API规范。
+4、控制层使用大量async function进行前后端交互，接口符合RESTful API规范。
 
 
 ## LICENSE
