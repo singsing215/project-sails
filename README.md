@@ -259,12 +259,21 @@ Install dependencies with `npm install`
 
 Install Sails with `npm install sails -g`
 
-Since the project involves modifying the node_modules code in the node.js project, the following error will occur during the first run.
+Run the following code to start:
+```
+sails lift --models.migrate='drop'
+```
+
+```
+serve with hot reload at localhost:1337
+```
+
+If occur the following error during  the first run:
 ```
 Cannot read property 'columnName' of undefined
 ```
 
-After installing node modules from package.json in sails-app, you need to delete '.columnName' from 
+You need to delete '.columnName' from:
 ```
 \node_modules\waterline\lib\waterline\utils\query\forge-stage-three-query.js:591:49
 ```
@@ -273,12 +282,3 @@ The modified code in line 591 in forge-stage-three-query.js should be
 ```js
 var columnName = model.schema[attrName];
 ```
-
-After modification, run the following code to start 
-```
-sails lift --models.migrate='drop'
-```
-```
-serve with hot reload at localhost:1337
-```
-
